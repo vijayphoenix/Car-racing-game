@@ -63,25 +63,21 @@ namespace cp
 			lines.push_back(line);
 		}
 		N = lines.size();
-		car= new Cars(data,0);
+		car = std::unique_ptr<Cars>(new Cars(data,0));
 	}
 
 	void GameState::handle_input(){
 		sf::Event event;
 		while(data->window.pollEvent(event))
 			if(sf::Event::Closed==event.type){
-				delete car;
 				data->window.close();
 			}
-
-		// current_time=clock.getElapsedTime().asSeconds();
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) playerX += 0.1;
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) playerX -= 0.1;
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Tab) && sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) increase(true);
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))increase(false);
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))decrease(true);
 		else decrease(false);
-		// std::cout<<speed<<std::endl;
 		pos += speed;
 		while (pos >= N * segL)	pos -= N * segL;
 		while (pos < 0)	pos += N * segL;
@@ -139,7 +135,7 @@ namespace cp
 
 	void GameState::drawSprite(Line &line)
 	{
-		sf::Sprite s = line.sprite;
+		s = line.sprite;
 		int w = s.getTextureRect().width;
 		int h = s.getTextureRect().height;
 

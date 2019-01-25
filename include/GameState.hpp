@@ -5,7 +5,7 @@
 #include "Cars.hpp"
 #include "State.hpp"
 #include "Game.hpp"
-
+#include <memory>
 namespace cp
 {
 	class GameState : public State
@@ -23,15 +23,15 @@ namespace cp
 		struct Line
 		{
 			float x=0, y=0, z=0; //3d center of line
-			float X, Y, W; //screen coord
-			float curve=0, spriteX=0, clip;
-			float scale;
+			float X=0, Y=0, W=0; //screen coord
+			float curve=0, spriteX=0, clip=0;
+			float scale=0;
 			sf::Sprite sprite;
 		};
 
 		sf::Texture t[10];
-		// sf::Texture car_image[10];
 		sf::Sprite object[10];
+		sf::Sprite s;
 		std::vector<Line>lines;
 
 		int N;
@@ -45,7 +45,7 @@ namespace cp
 
 		void drawSprite(Line &line);
 
-		Cars *car;
+		std::unique_ptr<Cars> car;
 
 		void increase(bool nitro);
 
