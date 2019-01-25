@@ -9,7 +9,7 @@ namespace cp{
 
 	public:
 		Cars(GameDataRef _data,int _car_num);
-		// ~Cars();
+		~Cars();
 
 		void draw_car();
 

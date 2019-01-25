@@ -57,6 +57,8 @@ State.hpp
 ../include/State.hpp
 Game.hpp
 ../include/Game.hpp
+memory
+-
 
 ../include/InputManager.hpp
 SFML/Graphics.hpp

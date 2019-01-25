@@ -12,6 +12,9 @@ namespace cp{
 		sprite.setPosition(SCREEN_WIDTH / 2 - sprite.getGlobalBounds().width / 2, SCREEN_HEIGHT-2*sprite.getGlobalBounds().height);
 	}
 
+	Cars::~Cars(){
+
+	}
 	void Cars::draw_car(){
 		// std::cout<<"hkahla";
 		data->window.draw(sprite);
