@@ -69,10 +69,12 @@ namespace cp
 	void GameState::handle_input(){
 		sf::Event event;
 		while(data->window.pollEvent(event))
-			if(sf::Event::Closed==event.type)
+			if(sf::Event::Closed==event.type){
+				delete car;
 				data->window.close();
+			}
 
-		current_time=clock.getElapsedTime().asSeconds();
+		// current_time=clock.getElapsedTime().asSeconds();
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) playerX += 0.1;
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) playerX -= 0.1;
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Tab) && sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) increase(true);
@@ -102,7 +104,7 @@ namespace cp
 	}
 
 	void GameState::decrease(bool brakes){
-		new_time = clock.getElapsedTime().asSeconds();
+		// new_time = clock.getElapsedTime().asSeconds();
 		if (brakes){
 			speed += decleration;
 			speed = std::max(speed, -90.0f);
@@ -126,6 +128,7 @@ namespace cp
 		shape.setPoint(3, sf::Vector2f(x1 + w1, y1));
 		data->window.draw(shape);
 	}
+
 	void GameState::project(Line &line, int camX, int camY, int camZ)
 	{
 		line.scale = camD / (line.z - camZ);
