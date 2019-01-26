@@ -17,6 +17,8 @@ Game.hpp
 ../include/Game.hpp
 DEFINITIONS.hpp
 ../include/DEFINITIONS.hpp
+iostream
+-
 
 ../include/DEFINITIONS.hpp
 iostream

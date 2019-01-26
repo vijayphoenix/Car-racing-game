@@ -32,7 +32,7 @@ namespace cp
 			Line line;
 			line.z = i * segL;
 
-			if (i > 300 && i < 800)	line.curve = 0.7;
+			if (i > 300 && i < 800)	line.curve = 1;
 			if (i > 1100)line.curve = -0.7;
 			if (i < 300 && i % 20 == 0)
 			{
@@ -41,29 +41,30 @@ namespace cp
 			}
 			if (i % 17 == 0)
 			{
-				line.spriteX = 2.0;
+				line.spriteX = 2;
 				line.sprite = object[6];
 			}
 			if (i > 300 && i % 20 == 0)
 			{
-				line.spriteX = -0.7;
+				line.spriteX = -2;
 				line.sprite = object[4];
 			}
 			if (i > 800 && i % 20 == 0)
 			{
-				line.spriteX = -1.2;
+				line.spriteX = -2;
 				line.sprite = object[1];
 			}
 			if (i == 400)
 			{
-				line.spriteX = -1.2;
+				line.spriteX = -2;
 				line.sprite = object[7];
 			}
 			if (i > 750)line.y = sin(i / 30.0) * 1500;
 			lines.push_back(line);
 		}
 		N = lines.size();
-		car = std::unique_ptr<Cars>(new Cars(data,0));
+		car = std::unique_ptr<Cars>(new Cars(data,5));
+		current_time=clock.getElapsedTime().asSeconds();
 	}
 
 	void GameState::handle_input(){
@@ -72,46 +73,16 @@ namespace cp
 			if(sf::Event::Closed==event.type){
 				data->window.close();
 			}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) playerX += 0.1;
-		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) playerX -= 0.1;
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Tab) && sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) increase(true);
-		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))increase(false);
-		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))decrease(true);
-		else decrease(false);
-		pos += speed;
-		while (pos >= N * segL)	pos -= N * segL;
-		while (pos < 0)	pos += N * segL;
-	}
-	void GameState::increase(bool nitro){
-		new_time=clock.getElapsedTime().asSeconds();
-		if(nitro){
-			speed+=3*acceleration;
-			speed = std::min(speed, 500.0f);
-		}
-		else {
-			if(speed >400.0f){
-				speed+=decleration;
-			}
-			else{
-				speed+=acceleration;
-				speed=std::min(speed,400.0f);
-			}
-		}
-	}
 
-	void GameState::decrease(bool brakes){
-		// new_time = clock.getElapsedTime().asSeconds();
-		if (brakes){
-			speed += decleration;
-			speed = std::max(speed, -90.0f);
-		}
-		else{
-			if(speed>1){
-				speed-=0.5;
-			}
-			else if (speed <-1)	speed += 0.5;
-			else speed =0;
-		}
+		new_time=clock.getElapsedTime().asSeconds();
+		car->update_car(speed, new_time - current_time, playerX, lines[pos / segL].curve);
+		std::cout << new_time - current_time<<std::endl;
+		current_time = new_time;
+		pos += speed;
+		while (pos >= N * segL)
+			pos -= N * segL;
+		while (pos < 0)
+			pos += N * segL;
 	}
 
 	void GameState::draw_quad(sf::Color c, int x1, int y1, int w1, int x2, int y2, int w2)
@@ -177,19 +148,19 @@ namespace cp
 			maxy = l.Y;
 
 			sf::Color grass = (n / 3) % 2 ? sf::Color(16, 200, 16) : sf::Color(0, 154, 0);
-			// sf::Color grass = (n / 3) % 2 ? sf::Color(89, 160, 221) : sf::Color(78, 156, 216);
-
+			sf::Color marking = (n / 3) % 2 ? sf::Color::White : sf::Color(105, 105, 105);
 			sf::Color rumble = (n / 3) % 2 ? sf::Color(255, 255, 255) : sf::Color(0, 0, 0);
 			sf::Color road = (n / 3) % 2 ? sf::Color(107, 107, 107) : sf::Color(105, 105, 105);
 
 			Line p = lines[(n - 1) % N];
 
 			draw_quad(grass, 0, p.Y, width, 0, l.Y, width);
-			draw_quad(rumble, p.X, p.Y, p.W * 1.2, l.X, l.Y, l.W * 1.2);
-			draw_quad(road, p.X, p.Y, p.W, l.X, l.Y, l.W);
+			draw_quad(rumble, p.X, p.Y, p.W *2.2, l.X, l.Y, l.W * 2.2);
+			draw_quad(road, p.X, p.Y, p.W*2, l.X, l.Y, l.W*2);
+			draw_quad(marking,(p.X),p.Y,p.W*0.6,l.X,l.Y,l.W*0.6);
+			draw_quad(road, p.X, p.Y, p.W *0.5, l.X, l.Y, l.W*0.5);
 		}
 		for (int n = startPos + 300; n > startPos; n--)drawSprite(lines[n % N]);
-		// car= new Cars(data,0);
 		car->draw_car();
 		data->window.display();
 	}
