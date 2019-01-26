@@ -13,6 +13,8 @@ namespace cp
 		private:
 		GameDataRef data;
 		sf::Clock clock;
+		float current_time=0;
+		float new_time=0;
 		sf::Sprite background_sprite;
 		int width = SCREEN_WIDTH;
 		int height = SCREEN_HEIGHT;
@@ -36,20 +38,16 @@ namespace cp
 
 		int N;
 		float speed = 0;
-		int acceleration=1,decleration=-5;
+		// int acceleration=1,decleration=-5;
 		float playerX = 0;
 		int pos = 0;
 		int H = 1500;
-		float new_time,current_time, time_difference;
+		// float new_time,current_time,time_difference;
 		void project(Line &line, int camX, int camY, int camZ);
 
 		void drawSprite(Line &line);
 
 		std::unique_ptr<Cars> car;
-
-		void increase(bool nitro);
-
-		void decrease(bool brakes);
 
 	  public:
 		GameState(GameDataRef _data);

@@ -83,7 +83,12 @@
 		"cassert": "cpp",
 		"string": "cpp",
 		"map": "cpp",
-		"memory": "cpp"
+		"memory": "cpp",
+		"atomic": "cpp",
+		"list": "cpp",
+		"functional": "cpp",
+		"iomanip": "cpp",
+		"numeric": "cpp"
 	},
 
 	"C_Cpp.autocomplete": "Default",
