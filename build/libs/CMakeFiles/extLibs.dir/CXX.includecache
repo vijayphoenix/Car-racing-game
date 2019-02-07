@@ -12,13 +12,29 @@ map
 SFML/Graphics.hpp
 -
 
-../include/Cars.hpp
+../include/Bot.hpp
+Car.hpp
+../include/Car.hpp
+
+../include/Car.hpp
 Game.hpp
 ../include/Game.hpp
 DEFINITIONS.hpp
 ../include/DEFINITIONS.hpp
+Line.hpp
+../include/Line.hpp
+vector
+-
+
+../include/Cars.hpp
 iostream
 -
+Car.hpp
+../include/Car.hpp
+Game.hpp
+../include/Game.hpp
+DEFINITIONS.hpp
+../include/DEFINITIONS.hpp
 
 ../include/DEFINITIONS.hpp
 iostream
@@ -53,16 +69,24 @@ SFML/Graphics.hpp
 -
 DEFINITIONS.hpp
 ../include/DEFINITIONS.hpp
+Bot.hpp
+../include/Bot.hpp
 Cars.hpp
 ../include/Cars.hpp
 State.hpp
 ../include/State.hpp
 Game.hpp
 ../include/Game.hpp
+Line.hpp
+../include/Line.hpp
 memory
 -
 
 ../include/InputManager.hpp
+SFML/Graphics.hpp
+-
+
+../include/Line.hpp
 SFML/Graphics.hpp
 -
 
@@ -97,6 +121,30 @@ AssetManager.hpp
 /home/vijay/Desktop/POPL2_project/libs/AssetManager.hpp
 iostream
 -
+
+/home/vijay/Desktop/POPL2_project/libs/Bot.cpp
+iostream
+-
+cmath
+-
+sstream
+-
+Bot.hpp
+/home/vijay/Desktop/POPL2_project/libs/Bot.hpp
+DEFINITIONS.hpp
+/home/vijay/Desktop/POPL2_project/libs/DEFINITIONS.hpp
+
+/home/vijay/Desktop/POPL2_project/libs/Car.cpp
+iostream
+-
+cmath
+-
+sstream
+-
+Car.hpp
+/home/vijay/Desktop/POPL2_project/libs/Car.hpp
+DEFINITIONS.hpp
+/home/vijay/Desktop/POPL2_project/libs/DEFINITIONS.hpp
 
 /home/vijay/Desktop/POPL2_project/libs/Cars.cpp
 iostream

@@ -21,6 +21,11 @@
 },
 {
   "directory": "/home/vijay/Desktop/POPL2_project/build/libs",
+  "command": "/usr/bin/g++-7   -I/home/vijay/Desktop/POPL2_project/include   -std=c++0x -g   -o CMakeFiles/extLibs.dir/Bot.cpp.o -c /home/vijay/Desktop/POPL2_project/libs/Bot.cpp",
+  "file": "/home/vijay/Desktop/POPL2_project/libs/Bot.cpp"
+},
+{
+  "directory": "/home/vijay/Desktop/POPL2_project/build/libs",
   "command": "/usr/bin/g++-7   -I/home/vijay/Desktop/POPL2_project/include   -std=c++0x -g   -o CMakeFiles/extLibs.dir/SplashState.cpp.o -c /home/vijay/Desktop/POPL2_project/libs/SplashState.cpp",
   "file": "/home/vijay/Desktop/POPL2_project/libs/SplashState.cpp"
 },
@@ -33,6 +38,11 @@
   "directory": "/home/vijay/Desktop/POPL2_project/build/libs",
   "command": "/usr/bin/g++-7   -I/home/vijay/Desktop/POPL2_project/include   -std=c++0x -g   -o CMakeFiles/extLibs.dir/StateMachine.cpp.o -c /home/vijay/Desktop/POPL2_project/libs/StateMachine.cpp",
   "file": "/home/vijay/Desktop/POPL2_project/libs/StateMachine.cpp"
+},
+{
+  "directory": "/home/vijay/Desktop/POPL2_project/build/libs",
+  "command": "/usr/bin/g++-7   -I/home/vijay/Desktop/POPL2_project/include   -std=c++0x -g   -o CMakeFiles/extLibs.dir/Car.cpp.o -c /home/vijay/Desktop/POPL2_project/libs/Car.cpp",
+  "file": "/home/vijay/Desktop/POPL2_project/libs/Car.cpp"
 },
 {
   "directory": "/home/vijay/Desktop/POPL2_project/build/libs",

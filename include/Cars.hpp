@@ -1,64 +1,57 @@
 #ifndef CARS_HPP
 #define CARS_HPP
+#include <iostream>
+#include "Car.hpp"
 #include "Game.hpp"
 #include "DEFINITIONS.hpp"
-#include <iostream>
 
 namespace cp{
 
-	class Cars{
+	class Cars:public Car{
 
 	public:
-		Cars(GameDataRef _data,int _car_num);
+		Cars(GameDataRef _data,int _car_num,float &cspeed,float &cplayerX);
 		~Cars();
 
-		void draw_car();
-
-		void update_car(float &speed, float dt, float &playerX, float curve)
+		void update_car(float dt, std::vector<Line> &lines, float pos, float segL)
 		{
-			std::cout<<dt<<std::endl;
-			float speedRatio = speed / max_speed;
+			float speedRatio = cspeed / max_speed;
 			float dx = 2 * dt * speedRatio;
 			bool l=false,r=false;
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)){
-				playerX -= dx;
+				cplayerX -= dx;
 				l=true;
 			}
 			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)){
-				playerX += dx;
+				cplayerX += dx;
 				r=true;
 			}
 
-			playerX -= (dx * speedRatio * curve * centrifugal);
+			cplayerX -= (dx * speedRatio * lines[pos/segL].curve * centrifugal);
 
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){
-				speed += acceleration * dt;
+				cspeed += acceleration * dt;
 			}
-			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))speed += decleration * dt;
-			else speed += friction * dt;
+			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))cspeed += decleration * dt;
+			else cspeed += friction * dt;
 			// playerX=std::max(-2.0f,std::min(playerX,2.0f));
-			speed = std::max(0.0f, std::min(speed, max_speed));
+			cspeed = std::max(0.0f, std::min(cspeed, max_speed));
 			car_image_num=5;
-			if(speed > 0.1){
+
+			if(cspeed > 0.1){
 				if(l)car_image_num=3;
 				else if(r)car_image_num=4;
 				sprite.setTexture(data->assets.get_texture("CarImage" + std::to_string(car_image_num)));
+				sprite.setPosition(SCREEN_WIDTH / 2 - sprite.getGlobalBounds().width / 2, SCREEN_HEIGHT - sprite.getGlobalBounds().height*(1.5+2*speedRatio*speedRatio));
+				sprite.setScale(3-speedRatio*speedRatio,3-speedRatio*speedRatio);
 			}
 		}
-		float playerX=0;
-		float speed=0;
-		float position=0;
-		float max_speed=400;
 		float centrifugal=0.5;
-		float acceleration=max_speed/5;
-		float decleration = -max_speed;
 		float friction = -max_speed/5;
 
 	private:
-		int car_image_num;
-		GameDataRef data;
-		sf::Sprite sprite;
-		// float positionX;
+	float &cspeed;
+	float &cplayerX;
 	};
 }
 #endif //CARS_HPP
