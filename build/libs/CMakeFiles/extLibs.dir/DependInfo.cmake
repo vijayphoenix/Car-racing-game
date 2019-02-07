@@ -5,6 +5,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/vijay/Desktop/POPL2_project/libs/AssetManager.cpp" "/home/vijay/Desktop/POPL2_project/build/libs/CMakeFiles/extLibs.dir/AssetManager.cpp.o"
+  "/home/vijay/Desktop/POPL2_project/libs/Bot.cpp" "/home/vijay/Desktop/POPL2_project/build/libs/CMakeFiles/extLibs.dir/Bot.cpp.o"
+  "/home/vijay/Desktop/POPL2_project/libs/Car.cpp" "/home/vijay/Desktop/POPL2_project/build/libs/CMakeFiles/extLibs.dir/Car.cpp.o"
   "/home/vijay/Desktop/POPL2_project/libs/Cars.cpp" "/home/vijay/Desktop/POPL2_project/build/libs/CMakeFiles/extLibs.dir/Cars.cpp.o"
   "/home/vijay/Desktop/POPL2_project/libs/Game.cpp" "/home/vijay/Desktop/POPL2_project/build/libs/CMakeFiles/extLibs.dir/Game.cpp.o"
   "/home/vijay/Desktop/POPL2_project/libs/GameOverState.cpp" "/home/vijay/Desktop/POPL2_project/build/libs/CMakeFiles/extLibs.dir/GameOverState.cpp.o"

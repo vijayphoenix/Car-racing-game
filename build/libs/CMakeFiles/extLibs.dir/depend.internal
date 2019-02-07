@@ -4,12 +4,35 @@
 libs/CMakeFiles/extLibs.dir/AssetManager.cpp.o
  ../include/AssetManager.hpp
  /home/vijay/Desktop/POPL2_project/libs/AssetManager.cpp
+libs/CMakeFiles/extLibs.dir/Bot.cpp.o
+ ../include/AssetManager.hpp
+ ../include/Bot.hpp
+ ../include/Car.hpp
+ ../include/DEFINITIONS.hpp
+ ../include/Game.hpp
+ ../include/InputManager.hpp
+ ../include/Line.hpp
+ ../include/State.hpp
+ ../include/StateMachine.hpp
+ /home/vijay/Desktop/POPL2_project/libs/Bot.cpp
+libs/CMakeFiles/extLibs.dir/Car.cpp.o
+ ../include/AssetManager.hpp
+ ../include/Car.hpp
+ ../include/DEFINITIONS.hpp
+ ../include/Game.hpp
+ ../include/InputManager.hpp
+ ../include/Line.hpp
+ ../include/State.hpp
+ ../include/StateMachine.hpp
+ /home/vijay/Desktop/POPL2_project/libs/Car.cpp
 libs/CMakeFiles/extLibs.dir/Cars.cpp.o
  ../include/AssetManager.hpp
+ ../include/Car.hpp
  ../include/Cars.hpp
  ../include/DEFINITIONS.hpp
  ../include/Game.hpp
  ../include/InputManager.hpp
+ ../include/Line.hpp
  ../include/State.hpp
  ../include/StateMachine.hpp
  /home/vijay/Desktop/POPL2_project/libs/Cars.cpp
@@ -33,11 +56,14 @@ libs/CMakeFiles/extLibs.dir/GameOverState.cpp.o
  /home/vijay/Desktop/POPL2_project/libs/GameOverState.cpp
 libs/CMakeFiles/extLibs.dir/GameState.cpp.o
  ../include/AssetManager.hpp
+ ../include/Bot.hpp
+ ../include/Car.hpp
  ../include/Cars.hpp
  ../include/DEFINITIONS.hpp
  ../include/Game.hpp
  ../include/GameState.hpp
  ../include/InputManager.hpp
+ ../include/Line.hpp
  ../include/State.hpp
  ../include/StateMachine.hpp
  /home/vijay/Desktop/POPL2_project/libs/GameState.cpp
@@ -46,11 +72,14 @@ libs/CMakeFiles/extLibs.dir/InputManager.cpp.o
  /home/vijay/Desktop/POPL2_project/libs/InputManager.cpp
 libs/CMakeFiles/extLibs.dir/MainMenuState.cpp.o
  ../include/AssetManager.hpp
+ ../include/Bot.hpp
+ ../include/Car.hpp
  ../include/Cars.hpp
  ../include/DEFINITIONS.hpp
  ../include/Game.hpp
  ../include/GameState.hpp
  ../include/InputManager.hpp
+ ../include/Line.hpp
  ../include/MainMenuState.hpp
  ../include/State.hpp
  ../include/StateMachine.hpp

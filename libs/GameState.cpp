@@ -63,7 +63,8 @@ namespace cp
 			lines.push_back(line);
 		}
 		N = lines.size();
-		car = std::unique_ptr<Cars>(new Cars(data,5));
+		car = std::unique_ptr<Cars>(new Cars(data,5,speed,playerX));
+		bot = std::unique_ptr<Bot>(new Bot(data, 5,0));
 		current_time=clock.getElapsedTime().asSeconds();
 	}
 
@@ -75,8 +76,8 @@ namespace cp
 			}
 
 		new_time=clock.getElapsedTime().asSeconds();
-		car->update_car(speed, new_time - current_time, playerX, lines[pos / segL].curve);
-		std::cout << new_time - current_time<<std::endl;
+		car->update_car(new_time - current_time,lines,pos,segL);
+		// std::cout << new_time - current_time<<std::endl;
 		current_time = new_time;
 		pos += speed;
 		while (pos >= N * segL)
@@ -136,9 +137,10 @@ namespace cp
 		// if (speed < 0)background_sprite.move(lines[startPos].curve * 2, 0);
 		int maxy=height;
 		float x=0,dx=0;
-		for (int n = startPos; n < startPos + 300; n++)
+		for (int n = startPos; n < startPos + 500; n++)
 		{
 			Line &l = lines[n % N];
+
 			project(l,playerX * roadW - x, camH, startPos * segL - (n >= N ? N * segL : 0));
 			x += dx;
 			dx += l.curve;
@@ -157,10 +159,21 @@ namespace cp
 			draw_quad(grass, 0, p.Y, width, 0, l.Y, width);
 			draw_quad(rumble, p.X, p.Y, p.W *2.2, l.X, l.Y, l.W * 2.2);
 			draw_quad(road, p.X, p.Y, p.W*2, l.X, l.Y, l.W*2);
+			// std::cout <<n<<" "<<p.X<<" "<<l.X<<std::endl;
+
 			draw_quad(marking,(p.X),p.Y,p.W*0.6,l.X,l.Y,l.W*0.6);
 			draw_quad(road, p.X, p.Y, p.W *0.5, l.X, l.Y, l.W*0.5);
+
 		}
-		for (int n = startPos + 300; n > startPos; n--)drawSprite(lines[n % N]);
+		for (int n = startPos + 500; n > startPos; n--)
+		{
+			drawSprite(lines[n % N]);
+		}
+		bot->drawSprite(lines[bot_pos%N]);
+		bot_pos++;
+		bot_pos%=N;
+		// if(bot_pos>1000)bot_pos=0;
+
 		car->draw_car();
 		data->window.display();
 	}

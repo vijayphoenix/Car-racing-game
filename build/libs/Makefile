@@ -152,6 +152,60 @@ AssetManager.cpp.s:
 	cd /home/vijay/Desktop/POPL2_project/build && $(MAKE) -f libs/CMakeFiles/extLibs.dir/build.make libs/CMakeFiles/extLibs.dir/AssetManager.cpp.s
 .PHONY : AssetManager.cpp.s
 
+Bot.o: Bot.cpp.o
+
+.PHONY : Bot.o
+
+# target to build an object file
+Bot.cpp.o:
+	cd /home/vijay/Desktop/POPL2_project/build && $(MAKE) -f libs/CMakeFiles/extLibs.dir/build.make libs/CMakeFiles/extLibs.dir/Bot.cpp.o
+.PHONY : Bot.cpp.o
+
+Bot.i: Bot.cpp.i
+
+.PHONY : Bot.i
+
+# target to preprocess a source file
+Bot.cpp.i:
+	cd /home/vijay/Desktop/POPL2_project/build && $(MAKE) -f libs/CMakeFiles/extLibs.dir/build.make libs/CMakeFiles/extLibs.dir/Bot.cpp.i
+.PHONY : Bot.cpp.i
+
+Bot.s: Bot.cpp.s
+
+.PHONY : Bot.s
+
+# target to generate assembly for a file
+Bot.cpp.s:
+	cd /home/vijay/Desktop/POPL2_project/build && $(MAKE) -f libs/CMakeFiles/extLibs.dir/build.make libs/CMakeFiles/extLibs.dir/Bot.cpp.s
+.PHONY : Bot.cpp.s
+
+Car.o: Car.cpp.o
+
+.PHONY : Car.o
+
+# target to build an object file
+Car.cpp.o:
+	cd /home/vijay/Desktop/POPL2_project/build && $(MAKE) -f libs/CMakeFiles/extLibs.dir/build.make libs/CMakeFiles/extLibs.dir/Car.cpp.o
+.PHONY : Car.cpp.o
+
+Car.i: Car.cpp.i
+
+.PHONY : Car.i
+
+# target to preprocess a source file
+Car.cpp.i:
+	cd /home/vijay/Desktop/POPL2_project/build && $(MAKE) -f libs/CMakeFiles/extLibs.dir/build.make libs/CMakeFiles/extLibs.dir/Car.cpp.i
+.PHONY : Car.cpp.i
+
+Car.s: Car.cpp.s
+
+.PHONY : Car.s
+
+# target to generate assembly for a file
+Car.cpp.s:
+	cd /home/vijay/Desktop/POPL2_project/build && $(MAKE) -f libs/CMakeFiles/extLibs.dir/build.make libs/CMakeFiles/extLibs.dir/Car.cpp.s
+.PHONY : Car.cpp.s
+
 Cars.o: Cars.cpp.o
 
 .PHONY : Cars.o
@@ -407,6 +461,12 @@ help:
 	@echo "... AssetManager.o"
 	@echo "... AssetManager.i"
 	@echo "... AssetManager.s"
+	@echo "... Bot.o"
+	@echo "... Bot.i"
+	@echo "... Bot.s"
+	@echo "... Car.o"
+	@echo "... Car.i"
+	@echo "... Car.s"
 	@echo "... Cars.o"
 	@echo "... Cars.i"
 	@echo "... Cars.s"
