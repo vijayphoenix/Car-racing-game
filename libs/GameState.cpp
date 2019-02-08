@@ -31,9 +31,11 @@ namespace cp
 		{
 			Line line;
 			line.z = i * segL;
+			if (i > 300 && i < 700)
+				line.curve = 0.5;
+			if (i > 1100)
+				line.curve = -0.7;
 
-			if (i > 300 && i < 800)	line.curve = 1;
-			if (i > 1100)line.curve = -0.7;
 			if (i < 300 && i % 20 == 0)
 			{
 				line.spriteX = -2.5;
@@ -41,30 +43,61 @@ namespace cp
 			}
 			if (i % 17 == 0)
 			{
-				line.spriteX = 2;
+				line.spriteX = 2.0;
 				line.sprite = object[6];
 			}
 			if (i > 300 && i % 20 == 0)
 			{
-				line.spriteX = -2;
+				line.spriteX = -0.7;
 				line.sprite = object[4];
 			}
 			if (i > 800 && i % 20 == 0)
 			{
-				line.spriteX = -2;
+				line.spriteX = -1.2;
 				line.sprite = object[1];
 			}
 			if (i == 400)
 			{
-				line.spriteX = -2;
+				line.spriteX = -1.2;
 				line.sprite = object[7];
 			}
-			if (i > 750)line.y = sin(i / 30.0) * 1500;
+
+			if (i > 750)
+				line.y = sin(i / 30.0) * 1500;
+
+			// if (i > 300 && i < 800)	line.curve = 1;
+			// if (i > 1100)line.curve = -0.7;
+			// if (i < 300 && i % 20 == 0)
+			// {
+			// 	line.spriteX = -2.5;
+			// 	line.sprite = object[5];
+			// }
+			// if (i % 17 == 0)
+			// {
+			// 	line.spriteX = 2;
+			// 	line.sprite = object[6];
+			// }
+			// if (i > 300 && i % 20 == 0)
+			// {
+			// 	line.spriteX = -2;
+			// 	line.sprite = object[4];
+			// }
+			// if (i > 800 && i % 20 == 0)
+			// {
+			// 	line.spriteX = -2;
+			// 	line.sprite = object[1];
+			// }
+			// if (i == 400)
+			// {
+			// 	line.spriteX = -2;
+			// 	line.sprite = object[7];
+			// }
+			// if (i > 750)line.y = sin(i / 30.0) * 1500;
 			lines.push_back(line);
 		}
 		N = lines.size();
 		car = std::unique_ptr<Cars>(new Cars(data,5,speed,playerX));
-		bot = std::unique_ptr<Bot>(new Bot(data, 5,0));
+		bot = std::unique_ptr<Bot>(new Bot(data, 5));
 		current_time=clock.getElapsedTime().asSeconds();
 	}
 
@@ -156,20 +189,21 @@ namespace cp
 
 			Line p = lines[(n - 1) % N];
 
+			// drawQuad(app, grass, 0, p.Y, width, 0, l.Y, width);
+			// drawQuad(app, rumble, p.X, p.Y, p.W * 1.2, l.X, l.Y, l.W * 1.2);
+			// drawQuad(app, road, p.X, p.Y, p.W, l.X, l.Y, l.W);
 			draw_quad(grass, 0, p.Y, width, 0, l.Y, width);
-			draw_quad(rumble, p.X, p.Y, p.W *2.2, l.X, l.Y, l.W * 2.2);
-			draw_quad(road, p.X, p.Y, p.W*2, l.X, l.Y, l.W*2);
-			// std::cout <<n<<" "<<p.X<<" "<<l.X<<std::endl;
-
-			draw_quad(marking,(p.X),p.Y,p.W*0.6,l.X,l.Y,l.W*0.6);
-			draw_quad(road, p.X, p.Y, p.W *0.5, l.X, l.Y, l.W*0.5);
+			draw_quad(rumble, p.X, p.Y, p.W *1.1, l.X, l.Y, l.W * 1.1);
+			draw_quad(road, p.X, p.Y, p.W, l.X, l.Y, l.W);
+			draw_quad(marking,(p.X),p.Y,p.W*0.35,l.X,l.Y,l.W*0.35);
+			draw_quad(road, p.X, p.Y, p.W*0.3, l.X, l.Y, l.W*0.3);
 
 		}
 		for (int n = startPos + 500; n > startPos; n--)
 		{
 			drawSprite(lines[n % N]);
 		}
-		bot->drawSprite(lines[bot_pos%N]);
+		bot->drawSprite(lines[bot_pos]);
 		bot_pos++;
 		bot_pos%=N;
 		// if(bot_pos>1000)bot_pos=0;

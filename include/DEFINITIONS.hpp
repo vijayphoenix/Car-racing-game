@@ -25,9 +25,9 @@
 // #define HOUSE2 "8.png"
 // #define TREE6 "9.png"
 // #define CAR_IMAGE_FILEPATH(i) "res/car"+i+".png"
-#define GAME_STATE_BACKGROUND_FILEPATH "res/cy.png"
 // #define GAME_STATE_BACKGROUND_FILEPATH "res/cy.png"
 // #define CAR_IMAGE_FILEPATH "res/Car_main.png"
+#define GAME_STATE_BACKGROUND_FILEPATH "res/cy.png"
 #define TOTAL_CARS 9
 #define CAR_IMAGE_FILEPATH(i) CAR_NAME(i)
 static std::string CAR_NAME(int x){return ("res/CarImage"+ std::to_string(x)+".png");}

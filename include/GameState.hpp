@@ -16,15 +16,6 @@ namespace cp
 		GameState(GameDataRef _data);
 		// ~GameState();
 
-		// struct Line
-		// {
-		// 	float x = 0, y = 0, z = 0; //3d center of line
-		// 	float X = 0, Y = 0, W = 0; //screen coord
-		// 	float curve = 0, spriteX = 0, clip = 0;
-		// 	float scale = 0;
-		// 	sf::Sprite sprite;
-		// };
-
 		std::vector<Line>lines;
 		void init();
 		void handle_input();
@@ -40,7 +31,7 @@ namespace cp
 		sf::Sprite background_sprite;
 		int width = SCREEN_WIDTH;
 		int height = SCREEN_HEIGHT;
-		int roadW = 2000;
+		int roadW = 4000;
 		int segL = 200;	//segment length
 		float camD = 0.84; //camera depth
 
