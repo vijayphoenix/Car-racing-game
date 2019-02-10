@@ -17,6 +17,7 @@ namespace cp{
 	  void draw_car();
 	  virtual void update_car(float dt,std::vector<Line> &lines, float pos, float segL)= 0;
 
+
 	  // float centrifugal = 0.5;
 	  // float friction = -max_speed / 5;
 	  float playerX = 0;

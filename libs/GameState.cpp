@@ -64,35 +64,6 @@ namespace cp
 
 			if (i > 750)
 				line.y = sin(i / 30.0) * 1500;
-
-			// if (i > 300 && i < 800)	line.curve = 1;
-			// if (i > 1100)line.curve = -0.7;
-			// if (i < 300 && i % 20 == 0)
-			// {
-			// 	line.spriteX = -2.5;
-			// 	line.sprite = object[5];
-			// }
-			// if (i % 17 == 0)
-			// {
-			// 	line.spriteX = 2;
-			// 	line.sprite = object[6];
-			// }
-			// if (i > 300 && i % 20 == 0)
-			// {
-			// 	line.spriteX = -2;
-			// 	line.sprite = object[4];
-			// }
-			// if (i > 800 && i % 20 == 0)
-			// {
-			// 	line.spriteX = -2;
-			// 	line.sprite = object[1];
-			// }
-			// if (i == 400)
-			// {
-			// 	line.spriteX = -2;
-			// 	line.sprite = object[7];
-			// }
-			// if (i > 750)line.y = sin(i / 30.0) * 1500;
 			lines.push_back(line);
 		}
 		N = lines.size();
@@ -195,20 +166,43 @@ namespace cp
 			draw_quad(grass, 0, p.Y, width, 0, l.Y, width);
 			draw_quad(rumble, p.X, p.Y, p.W *1.1, l.X, l.Y, l.W * 1.1);
 			draw_quad(road, p.X, p.Y, p.W, l.X, l.Y, l.W);
+			// draw_quad(road, p.X*2, p.Y, p.W, l.X*2, l.Y, l.W);
+
 			draw_quad(marking,(p.X),p.Y,p.W*0.35,l.X,l.Y,l.W*0.35);
 			draw_quad(road, p.X, p.Y, p.W*0.3, l.X, l.Y, l.W*0.3);
 
 		}
-		for (int n = startPos + 500; n > startPos; n--)
+		bot->drawSprite(lines[bot_pos]);
+		for (int n = startPos + 500; n >startPos; n--)
 		{
 			drawSprite(lines[n % N]);
+			if(bot_pos>=n-1 and bot_pos<=n+1)bot->drawSprite(lines[bot_pos]);
 		}
-		bot->drawSprite(lines[bot_pos]);
 		bot_pos++;
 		bot_pos%=N;
+		int diff = bot_pos % N - (pos / segL) % N;
+		// std::cout << collision.detect_collision(car->sprite, bot->sprite) << std::endl;
+		if (abs(diff)<8)
+		{
+			// std::cout << diff<<"=diff" << std::endl;
+			// if(collision.detect_collision(car->sprite, bot->sprite))exit(1);
+			if(diff>0 and collision.detect_collision(car->sprite,bot->sprite)){
+				speed=0;
+				std::cout << "55555555555555" << std::endl;
+			}
+			else if (diff <= 0 and collision.detect_collision(bot->sprite, car->sprite))
+			{
+				speed += 100;
+				std::cout << "asbjashdffgsfuisfda8oa" << std::endl;
+				exit(0);
+			}
+			// speed = 0;
+		}
+		// std::cout << bot->sprite.getGlobalBounds().left << " " << bot->sprite.getGlobalBounds().top << std::endl;
+		// std::cout << bot->sprite.getGlobalBounds().width << " " << bot->sprite.getGlobalBounds().height << std::endl;
+		car->draw_car();
 		// if(bot_pos>1000)bot_pos=0;
 
-		car->draw_car();
 		data->window.display();
 	}
 

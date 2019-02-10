@@ -58,6 +58,7 @@ libs/CMakeFiles/extLibs.dir/GameState.cpp.o: ../include/AssetManager.hpp
 libs/CMakeFiles/extLibs.dir/GameState.cpp.o: ../include/Bot.hpp
 libs/CMakeFiles/extLibs.dir/GameState.cpp.o: ../include/Car.hpp
 libs/CMakeFiles/extLibs.dir/GameState.cpp.o: ../include/Cars.hpp
+libs/CMakeFiles/extLibs.dir/GameState.cpp.o: ../include/Collision.hpp
 libs/CMakeFiles/extLibs.dir/GameState.cpp.o: ../include/DEFINITIONS.hpp
 libs/CMakeFiles/extLibs.dir/GameState.cpp.o: ../include/Game.hpp
 libs/CMakeFiles/extLibs.dir/GameState.cpp.o: ../include/GameState.hpp
@@ -74,6 +75,7 @@ libs/CMakeFiles/extLibs.dir/MainMenuState.cpp.o: ../include/AssetManager.hpp
 libs/CMakeFiles/extLibs.dir/MainMenuState.cpp.o: ../include/Bot.hpp
 libs/CMakeFiles/extLibs.dir/MainMenuState.cpp.o: ../include/Car.hpp
 libs/CMakeFiles/extLibs.dir/MainMenuState.cpp.o: ../include/Cars.hpp
+libs/CMakeFiles/extLibs.dir/MainMenuState.cpp.o: ../include/Collision.hpp
 libs/CMakeFiles/extLibs.dir/MainMenuState.cpp.o: ../include/DEFINITIONS.hpp
 libs/CMakeFiles/extLibs.dir/MainMenuState.cpp.o: ../include/Game.hpp
 libs/CMakeFiles/extLibs.dir/MainMenuState.cpp.o: ../include/GameState.hpp

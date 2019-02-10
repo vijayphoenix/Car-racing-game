@@ -36,6 +36,10 @@ Game.hpp
 DEFINITIONS.hpp
 ../include/DEFINITIONS.hpp
 
+../include/Collision.hpp
+SFML/Graphics.hpp
+-
+
 ../include/DEFINITIONS.hpp
 iostream
 -
@@ -79,6 +83,8 @@ Game.hpp
 ../include/Game.hpp
 Line.hpp
 ../include/Line.hpp
+Collision.hpp
+../include/Collision.hpp
 memory
 -
 

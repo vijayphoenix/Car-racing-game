@@ -7,6 +7,7 @@
 #include "State.hpp"
 #include "Game.hpp"
 #include "Line.hpp"
+#include "Collision.hpp"
 #include <memory>
 namespace cp
 {
@@ -52,6 +53,9 @@ namespace cp
 
 		std::unique_ptr<Cars> car;
 		std::unique_ptr<Bot> bot;
+
+		Collision collision;
+
 	};
 } // namespace cp
 
