@@ -7,6 +7,9 @@
 #define SCREEN_WIDTH 1024//sf::VideoMode::getDesktopMode().width
 #define SCREEN_HEIGHT 768//sf::VideoMode::getDesktopMode().height
 
+// const int SCREEN_WIDTH = sf::VideoMode::getDesktopMode().width;
+// const int SCREEN_HEIGHT = sf::VideoMode::getDesktopMode().height;
+
 #define SPLASH_STATE_SHOW_TIME 1.0
 #define SPLASH_SCENE_BACKGROUND_FILEPATH "res/splashScreen.png"
 

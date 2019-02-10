@@ -14,7 +14,6 @@ namespace cp{
 		float curve = 0, spriteX = 0, clip = 0;
 		float scale = 0;
 		sf::Sprite sprite;
-
   private:
 
 	};
