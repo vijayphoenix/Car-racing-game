@@ -41,18 +41,19 @@ namespace cp
 		sf::Sprite s;
 
 		int N;
+		int temp=0;
 		float speed = 0;
 		float playerX = 0;
 		int pos = 0;
 		int H = 1500;
-		int bot_pos = 0;
+		int bot_pos[TOTAL_BOTS] ={};
 
 		void project(Line &line, int camX, int camY, int camZ);
 
 		void drawSprite(Line &line);
 
 		std::unique_ptr<Cars> car;
-		std::unique_ptr<Bot> bot;
+		std::unique_ptr<Bot> bot[TOTAL_BOTS];
 
 		Collision collision;
 

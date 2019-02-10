@@ -12,6 +12,7 @@ Bot::Bot(GameDataRef _data, int car_num)
 {
 	speed = 200;
 	sprite.setTexture(data->assets.get_texture("CarImage" + std::to_string(car_image_num)));
+	playerX=rand()%5-2.5;
 	// sprite.scale(3, 3);
 	// sprite.setPosition(SCREEN_WIDTH / 2 - sprite.getGlobalBounds().width/2, SCREEN_HEIGHT - sprite.getGlobalBounds().height * 1.5);
 }
@@ -25,7 +26,7 @@ void Bot::drawSprite(Line &line)
 {
 	// s = line.sprite;
 	sf::Sprite &s=sprite;
-	playerX= -2.5;
+	// playerX= -2.5;
 	int w = s.getTextureRect().width;
 	int h = s.getTextureRect().height;
 	// h*=2;

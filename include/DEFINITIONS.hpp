@@ -32,6 +32,7 @@
 // #define CAR_IMAGE_FILEPATH "res/Car_main.png"
 #define GAME_STATE_BACKGROUND_FILEPATH "res/cy.png"
 #define TOTAL_CARS 9
+#define TOTAL_BOTS 4
 #define CAR_IMAGE_FILEPATH(i) CAR_NAME(i)
 static std::string CAR_NAME(int x){return ("res/CarImage"+ std::to_string(x)+".png");}
 #define GAME_OVER_BACKGROUND_FILEPATH "res/sky.png"
