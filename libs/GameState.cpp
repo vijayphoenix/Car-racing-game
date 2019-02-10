@@ -61,7 +61,6 @@ namespace cp
 				line.spriteX = -1.2;
 				line.sprite = object[7];
 			}
-
 			if (i > 750)
 				line.y = sin(i / 30.0) * 1500;
 			lines.push_back(line);
@@ -182,23 +181,31 @@ namespace cp
 		bot_pos%=N;
 		int diff = bot_pos % N - (pos / segL) % N;
 		// std::cout << collision.detect_collision(car->sprite, bot->sprite) << std::endl;
-		if (abs(diff)<8)
+
+		if (std::abs(diff)<=8)
 		{
-			// std::cout << diff<<"=diff" << std::endl;
+			// std::cout << diff<<"=diff   bool=" <<collision.detect_collision(car->sprite, bot->sprite)<< std::endl;
 			// if(collision.detect_collision(car->sprite, bot->sprite))exit(1);
-			if(diff>0 and collision.detect_collision(car->sprite,bot->sprite)){
+			if(diff>7 and collision.detect_collision(car->sprite,bot->sprite)){
 				speed=0;
-				std::cout << "55555555555555" << std::endl;
+				// std::cout << "55555555555555" << std::endl;
 			}
-			else if (diff <= 0 and collision.detect_collision(bot->sprite, car->sprite))
+			else if (diff <= 7 and collision.detect_collision(bot->sprite, car->sprite))
 			{
 				speed += 100;
-				std::cout << "asbjashdffgsfuisfda8oa" << std::endl;
-				exit(0);
+				// std::cout << "asbjashdffgsfuisfda8oa" << std::endl;
+				// exit(0);
 			}
 			// speed = 0;
 		}
-		// std::cout << bot->sprite.getGlobalBounds().left << " " << bot->sprite.getGlobalBounds().top << std::endl;
+
+		/* if(diff<8 and diff>=0 and collision.detect_collision(car->sprite,bot->sprite)){
+			speed=0;
+		}
+		else if(diff<0){
+			std::cout << bot->playerX<<" "<<playerX << std::endl;
+			bot->playerX-=playerX;
+		} */
 		// std::cout << bot->sprite.getGlobalBounds().width << " " << bot->sprite.getGlobalBounds().height << std::endl;
 		car->draw_car();
 		// if(bot_pos>1000)bot_pos=0;
