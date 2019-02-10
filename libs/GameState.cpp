@@ -67,7 +67,10 @@ namespace cp
 		}
 		N = lines.size();
 		car = std::unique_ptr<Cars>(new Cars(data,5,speed,playerX));
-		bot = std::unique_ptr<Bot>(new Bot(data, 5));
+		for(int i=0;i<TOTAL_BOTS;i++){
+			bot[i] = std::unique_ptr<Bot>(new Bot(data, 5));
+			bot_pos[i]=i*10;
+		}
 		current_time=clock.getElapsedTime().asSeconds();
 	}
 
@@ -171,32 +174,42 @@ namespace cp
 			draw_quad(road, p.X, p.Y, p.W*0.3, l.X, l.Y, l.W*0.3);
 
 		}
-		bot->drawSprite(lines[bot_pos]);
+
+		for (int i = 0; i < TOTAL_BOTS; i++)
+			bot[i]->drawSprite(lines[bot_pos[i]]);
 		for (int n = startPos + 500; n >startPos; n--)
 		{
 			drawSprite(lines[n % N]);
-			if(bot_pos>=n-1 and bot_pos<=n+1)bot->drawSprite(lines[bot_pos]);
+			for (int i = 0; i < TOTAL_BOTS; i++)
+				if (bot_pos[i] >= n - 1 and bot_pos[i] <= n + 1)
+					bot[i]->drawSprite(lines[bot_pos[i]]);
 		}
-		bot_pos++;
-		bot_pos%=N;
-		int diff = bot_pos % N - (pos / segL) % N;
-		// std::cout << collision.detect_collision(car->sprite, bot->sprite) << std::endl;
+		// std::cout<<"hello"<<std::endl;
+		for (int i = 0; i < TOTAL_BOTS; i++){
+			temp++;
+			if(temp%(2*i+1)==0)bot_pos[i]+=(i+1);
+			temp%=N;
+			bot_pos[i] %= N;
+			int diff = bot_pos[i] % N - (pos / segL) % N;
+			// std::cout << collision.detect_collision(car->sprite, bot->sprite) << std::endl;
 
-		if (std::abs(diff)<=8)
-		{
-			// std::cout << diff<<"=diff   bool=" <<collision.detect_collision(car->sprite, bot->sprite)<< std::endl;
-			// if(collision.detect_collision(car->sprite, bot->sprite))exit(1);
-			if(diff>7 and collision.detect_collision(car->sprite,bot->sprite)){
-				speed=0;
-				// std::cout << "55555555555555" << std::endl;
-			}
-			else if (diff <= 7 and collision.detect_collision(bot->sprite, car->sprite))
+			if (std::abs(diff) <= 8)
 			{
-				speed += 100;
-				// std::cout << "asbjashdffgsfuisfda8oa" << std::endl;
-				// exit(0);
+				// std::cout << diff<<"=diff   bool=" <<collision.detect_collision(car->sprite, bot->sprite)<< std::endl;
+				// if(collision.detect_collision(car->sprite, bot->sprite))exit(1);
+				if (diff > 7 and collision.detect_collision(car->sprite, bot[i]->sprite))
+				{
+					speed = 0;
+					// std::cout << "55555555555555" << std::endl;
+				}
+				else if (diff <= 7 and collision.detect_collision(bot[i]->sprite, car->sprite))
+				{
+					speed += 100;
+					// std::cout << "asbjashdffgsfuisfda8oa" << std::endl;
+					// exit(0);
+				}
+				// speed = 0;
 			}
-			// speed = 0;
 		}
 
 		/* if(diff<8 and diff>=0 and collision.detect_collision(car->sprite,bot->sprite)){
