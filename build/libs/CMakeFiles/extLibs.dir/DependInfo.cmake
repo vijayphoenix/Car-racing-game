@@ -4,18 +4,18 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/vijay/Desktop/POPL2_project/libs/AssetManager.cpp" "/home/vijay/Desktop/POPL2_project/build/libs/CMakeFiles/extLibs.dir/AssetManager.cpp.o"
-  "/home/vijay/Desktop/POPL2_project/libs/Bot.cpp" "/home/vijay/Desktop/POPL2_project/build/libs/CMakeFiles/extLibs.dir/Bot.cpp.o"
-  "/home/vijay/Desktop/POPL2_project/libs/Car.cpp" "/home/vijay/Desktop/POPL2_project/build/libs/CMakeFiles/extLibs.dir/Car.cpp.o"
-  "/home/vijay/Desktop/POPL2_project/libs/Cars.cpp" "/home/vijay/Desktop/POPL2_project/build/libs/CMakeFiles/extLibs.dir/Cars.cpp.o"
-  "/home/vijay/Desktop/POPL2_project/libs/Game.cpp" "/home/vijay/Desktop/POPL2_project/build/libs/CMakeFiles/extLibs.dir/Game.cpp.o"
-  "/home/vijay/Desktop/POPL2_project/libs/GameOverState.cpp" "/home/vijay/Desktop/POPL2_project/build/libs/CMakeFiles/extLibs.dir/GameOverState.cpp.o"
-  "/home/vijay/Desktop/POPL2_project/libs/GameState.cpp" "/home/vijay/Desktop/POPL2_project/build/libs/CMakeFiles/extLibs.dir/GameState.cpp.o"
-  "/home/vijay/Desktop/POPL2_project/libs/InputManager.cpp" "/home/vijay/Desktop/POPL2_project/build/libs/CMakeFiles/extLibs.dir/InputManager.cpp.o"
-  "/home/vijay/Desktop/POPL2_project/libs/MainMenuState.cpp" "/home/vijay/Desktop/POPL2_project/build/libs/CMakeFiles/extLibs.dir/MainMenuState.cpp.o"
-  "/home/vijay/Desktop/POPL2_project/libs/SplashState.cpp" "/home/vijay/Desktop/POPL2_project/build/libs/CMakeFiles/extLibs.dir/SplashState.cpp.o"
-  "/home/vijay/Desktop/POPL2_project/libs/State.cpp" "/home/vijay/Desktop/POPL2_project/build/libs/CMakeFiles/extLibs.dir/State.cpp.o"
-  "/home/vijay/Desktop/POPL2_project/libs/StateMachine.cpp" "/home/vijay/Desktop/POPL2_project/build/libs/CMakeFiles/extLibs.dir/StateMachine.cpp.o"
+  "/home/anjani/Desktop/POPL_PROJ/libs/AssetManager.cpp" "/home/anjani/Desktop/POPL_PROJ/build/libs/CMakeFiles/extLibs.dir/AssetManager.cpp.o"
+  "/home/anjani/Desktop/POPL_PROJ/libs/Bot.cpp" "/home/anjani/Desktop/POPL_PROJ/build/libs/CMakeFiles/extLibs.dir/Bot.cpp.o"
+  "/home/anjani/Desktop/POPL_PROJ/libs/Car.cpp" "/home/anjani/Desktop/POPL_PROJ/build/libs/CMakeFiles/extLibs.dir/Car.cpp.o"
+  "/home/anjani/Desktop/POPL_PROJ/libs/Cars.cpp" "/home/anjani/Desktop/POPL_PROJ/build/libs/CMakeFiles/extLibs.dir/Cars.cpp.o"
+  "/home/anjani/Desktop/POPL_PROJ/libs/Game.cpp" "/home/anjani/Desktop/POPL_PROJ/build/libs/CMakeFiles/extLibs.dir/Game.cpp.o"
+  "/home/anjani/Desktop/POPL_PROJ/libs/GameOverState.cpp" "/home/anjani/Desktop/POPL_PROJ/build/libs/CMakeFiles/extLibs.dir/GameOverState.cpp.o"
+  "/home/anjani/Desktop/POPL_PROJ/libs/GameState.cpp" "/home/anjani/Desktop/POPL_PROJ/build/libs/CMakeFiles/extLibs.dir/GameState.cpp.o"
+  "/home/anjani/Desktop/POPL_PROJ/libs/InputManager.cpp" "/home/anjani/Desktop/POPL_PROJ/build/libs/CMakeFiles/extLibs.dir/InputManager.cpp.o"
+  "/home/anjani/Desktop/POPL_PROJ/libs/MainMenuState.cpp" "/home/anjani/Desktop/POPL_PROJ/build/libs/CMakeFiles/extLibs.dir/MainMenuState.cpp.o"
+  "/home/anjani/Desktop/POPL_PROJ/libs/SplashState.cpp" "/home/anjani/Desktop/POPL_PROJ/build/libs/CMakeFiles/extLibs.dir/SplashState.cpp.o"
+  "/home/anjani/Desktop/POPL_PROJ/libs/State.cpp" "/home/anjani/Desktop/POPL_PROJ/build/libs/CMakeFiles/extLibs.dir/State.cpp.o"
+  "/home/anjani/Desktop/POPL_PROJ/libs/StateMachine.cpp" "/home/anjani/Desktop/POPL_PROJ/build/libs/CMakeFiles/extLibs.dir/StateMachine.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
