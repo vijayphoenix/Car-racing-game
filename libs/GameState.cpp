@@ -7,26 +7,33 @@
 namespace cp
 {
 	GameState::GameState(GameDataRef _data) : data(_data){
-
 	}
-
 	void GameState::init(){
+
+		// TODO : Create a helper function to load all the assets required for gamestate
+		/////////// Loading Environment assets ////////
 		for (int i = 1; i <= 9; i++)
 		{
 			t[i].loadFromFile("res/" + std::to_string(i) + ".png");
 			t[i].setSmooth(true);
 			object[i].setTexture(t[i]);
 		}
-		for(int i = 0; i < TOTAL_CARS; i++)
-		{
-			data->assets.load_texture("CarImage"+std::to_string(i),CAR_IMAGE_FILEPATH(i));
-		}
 		data->assets.load_texture("GameStateBackground", GAME_STATE_BACKGROUND_FILEPATH);
 		data->assets.get_texture("GameStateBackground").setRepeated(true);
 		background_sprite.setTexture(data->assets.get_texture("GameStateBackground"));
 		background_sprite.setTextureRect(sf::IntRect(0, 0, 6000, 411));
 		background_sprite.setPosition(-2000, 0);
+		///////////////////////////////////////////////
 
+		////////// Loading Car assets ////////////////
+		for(int i = 0; i < TOTAL_CARS; i++)
+		{
+			data->assets.load_texture("CarImage"+std::to_string(i),CAR_IMAGE_FILEPATH(i));
+		}
+		//////////////////////////////////////////////
+
+		// TODO : Create a map generator function
+		//////// Geerating map //////////////////////
 		for (int i = 0; i < 1600; i++)
 		{
 			Line line;
@@ -66,14 +73,21 @@ namespace cp
 			lines.push_back(line);
 		}
 		N = lines.size();
+		////////////////////////////////////////////
+
+		// TODO : Create an object pool
+		/////// Creating the main player car and bots
 		car = std::unique_ptr<Cars>(new Cars(data,5,speed,playerX));
 		for(int i=0;i<TOTAL_BOTS;i++){
 			bot[i] = std::unique_ptr<Bot>(new Bot(data, 5));
 			bot_pos[i]=i*10;
 		}
-		current_time=clock.getElapsedTime().asSeconds();
-	}
+		///////////////////////////////////////////////
 
+		////// The Game Begins ///////////////////////
+		current_time=clock.getElapsedTime().asSeconds();
+		//////////////////////////////////////////////
+	}
 	void GameState::handle_input(){
 		sf::Event event;
 		while(data->window.pollEvent(event))
@@ -81,17 +95,32 @@ namespace cp
 				data->window.close();
 			}
 
+		//////////// Debug Sections ///////////
+		handle_road_width(5); // W+ S-
+		handle_segL(5); // O+ L-
+		handle_camD(0.01); //I+ K-
+		////////////////////////////////////////
+
 		new_time=clock.getElapsedTime().asSeconds();
-		car->update_car(new_time - current_time,lines,pos,segL);
-		// std::cout << new_time - current_time<<std::endl;
-		current_time = new_time;
+
+		// TODO : Create a driver/bot_mind class
+		/////// The driver handles the players car ////////
+		car->update_car(new_time - current_time, lines, pos, segL);
+		//////////////////////////////////////////////////
+
+		// TODO : Implement the camera class
+		////// Updating the players position pos ///////////////////////
 		pos += speed;
 		while (pos >= N * segL)
 			pos -= N * segL;
 		while (pos < 0)
 			pos += N * segL;
-	}
+		//////////////////////////////////////////////////
 
+		////// The frame Ends ///////////////////////////
+		current_time = new_time;
+		////////////////////////////////////////////////
+	}
 	void GameState::draw_quad(sf::Color c, int x1, int y1, int w1, int x2, int y2, int w2)
 	{
 		sf::ConvexShape shape(4);
@@ -102,23 +131,38 @@ namespace cp
 		shape.setPoint(3, sf::Vector2f(x1 + w1, y1));
 		data->window.draw(shape);
 	}
-
-	void GameState::project(Line &line, int camX, int camY, int camZ)
-	{
+	void GameState::project(Line &line, int camX, int camY, int camZ) {
 		line.scale = camD / (line.z - camZ);
+
+		// If line.scale > 1 (threshold ) then the line is between the camera and the projection plane
+		// So it is not visible on the screen and hence no need to over scale it.
+		if(line.scale>1.1 || line.scale<0)line.scale = 1.1;
+		////////////////////////////////////////////////////////////////////////////////////
+
 		line.X = (1 + line.scale * (line.x - camX)) * width / 2;
 		line.Y = (1 - line.scale * (line.y - camY)) * height / 2;
 		line.W = line.scale * roadW * width /2;
+
+		// // Debug codes
+		// static int x = 1;x++;
+		// if(x>5) {/*  exit(1); */ }
+		// else {
+		// 	std::cout<<std::endl;
+		// 	std::cout<<"{ Scale: "<<line.scale<<std::endl;
+		// 	std::cout<<"{ Position-> Z: "<<line.z<<" Y: "<<line.y<<" X: "<<line.x<<std::endl;
+		// 	std::cout<<"{ Camera  -> Z: "<<camZ<<" Y: "<<camY<<" X: "<<camX<<std::endl;
+		// 	std::cout<<"{ Width: "<<line.W<<" X: "<<line.X<<" Y: "<<line.Y<<std::endl;
+
+		// }
 	}
 
-	void GameState::drawSprite(Line &line)
-	{
+	void GameState::drawSprite(Line &line) {
 		s = line.sprite;
 		int w = s.getTextureRect().width;
 		int h = s.getTextureRect().height;
 
 		float destX = line.X + line.scale * line.spriteX * width / 2;
-		float destY = line.Y + 4;
+		float destY = line.Y + 4	;
 		float destW = w * line.W / 266;
 		float destH = h * line.W / 266;
 
@@ -126,6 +170,17 @@ namespace cp
 		destY += destH * (-1);		   //offsetY
 
 		float clipH = destY + destH - line.clip;
+		// Debug codes
+		static int x = 1;x++;
+		if(x>5) {/*  exit(1); */ }
+		else {
+			std::cout<<std::endl;
+			std::cout<<"{ Scale: "<<line.scale<<std::endl;
+			std::cout<<"{ Position-> Z: "<<line.z<<" Y: "<<line.y<<" X: "<<line.x<<std::endl;
+			std::cout<<"{ Width: "<<line.W<<" X: "<<line.X<<" Y: "<<line.Y<<std::endl;
+			std::cout<<"{ Clip: "<<line.clip<<std::endl;
+
+		}
 		if (clipH < 0)clipH = 0;
 		if (clipH >= destH)	return;
 		s.setTextureRect(sf::IntRect(0, 0, w, h - h * clipH / destH));
@@ -137,17 +192,23 @@ namespace cp
 	void GameState::draw(float delta){
 		data->window.clear(sf::Color(105, 205, 4));
 		data->window.draw(background_sprite);
+
+		// TODO : Implement functions for camera
+		////// Finding camera position and camera height ///
 		int startPos = pos / segL;
 		int camH = lines[startPos].y + H;
+		///////////////////////////////////////////////////
+
 		// if (speed > 0)background_sprite.move(-1*lines[startPos].curve * 2, 0);
 		// if (speed < 0)background_sprite.move(lines[startPos].curve * 2, 0);
 		int maxy=height;
 		float x=0,dx=0;
+
 		for (int n = startPos; n < startPos + 500; n++)
 		{
 			Line &l = lines[n % N];
-
-			project(l,playerX * roadW - x, camH, startPos * segL - (n >= N ? N * segL : 0));
+			// std::cout<<playerX<<std::endl;
+			project(l, playerX * roadW - x, camH, startPos * segL - (n >= N ? N * segL : 0));
 			x += dx;
 			dx += l.curve;
 
@@ -229,4 +290,5 @@ namespace cp
 	void GameState::update(float delta){
 
 	}
+
 }

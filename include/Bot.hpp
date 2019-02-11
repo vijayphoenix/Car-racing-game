@@ -13,8 +13,7 @@ namespace cp
 		Bot(GameDataRef _data, int car_num);
 		~Bot();
 
-		void update_car(float dt, std::vector<Line> &lines, float pos, float segL)
-		{
+		void update_car(float dt, std::vector<Line> &lines, float pos, float segL) {
 			// float speedRatio = 1;
 			// float dx = 2 * dt * speedRatio;
 			// playerX -= lines[position/segL].curve;
@@ -25,7 +24,7 @@ namespace cp
 
 		void drawSprite(Line &line);
 
-			private:
+		private:
 		// speed=200;
 	};
 } // namespace cp
