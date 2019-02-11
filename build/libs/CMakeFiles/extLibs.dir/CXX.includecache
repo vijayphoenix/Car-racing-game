@@ -61,12 +61,12 @@ StateMachine.hpp
 ../include/StateMachine.hpp
 
 ../include/GameOverState.hpp
-SFML/Graphics.hpp
--
 State.hpp
 ../include/State.hpp
 Game.hpp
 ../include/Game.hpp
+SFML/Graphics.hpp
+-
 
 ../include/GameState.hpp
 SFML/Graphics.hpp
@@ -105,12 +105,12 @@ Game.hpp
 ../include/Game.hpp
 
 ../include/SplashState.hpp
-SFML/Graphics.hpp
--
 State.hpp
 ../include/State.hpp
 Game.hpp
 ../include/Game.hpp
+SFML/Graphics.hpp
+-
 
 ../include/State.hpp
 
@@ -129,28 +129,28 @@ iostream
 -
 
 /home/anjani/Desktop/POPL_PROJ/libs/Bot.cpp
-iostream
--
-cmath
--
-sstream
--
 Bot.hpp
 /home/anjani/Desktop/POPL_PROJ/libs/Bot.hpp
 DEFINITIONS.hpp
 /home/anjani/Desktop/POPL_PROJ/libs/DEFINITIONS.hpp
-
-/home/anjani/Desktop/POPL_PROJ/libs/Car.cpp
 iostream
 -
 cmath
 -
 sstream
 -
+
+/home/anjani/Desktop/POPL_PROJ/libs/Car.cpp
 Car.hpp
 /home/anjani/Desktop/POPL_PROJ/libs/Car.hpp
 DEFINITIONS.hpp
 /home/anjani/Desktop/POPL_PROJ/libs/DEFINITIONS.hpp
+iostream
+-
+cmath
+-
+sstream
+-
 
 /home/anjani/Desktop/POPL_PROJ/libs/Cars.cpp
 iostream
@@ -171,16 +171,16 @@ SplashState.hpp
 /home/anjani/Desktop/POPL_PROJ/libs/SplashState.hpp
 
 /home/anjani/Desktop/POPL_PROJ/libs/GameOverState.cpp
-iostream
--
-sstream
--
 GameOverState.hpp
 /home/anjani/Desktop/POPL_PROJ/libs/GameOverState.hpp
 MainMenuState.hpp
 /home/anjani/Desktop/POPL_PROJ/libs/MainMenuState.hpp
 DEFINITIONS.hpp
 /home/anjani/Desktop/POPL_PROJ/libs/DEFINITIONS.hpp
+iostream
+-
+sstream
+-
 
 /home/anjani/Desktop/POPL_PROJ/libs/GameState.cpp
 iostream
@@ -199,28 +199,28 @@ InputManager.hpp
 /home/anjani/Desktop/POPL_PROJ/libs/InputManager.hpp
 
 /home/anjani/Desktop/POPL_PROJ/libs/MainMenuState.cpp
-iostream
--
-sstream
--
 MainMenuState.hpp
 /home/anjani/Desktop/POPL_PROJ/libs/MainMenuState.hpp
 GameState.hpp
 /home/anjani/Desktop/POPL_PROJ/libs/GameState.hpp
 DEFINITIONS.hpp
 /home/anjani/Desktop/POPL_PROJ/libs/DEFINITIONS.hpp
-
-/home/anjani/Desktop/POPL_PROJ/libs/SplashState.cpp
 iostream
 -
 sstream
 -
+
+/home/anjani/Desktop/POPL_PROJ/libs/SplashState.cpp
 SplashState.hpp
 /home/anjani/Desktop/POPL_PROJ/libs/SplashState.hpp
 MainMenuState.hpp
 /home/anjani/Desktop/POPL_PROJ/libs/MainMenuState.hpp
 DEFINITIONS.hpp
 /home/anjani/Desktop/POPL_PROJ/libs/DEFINITIONS.hpp
+iostream
+-
+sstream
+-
 
 /home/anjani/Desktop/POPL_PROJ/libs/State.cpp
 

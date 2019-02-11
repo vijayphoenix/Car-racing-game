@@ -1,17 +1,19 @@
 #include "StateMachine.hpp"
 
 namespace cp{
-	void StateMachine::add_state(StateRef new_state, bool is_replacing){
+	StateMachine::StateMachine(){
+	}
+	StateMachine::~StateMachine(){
+	}
+	void StateMachine::add_state(StateRef new_state, bool is_replacing) {
 		is_adding=true;
 		this->is_replacing=is_replacing;
 		this->new_state=std::move(new_state);
 	}
-
-	void StateMachine::remove_state(){
+	void StateMachine::remove_state() {
 		is_removing=true;
 	}
-
-	void StateMachine::process_state_change(){
+	void StateMachine::process_state_change() {
 		if(is_removing && !stack_state.empty() ){
 			stack_state.pop();
 			if(!stack_state.empty())
@@ -30,8 +32,7 @@ namespace cp{
 			is_adding=false;
 		}
 	}
-
-	StateRef& StateMachine::get_active_state(){
+	StateRef& StateMachine::get_active_state() {
 		return stack_state.top();
 	}
 }

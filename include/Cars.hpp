@@ -6,15 +6,18 @@
 #include "DEFINITIONS.hpp"
 
 namespace cp{
+	class Cars : public Car{
+		public:
+		Cars		(GameDataRef _data,int _car_num,float &cspeed,float &cplayerX);
+		~Cars		();
 
-	class Cars:public Car{
+		//// TODO: Create a driver class and then use the driver object to finally give
+		////		a vector to the car for it's movement
 
-	public:
-		Cars(GameDataRef _data,int _car_num,float &cspeed,float &cplayerX);
-		~Cars();
-
-		void update_car(float dt, std::vector<Line> &lines, float pos, float segL)
-		{
+		// TODO: Move these functions to Cars.cpp
+		// TODO: Choose a better name for this class
+		void update_car(float dt, std::vector<Line> &lines, float pos, float segL) {
+			///////// Updating the camera's position ///////////////////
 			float speedRatio = cspeed / max_speed;
 			float dx = 2 * dt * speedRatio;
 			bool l=false,r=false;
@@ -28,7 +31,9 @@ namespace cp{
 			}
 
 			cplayerX -= (dx * speedRatio * lines[pos/segL].curve * centrifugal);
+			///////////////////////////////////////////////////
 
+			/////////// Updating the camera's speed //////////////////////////
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){
 				cspeed += acceleration * dt;
 			}
@@ -36,6 +41,9 @@ namespace cp{
 			else cspeed += friction * dt;
 			// playerX=std::max(-2.0f,std::min(playerX,2.0f));
 			cspeed = std::max(0.0f, std::min(cspeed, max_speed));
+			/////////////////////////////////////////////////////////////////
+
+			/////////// Animating the sprite for the car //////////////////////
 			car_image_num=5;
 
 			if(cspeed > 0.1){
@@ -45,13 +53,12 @@ namespace cp{
 				// sprite.setPosition(SCREEN_WIDTH / 2 - sprite.getGlobalBounds().width / 2, SCREEN_HEIGHT - sprite.getGlobalBounds().height*(1.5+2*speedRatio*speedRatio));
 				// sprite.setScale(3-speedRatio*speedRatio,3-speedRatio*speedRatio);
 			}
+			/////////////////////////////////////////////////////////////////////
 		}
-
-		void drawSprite(Line &line)
-		{
+		void drawSprite(Line &line) {
 			// s = line.sprite;
 			sf::Sprite s = sprite;
-			int SpriteX = -2.5;
+			int SpriteX = -10000;
 			int w = s.getTextureRect().width;
 			int h = s.getTextureRect().height;
 			// h*=2;
@@ -69,18 +76,18 @@ namespace cp{
 				clipH = 0;
 			if (clipH >= destH)
 				return;
-			// s.setTextureRect(sf::IntRect(0, 0, w,h - h * clipH / destH));
+			s.setTextureRect(sf::IntRect(0, 0, w,h - h * clipH / destH));
 			s.setScale(destW / w, destH / h);
 			s.setPosition(destX, destY);
 			data->window.draw(s);
 		}
 
-		float centrifugal=0.5;
-		float friction = -max_speed/5;
+		float centrifugal	= 0.5;
+		float friction 		= -max_speed/5;
 
-	private:
-	float &cspeed;
-	float &cplayerX;
+		private:
+		float &cspeed;
+		float &cplayerX;
 	};
 }
 #endif //CARS_HPP

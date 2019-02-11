@@ -8,7 +8,7 @@ namespace cp
 {
 	GameState::GameState(GameDataRef _data) : data(_data){
 	}
-	void GameState::init(){
+	void GameState::init() {
 
 		// TODO : Create a helper function to load all the assets required for gamestate
 		/////////// Loading Environment assets ////////
@@ -88,7 +88,7 @@ namespace cp
 		current_time=clock.getElapsedTime().asSeconds();
 		//////////////////////////////////////////////
 	}
-	void GameState::handle_input(){
+	void GameState::handle_input() {
 		sf::Event event;
 		while(data->window.pollEvent(event))
 			if(sf::Event::Closed==event.type){
@@ -121,8 +121,7 @@ namespace cp
 		current_time = new_time;
 		////////////////////////////////////////////////
 	}
-	void GameState::draw_quad(sf::Color c, int x1, int y1, int w1, int x2, int y2, int w2)
-	{
+	void GameState::draw_quad(sf::Color c, int x1, int y1, int w1, int x2, int y2, int w2) {
 		sf::ConvexShape shape(4);
 		shape.setFillColor(c);
 		shape.setPoint(0, sf::Vector2f(x1 - w1, y1));
@@ -155,7 +154,6 @@ namespace cp
 
 		// }
 	}
-
 	void GameState::drawSprite(Line &line) {
 		s = line.sprite;
 		int w = s.getTextureRect().width;
@@ -188,7 +186,6 @@ namespace cp
 		s.setPosition(destX, destY);
 		data->window.draw(s);
 	}
-
 	void GameState::draw(float delta){
 		data->window.clear(sf::Color(105, 205, 4));
 		data->window.draw(background_sprite);
@@ -286,9 +283,6 @@ namespace cp
 
 		data->window.display();
 	}
-
 	void GameState::update(float delta){
-
 	}
-
 }
