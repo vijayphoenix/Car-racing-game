@@ -1,6 +1,6 @@
 # Build system
 bin
-build
+*/build/*
 gmon.out
 *.stats
 Thumbs.db
