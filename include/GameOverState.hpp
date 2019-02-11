@@ -1,25 +1,25 @@
 #ifndef GAMEOVERSTATE_HPP
 #define GAMEOVERSTATE_HPP
-#include <SFML/Graphics.hpp>
 #include "State.hpp"
 #include "Game.hpp"
 
+#include <SFML/Graphics.hpp>
+
 namespace cp
 {
-	class GameOverState : public State
-	{
-	private:
+	class GameOverState : public State {
+		private:
 		GameDataRef data;
-		sf::Sprite background_sprite;
+		sf::Sprite 	background_sprite;
 
-	public:
-		GameOverState(GameDataRef _data);
-		// ~GameState();
+		public:
+		GameOverState		(GameDataRef _data);
+		~GameOverState			();
 
-		void init();
-		void handle_input();
-		void draw(float delta);
-		void update(float delta);
+		void init			();
+		void handle_input	();
+		void draw			(float delta);
+		void update			(float delta);
 	};
 } // namespace cp
 

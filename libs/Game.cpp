@@ -3,18 +3,15 @@
 
 namespace cp
 {
-
-	Game::Game(int width, int height, std::string title)
-	{
+	Game::Game(int width, int height, std::string title) {
 		data->window.create(sf::VideoMode(width, height), title, sf::Style::Close | sf::Style::Titlebar);
 		data->machine.add_state(StateRef(new SplashState(data)));
 		data->window.setFramerateLimit(60);
 		run();
 	}
-	// Game::~Game(){}
-
-	void Game::run()
-	{
+	Game::~Game() {
+	}
+	void Game::run() {
 		float new_time, frame_time, interpolation;
 		float current_time = clock.getElapsedTime().asSeconds();
 		float accumulator = 0.0f;
@@ -38,5 +35,4 @@ namespace cp
 			data->machine.get_active_state()->draw(interpolation);
 		}
 	}
-
-} // namespace cp
+}
