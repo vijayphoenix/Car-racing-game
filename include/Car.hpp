@@ -19,7 +19,7 @@ namespace cp{
 		float X 		= 0;
 		float speed 		= 0;
 		// float position 		= 0;
-		float max_speed 	= 400;
+		float max_speed 	= 300;
 		float acceleration	= max_speed / 5;
 		float decleration 	= -max_speed;
 
