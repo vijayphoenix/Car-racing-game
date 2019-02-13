@@ -10,7 +10,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/extLibs.dir/MainMenuState.cpp.o"
   "CMakeFiles/extLibs.dir/GameState.cpp.o"
   "CMakeFiles/extLibs.dir/GameOverState.cpp.o"
-  "CMakeFiles/extLibs.dir/Cars.cpp.o"
+  "CMakeFiles/extLibs.dir/PlayerCar.cpp.o"
+  "CMakeFiles/extLibs.dir/GameMap.cpp.o"
   "libextLibs.pdb"
   "libextLibs.a"
 )

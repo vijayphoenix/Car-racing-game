@@ -16,6 +16,12 @@ SFML/Graphics.hpp
 Car.hpp
 ../include/Car.hpp
 
+../include/Camera.hpp
+Line.hpp
+../include/Line.hpp
+SFML/Graphics.hpp
+-
+
 ../include/Car.hpp
 Game.hpp
 ../include/Game.hpp
@@ -25,16 +31,6 @@ Line.hpp
 ../include/Line.hpp
 vector
 -
-
-../include/Cars.hpp
-iostream
--
-Car.hpp
-../include/Car.hpp
-Game.hpp
-../include/Game.hpp
-DEFINITIONS.hpp
-../include/DEFINITIONS.hpp
 
 ../include/Collision.hpp
 SFML/Graphics.hpp
@@ -60,6 +56,28 @@ AssetManager.hpp
 StateMachine.hpp
 ../include/StateMachine.hpp
 
+../include/GameMap.hpp
+vector
+-
+cmath
+-
+memory
+-
+SFML/Graphics.hpp
+-
+DEFINITIONS.hpp
+../include/DEFINITIONS.hpp
+Line.hpp
+../include/Line.hpp
+State.hpp
+../include/State.hpp
+Game.hpp
+../include/Game.hpp
+PlayerCar.hpp
+../include/PlayerCar.hpp
+Camera.hpp
+../include/Camera.hpp
+
 ../include/GameOverState.hpp
 State.hpp
 ../include/State.hpp
@@ -75,8 +93,8 @@ DEFINITIONS.hpp
 ../include/DEFINITIONS.hpp
 Bot.hpp
 ../include/Bot.hpp
-Cars.hpp
-../include/Cars.hpp
+PlayerCar.hpp
+../include/PlayerCar.hpp
 State.hpp
 ../include/State.hpp
 Game.hpp
@@ -85,6 +103,10 @@ Line.hpp
 ../include/Line.hpp
 Collision.hpp
 ../include/Collision.hpp
+Camera.hpp
+../include/Camera.hpp
+GameMap.hpp
+../include/GameMap.hpp
 memory
 -
 
@@ -103,6 +125,16 @@ State.hpp
 ../include/State.hpp
 Game.hpp
 ../include/Game.hpp
+
+../include/PlayerCar.hpp
+iostream
+-
+Car.hpp
+../include/Car.hpp
+Game.hpp
+../include/Game.hpp
+DEFINITIONS.hpp
+../include/DEFINITIONS.hpp
 
 ../include/SplashState.hpp
 State.hpp
@@ -152,23 +184,15 @@ cmath
 sstream
 -
 
-/home/anjani/Desktop/POPL_PROJ/libs/Cars.cpp
-iostream
--
-cmath
--
-sstream
--
-Cars.hpp
-/home/anjani/Desktop/POPL_PROJ/libs/Cars.hpp
-DEFINITIONS.hpp
-/home/anjani/Desktop/POPL_PROJ/libs/DEFINITIONS.hpp
-
 /home/anjani/Desktop/POPL_PROJ/libs/Game.cpp
 Game.hpp
 /home/anjani/Desktop/POPL_PROJ/libs/Game.hpp
 SplashState.hpp
 /home/anjani/Desktop/POPL_PROJ/libs/SplashState.hpp
+
+/home/anjani/Desktop/POPL_PROJ/libs/GameMap.cpp
+GameMap.hpp
+/home/anjani/Desktop/POPL_PROJ/libs/GameMap.hpp
 
 /home/anjani/Desktop/POPL_PROJ/libs/GameOverState.cpp
 GameOverState.hpp
@@ -209,6 +233,18 @@ iostream
 -
 sstream
 -
+
+/home/anjani/Desktop/POPL_PROJ/libs/PlayerCar.cpp
+iostream
+-
+cmath
+-
+sstream
+-
+PlayerCar.hpp
+/home/anjani/Desktop/POPL_PROJ/libs/PlayerCar.hpp
+DEFINITIONS.hpp
+/home/anjani/Desktop/POPL_PROJ/libs/DEFINITIONS.hpp
 
 /home/anjani/Desktop/POPL_PROJ/libs/SplashState.cpp
 SplashState.hpp

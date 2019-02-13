@@ -15,9 +15,10 @@ namespace cp
 
 		float 	centrifugal = 0.5;
 		float 	friction = -max_speed / 5;
+		float playerX;
 
 		// TODO : Move it to Bot.cpp
-		void update_car(float dt, std::vector<Line> &lines, float pos, float segL) {
+		void update_car(float dt, std::vector<Line> &lines, float segL) {
 			// float speedRatio = 1;
 			// float dx = 2 * dt * speedRatio;
 			// playerX -= lines[position/segL].curve;
