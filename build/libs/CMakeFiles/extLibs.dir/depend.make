@@ -25,17 +25,6 @@ libs/CMakeFiles/extLibs.dir/Car.cpp.o: ../include/State.hpp
 libs/CMakeFiles/extLibs.dir/Car.cpp.o: ../include/StateMachine.hpp
 libs/CMakeFiles/extLibs.dir/Car.cpp.o: ../libs/Car.cpp
 
-libs/CMakeFiles/extLibs.dir/Cars.cpp.o: ../include/AssetManager.hpp
-libs/CMakeFiles/extLibs.dir/Cars.cpp.o: ../include/Car.hpp
-libs/CMakeFiles/extLibs.dir/Cars.cpp.o: ../include/Cars.hpp
-libs/CMakeFiles/extLibs.dir/Cars.cpp.o: ../include/DEFINITIONS.hpp
-libs/CMakeFiles/extLibs.dir/Cars.cpp.o: ../include/Game.hpp
-libs/CMakeFiles/extLibs.dir/Cars.cpp.o: ../include/InputManager.hpp
-libs/CMakeFiles/extLibs.dir/Cars.cpp.o: ../include/Line.hpp
-libs/CMakeFiles/extLibs.dir/Cars.cpp.o: ../include/State.hpp
-libs/CMakeFiles/extLibs.dir/Cars.cpp.o: ../include/StateMachine.hpp
-libs/CMakeFiles/extLibs.dir/Cars.cpp.o: ../libs/Cars.cpp
-
 libs/CMakeFiles/extLibs.dir/Game.cpp.o: ../include/AssetManager.hpp
 libs/CMakeFiles/extLibs.dir/Game.cpp.o: ../include/Game.hpp
 libs/CMakeFiles/extLibs.dir/Game.cpp.o: ../include/InputManager.hpp
@@ -43,6 +32,19 @@ libs/CMakeFiles/extLibs.dir/Game.cpp.o: ../include/SplashState.hpp
 libs/CMakeFiles/extLibs.dir/Game.cpp.o: ../include/State.hpp
 libs/CMakeFiles/extLibs.dir/Game.cpp.o: ../include/StateMachine.hpp
 libs/CMakeFiles/extLibs.dir/Game.cpp.o: ../libs/Game.cpp
+
+libs/CMakeFiles/extLibs.dir/GameMap.cpp.o: ../include/AssetManager.hpp
+libs/CMakeFiles/extLibs.dir/GameMap.cpp.o: ../include/Camera.hpp
+libs/CMakeFiles/extLibs.dir/GameMap.cpp.o: ../include/Car.hpp
+libs/CMakeFiles/extLibs.dir/GameMap.cpp.o: ../include/DEFINITIONS.hpp
+libs/CMakeFiles/extLibs.dir/GameMap.cpp.o: ../include/Game.hpp
+libs/CMakeFiles/extLibs.dir/GameMap.cpp.o: ../include/GameMap.hpp
+libs/CMakeFiles/extLibs.dir/GameMap.cpp.o: ../include/InputManager.hpp
+libs/CMakeFiles/extLibs.dir/GameMap.cpp.o: ../include/Line.hpp
+libs/CMakeFiles/extLibs.dir/GameMap.cpp.o: ../include/PlayerCar.hpp
+libs/CMakeFiles/extLibs.dir/GameMap.cpp.o: ../include/State.hpp
+libs/CMakeFiles/extLibs.dir/GameMap.cpp.o: ../include/StateMachine.hpp
+libs/CMakeFiles/extLibs.dir/GameMap.cpp.o: ../libs/GameMap.cpp
 
 libs/CMakeFiles/extLibs.dir/GameOverState.cpp.o: ../include/AssetManager.hpp
 libs/CMakeFiles/extLibs.dir/GameOverState.cpp.o: ../include/DEFINITIONS.hpp
@@ -56,14 +58,16 @@ libs/CMakeFiles/extLibs.dir/GameOverState.cpp.o: ../libs/GameOverState.cpp
 
 libs/CMakeFiles/extLibs.dir/GameState.cpp.o: ../include/AssetManager.hpp
 libs/CMakeFiles/extLibs.dir/GameState.cpp.o: ../include/Bot.hpp
+libs/CMakeFiles/extLibs.dir/GameState.cpp.o: ../include/Camera.hpp
 libs/CMakeFiles/extLibs.dir/GameState.cpp.o: ../include/Car.hpp
-libs/CMakeFiles/extLibs.dir/GameState.cpp.o: ../include/Cars.hpp
 libs/CMakeFiles/extLibs.dir/GameState.cpp.o: ../include/Collision.hpp
 libs/CMakeFiles/extLibs.dir/GameState.cpp.o: ../include/DEFINITIONS.hpp
 libs/CMakeFiles/extLibs.dir/GameState.cpp.o: ../include/Game.hpp
+libs/CMakeFiles/extLibs.dir/GameState.cpp.o: ../include/GameMap.hpp
 libs/CMakeFiles/extLibs.dir/GameState.cpp.o: ../include/GameState.hpp
 libs/CMakeFiles/extLibs.dir/GameState.cpp.o: ../include/InputManager.hpp
 libs/CMakeFiles/extLibs.dir/GameState.cpp.o: ../include/Line.hpp
+libs/CMakeFiles/extLibs.dir/GameState.cpp.o: ../include/PlayerCar.hpp
 libs/CMakeFiles/extLibs.dir/GameState.cpp.o: ../include/State.hpp
 libs/CMakeFiles/extLibs.dir/GameState.cpp.o: ../include/StateMachine.hpp
 libs/CMakeFiles/extLibs.dir/GameState.cpp.o: ../libs/GameState.cpp
@@ -73,18 +77,31 @@ libs/CMakeFiles/extLibs.dir/InputManager.cpp.o: ../libs/InputManager.cpp
 
 libs/CMakeFiles/extLibs.dir/MainMenuState.cpp.o: ../include/AssetManager.hpp
 libs/CMakeFiles/extLibs.dir/MainMenuState.cpp.o: ../include/Bot.hpp
+libs/CMakeFiles/extLibs.dir/MainMenuState.cpp.o: ../include/Camera.hpp
 libs/CMakeFiles/extLibs.dir/MainMenuState.cpp.o: ../include/Car.hpp
-libs/CMakeFiles/extLibs.dir/MainMenuState.cpp.o: ../include/Cars.hpp
 libs/CMakeFiles/extLibs.dir/MainMenuState.cpp.o: ../include/Collision.hpp
 libs/CMakeFiles/extLibs.dir/MainMenuState.cpp.o: ../include/DEFINITIONS.hpp
 libs/CMakeFiles/extLibs.dir/MainMenuState.cpp.o: ../include/Game.hpp
+libs/CMakeFiles/extLibs.dir/MainMenuState.cpp.o: ../include/GameMap.hpp
 libs/CMakeFiles/extLibs.dir/MainMenuState.cpp.o: ../include/GameState.hpp
 libs/CMakeFiles/extLibs.dir/MainMenuState.cpp.o: ../include/InputManager.hpp
 libs/CMakeFiles/extLibs.dir/MainMenuState.cpp.o: ../include/Line.hpp
 libs/CMakeFiles/extLibs.dir/MainMenuState.cpp.o: ../include/MainMenuState.hpp
+libs/CMakeFiles/extLibs.dir/MainMenuState.cpp.o: ../include/PlayerCar.hpp
 libs/CMakeFiles/extLibs.dir/MainMenuState.cpp.o: ../include/State.hpp
 libs/CMakeFiles/extLibs.dir/MainMenuState.cpp.o: ../include/StateMachine.hpp
 libs/CMakeFiles/extLibs.dir/MainMenuState.cpp.o: ../libs/MainMenuState.cpp
+
+libs/CMakeFiles/extLibs.dir/PlayerCar.cpp.o: ../include/AssetManager.hpp
+libs/CMakeFiles/extLibs.dir/PlayerCar.cpp.o: ../include/Car.hpp
+libs/CMakeFiles/extLibs.dir/PlayerCar.cpp.o: ../include/DEFINITIONS.hpp
+libs/CMakeFiles/extLibs.dir/PlayerCar.cpp.o: ../include/Game.hpp
+libs/CMakeFiles/extLibs.dir/PlayerCar.cpp.o: ../include/InputManager.hpp
+libs/CMakeFiles/extLibs.dir/PlayerCar.cpp.o: ../include/Line.hpp
+libs/CMakeFiles/extLibs.dir/PlayerCar.cpp.o: ../include/PlayerCar.hpp
+libs/CMakeFiles/extLibs.dir/PlayerCar.cpp.o: ../include/State.hpp
+libs/CMakeFiles/extLibs.dir/PlayerCar.cpp.o: ../include/StateMachine.hpp
+libs/CMakeFiles/extLibs.dir/PlayerCar.cpp.o: ../libs/PlayerCar.cpp
 
 libs/CMakeFiles/extLibs.dir/SplashState.cpp.o: ../include/AssetManager.hpp
 libs/CMakeFiles/extLibs.dir/SplashState.cpp.o: ../include/DEFINITIONS.hpp

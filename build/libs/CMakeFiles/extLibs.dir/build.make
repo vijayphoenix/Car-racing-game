@@ -321,28 +321,52 @@ libs/CMakeFiles/extLibs.dir/GameOverState.cpp.o.provides: libs/CMakeFiles/extLib
 libs/CMakeFiles/extLibs.dir/GameOverState.cpp.o.provides.build: libs/CMakeFiles/extLibs.dir/GameOverState.cpp.o
 
 
-libs/CMakeFiles/extLibs.dir/Cars.cpp.o: libs/CMakeFiles/extLibs.dir/flags.make
-libs/CMakeFiles/extLibs.dir/Cars.cpp.o: ../libs/Cars.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/anjani/Desktop/POPL_PROJ/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object libs/CMakeFiles/extLibs.dir/Cars.cpp.o"
-	cd /home/anjani/Desktop/POPL_PROJ/build/libs && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/extLibs.dir/Cars.cpp.o -c /home/anjani/Desktop/POPL_PROJ/libs/Cars.cpp
+libs/CMakeFiles/extLibs.dir/PlayerCar.cpp.o: libs/CMakeFiles/extLibs.dir/flags.make
+libs/CMakeFiles/extLibs.dir/PlayerCar.cpp.o: ../libs/PlayerCar.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/anjani/Desktop/POPL_PROJ/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object libs/CMakeFiles/extLibs.dir/PlayerCar.cpp.o"
+	cd /home/anjani/Desktop/POPL_PROJ/build/libs && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/extLibs.dir/PlayerCar.cpp.o -c /home/anjani/Desktop/POPL_PROJ/libs/PlayerCar.cpp
 
-libs/CMakeFiles/extLibs.dir/Cars.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/extLibs.dir/Cars.cpp.i"
-	cd /home/anjani/Desktop/POPL_PROJ/build/libs && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/anjani/Desktop/POPL_PROJ/libs/Cars.cpp > CMakeFiles/extLibs.dir/Cars.cpp.i
+libs/CMakeFiles/extLibs.dir/PlayerCar.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/extLibs.dir/PlayerCar.cpp.i"
+	cd /home/anjani/Desktop/POPL_PROJ/build/libs && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/anjani/Desktop/POPL_PROJ/libs/PlayerCar.cpp > CMakeFiles/extLibs.dir/PlayerCar.cpp.i
 
-libs/CMakeFiles/extLibs.dir/Cars.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/extLibs.dir/Cars.cpp.s"
-	cd /home/anjani/Desktop/POPL_PROJ/build/libs && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/anjani/Desktop/POPL_PROJ/libs/Cars.cpp -o CMakeFiles/extLibs.dir/Cars.cpp.s
+libs/CMakeFiles/extLibs.dir/PlayerCar.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/extLibs.dir/PlayerCar.cpp.s"
+	cd /home/anjani/Desktop/POPL_PROJ/build/libs && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/anjani/Desktop/POPL_PROJ/libs/PlayerCar.cpp -o CMakeFiles/extLibs.dir/PlayerCar.cpp.s
 
-libs/CMakeFiles/extLibs.dir/Cars.cpp.o.requires:
+libs/CMakeFiles/extLibs.dir/PlayerCar.cpp.o.requires:
 
-.PHONY : libs/CMakeFiles/extLibs.dir/Cars.cpp.o.requires
+.PHONY : libs/CMakeFiles/extLibs.dir/PlayerCar.cpp.o.requires
 
-libs/CMakeFiles/extLibs.dir/Cars.cpp.o.provides: libs/CMakeFiles/extLibs.dir/Cars.cpp.o.requires
-	$(MAKE) -f libs/CMakeFiles/extLibs.dir/build.make libs/CMakeFiles/extLibs.dir/Cars.cpp.o.provides.build
-.PHONY : libs/CMakeFiles/extLibs.dir/Cars.cpp.o.provides
+libs/CMakeFiles/extLibs.dir/PlayerCar.cpp.o.provides: libs/CMakeFiles/extLibs.dir/PlayerCar.cpp.o.requires
+	$(MAKE) -f libs/CMakeFiles/extLibs.dir/build.make libs/CMakeFiles/extLibs.dir/PlayerCar.cpp.o.provides.build
+.PHONY : libs/CMakeFiles/extLibs.dir/PlayerCar.cpp.o.provides
 
-libs/CMakeFiles/extLibs.dir/Cars.cpp.o.provides.build: libs/CMakeFiles/extLibs.dir/Cars.cpp.o
+libs/CMakeFiles/extLibs.dir/PlayerCar.cpp.o.provides.build: libs/CMakeFiles/extLibs.dir/PlayerCar.cpp.o
+
+
+libs/CMakeFiles/extLibs.dir/GameMap.cpp.o: libs/CMakeFiles/extLibs.dir/flags.make
+libs/CMakeFiles/extLibs.dir/GameMap.cpp.o: ../libs/GameMap.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/anjani/Desktop/POPL_PROJ/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object libs/CMakeFiles/extLibs.dir/GameMap.cpp.o"
+	cd /home/anjani/Desktop/POPL_PROJ/build/libs && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/extLibs.dir/GameMap.cpp.o -c /home/anjani/Desktop/POPL_PROJ/libs/GameMap.cpp
+
+libs/CMakeFiles/extLibs.dir/GameMap.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/extLibs.dir/GameMap.cpp.i"
+	cd /home/anjani/Desktop/POPL_PROJ/build/libs && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/anjani/Desktop/POPL_PROJ/libs/GameMap.cpp > CMakeFiles/extLibs.dir/GameMap.cpp.i
+
+libs/CMakeFiles/extLibs.dir/GameMap.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/extLibs.dir/GameMap.cpp.s"
+	cd /home/anjani/Desktop/POPL_PROJ/build/libs && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/anjani/Desktop/POPL_PROJ/libs/GameMap.cpp -o CMakeFiles/extLibs.dir/GameMap.cpp.s
+
+libs/CMakeFiles/extLibs.dir/GameMap.cpp.o.requires:
+
+.PHONY : libs/CMakeFiles/extLibs.dir/GameMap.cpp.o.requires
+
+libs/CMakeFiles/extLibs.dir/GameMap.cpp.o.provides: libs/CMakeFiles/extLibs.dir/GameMap.cpp.o.requires
+	$(MAKE) -f libs/CMakeFiles/extLibs.dir/build.make libs/CMakeFiles/extLibs.dir/GameMap.cpp.o.provides.build
+.PHONY : libs/CMakeFiles/extLibs.dir/GameMap.cpp.o.provides
+
+libs/CMakeFiles/extLibs.dir/GameMap.cpp.o.provides.build: libs/CMakeFiles/extLibs.dir/GameMap.cpp.o
 
 
 # Object files for target extLibs
@@ -358,7 +382,8 @@ extLibs_OBJECTS = \
 "CMakeFiles/extLibs.dir/MainMenuState.cpp.o" \
 "CMakeFiles/extLibs.dir/GameState.cpp.o" \
 "CMakeFiles/extLibs.dir/GameOverState.cpp.o" \
-"CMakeFiles/extLibs.dir/Cars.cpp.o"
+"CMakeFiles/extLibs.dir/PlayerCar.cpp.o" \
+"CMakeFiles/extLibs.dir/GameMap.cpp.o"
 
 # External object files for target extLibs
 extLibs_EXTERNAL_OBJECTS =
@@ -374,10 +399,11 @@ libs/libextLibs.a: libs/CMakeFiles/extLibs.dir/Car.cpp.o
 libs/libextLibs.a: libs/CMakeFiles/extLibs.dir/MainMenuState.cpp.o
 libs/libextLibs.a: libs/CMakeFiles/extLibs.dir/GameState.cpp.o
 libs/libextLibs.a: libs/CMakeFiles/extLibs.dir/GameOverState.cpp.o
-libs/libextLibs.a: libs/CMakeFiles/extLibs.dir/Cars.cpp.o
+libs/libextLibs.a: libs/CMakeFiles/extLibs.dir/PlayerCar.cpp.o
+libs/libextLibs.a: libs/CMakeFiles/extLibs.dir/GameMap.cpp.o
 libs/libextLibs.a: libs/CMakeFiles/extLibs.dir/build.make
 libs/libextLibs.a: libs/CMakeFiles/extLibs.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/anjani/Desktop/POPL_PROJ/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX static library libextLibs.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/anjani/Desktop/POPL_PROJ/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX static library libextLibs.a"
 	cd /home/anjani/Desktop/POPL_PROJ/build/libs && $(CMAKE_COMMAND) -P CMakeFiles/extLibs.dir/cmake_clean_target.cmake
 	cd /home/anjani/Desktop/POPL_PROJ/build/libs && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/extLibs.dir/link.txt --verbose=$(VERBOSE)
 
@@ -397,7 +423,8 @@ libs/CMakeFiles/extLibs.dir/requires: libs/CMakeFiles/extLibs.dir/Car.cpp.o.requ
 libs/CMakeFiles/extLibs.dir/requires: libs/CMakeFiles/extLibs.dir/MainMenuState.cpp.o.requires
 libs/CMakeFiles/extLibs.dir/requires: libs/CMakeFiles/extLibs.dir/GameState.cpp.o.requires
 libs/CMakeFiles/extLibs.dir/requires: libs/CMakeFiles/extLibs.dir/GameOverState.cpp.o.requires
-libs/CMakeFiles/extLibs.dir/requires: libs/CMakeFiles/extLibs.dir/Cars.cpp.o.requires
+libs/CMakeFiles/extLibs.dir/requires: libs/CMakeFiles/extLibs.dir/PlayerCar.cpp.o.requires
+libs/CMakeFiles/extLibs.dir/requires: libs/CMakeFiles/extLibs.dir/GameMap.cpp.o.requires
 
 .PHONY : libs/CMakeFiles/extLibs.dir/requires
 

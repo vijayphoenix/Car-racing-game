@@ -6,31 +6,30 @@
 #include "DEFINITIONS.hpp"
 
 namespace cp{
-	class Cars : public Car{
+	class PlayerCar : public Car{
 		public:
-		Cars		(GameDataRef _data,int _car_num,float &cspeed,float &cplayerX);
-		~Cars		();
+		PlayerCar		(GameDataRef _data,int _car_num,float &cspeed);
+		~PlayerCar		();
 
 		//// TODO: Create a driver class and then use the driver object to finally give
 		////		a vector to the car for it's movement
 
 		// TODO: Move these functions to Cars.cpp
-		// TODO: Choose a better name for this class
-		void update_car(float dt, std::vector<Line> &lines, float pos, float segL) {
+		void update_car(float dt, std::vector<Line> &lines, float segL) {
 			///////// Updating the camera's position ///////////////////
 			float speedRatio = cspeed / max_speed;
 			float dx = 2 * dt * speedRatio;
 			bool l=false,r=false;
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)){
-				cplayerX -= dx;
+				playerX -= dx;
 				l=true;
 			}
 			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)){
-				cplayerX += dx;
+				playerX += dx;
 				r=true;
 			}
 
-			cplayerX -= (dx * speedRatio * lines[pos/segL].curve * centrifugal);
+			playerX -= (dx * speedRatio * lines[pos/segL].curve * centrifugal);
 			///////////////////////////////////////////////////
 
 			/////////// Updating the camera's speed //////////////////////////
@@ -85,9 +84,13 @@ namespace cp{
 		float centrifugal	= 0.5;
 		float friction 		= -max_speed/5;
 
+        float       playerX = 0;	// The normalised players X position in 3D
+        int         pos = 0;	    // The players Z position
 		private:
 		float &cspeed;
-		float &cplayerX;
 	};
 }
 #endif //CARS_HPP
+
+
+// TODO: Choose a better name for this class \//Done

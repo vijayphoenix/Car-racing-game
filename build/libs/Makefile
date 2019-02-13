@@ -206,33 +206,6 @@ Car.cpp.s:
 	cd /home/anjani/Desktop/POPL_PROJ/build && $(MAKE) -f libs/CMakeFiles/extLibs.dir/build.make libs/CMakeFiles/extLibs.dir/Car.cpp.s
 .PHONY : Car.cpp.s
 
-Cars.o: Cars.cpp.o
-
-.PHONY : Cars.o
-
-# target to build an object file
-Cars.cpp.o:
-	cd /home/anjani/Desktop/POPL_PROJ/build && $(MAKE) -f libs/CMakeFiles/extLibs.dir/build.make libs/CMakeFiles/extLibs.dir/Cars.cpp.o
-.PHONY : Cars.cpp.o
-
-Cars.i: Cars.cpp.i
-
-.PHONY : Cars.i
-
-# target to preprocess a source file
-Cars.cpp.i:
-	cd /home/anjani/Desktop/POPL_PROJ/build && $(MAKE) -f libs/CMakeFiles/extLibs.dir/build.make libs/CMakeFiles/extLibs.dir/Cars.cpp.i
-.PHONY : Cars.cpp.i
-
-Cars.s: Cars.cpp.s
-
-.PHONY : Cars.s
-
-# target to generate assembly for a file
-Cars.cpp.s:
-	cd /home/anjani/Desktop/POPL_PROJ/build && $(MAKE) -f libs/CMakeFiles/extLibs.dir/build.make libs/CMakeFiles/extLibs.dir/Cars.cpp.s
-.PHONY : Cars.cpp.s
-
 Game.o: Game.cpp.o
 
 .PHONY : Game.o
@@ -259,6 +232,33 @@ Game.s: Game.cpp.s
 Game.cpp.s:
 	cd /home/anjani/Desktop/POPL_PROJ/build && $(MAKE) -f libs/CMakeFiles/extLibs.dir/build.make libs/CMakeFiles/extLibs.dir/Game.cpp.s
 .PHONY : Game.cpp.s
+
+GameMap.o: GameMap.cpp.o
+
+.PHONY : GameMap.o
+
+# target to build an object file
+GameMap.cpp.o:
+	cd /home/anjani/Desktop/POPL_PROJ/build && $(MAKE) -f libs/CMakeFiles/extLibs.dir/build.make libs/CMakeFiles/extLibs.dir/GameMap.cpp.o
+.PHONY : GameMap.cpp.o
+
+GameMap.i: GameMap.cpp.i
+
+.PHONY : GameMap.i
+
+# target to preprocess a source file
+GameMap.cpp.i:
+	cd /home/anjani/Desktop/POPL_PROJ/build && $(MAKE) -f libs/CMakeFiles/extLibs.dir/build.make libs/CMakeFiles/extLibs.dir/GameMap.cpp.i
+.PHONY : GameMap.cpp.i
+
+GameMap.s: GameMap.cpp.s
+
+.PHONY : GameMap.s
+
+# target to generate assembly for a file
+GameMap.cpp.s:
+	cd /home/anjani/Desktop/POPL_PROJ/build && $(MAKE) -f libs/CMakeFiles/extLibs.dir/build.make libs/CMakeFiles/extLibs.dir/GameMap.cpp.s
+.PHONY : GameMap.cpp.s
 
 GameOverState.o: GameOverState.cpp.o
 
@@ -368,6 +368,33 @@ MainMenuState.cpp.s:
 	cd /home/anjani/Desktop/POPL_PROJ/build && $(MAKE) -f libs/CMakeFiles/extLibs.dir/build.make libs/CMakeFiles/extLibs.dir/MainMenuState.cpp.s
 .PHONY : MainMenuState.cpp.s
 
+PlayerCar.o: PlayerCar.cpp.o
+
+.PHONY : PlayerCar.o
+
+# target to build an object file
+PlayerCar.cpp.o:
+	cd /home/anjani/Desktop/POPL_PROJ/build && $(MAKE) -f libs/CMakeFiles/extLibs.dir/build.make libs/CMakeFiles/extLibs.dir/PlayerCar.cpp.o
+.PHONY : PlayerCar.cpp.o
+
+PlayerCar.i: PlayerCar.cpp.i
+
+.PHONY : PlayerCar.i
+
+# target to preprocess a source file
+PlayerCar.cpp.i:
+	cd /home/anjani/Desktop/POPL_PROJ/build && $(MAKE) -f libs/CMakeFiles/extLibs.dir/build.make libs/CMakeFiles/extLibs.dir/PlayerCar.cpp.i
+.PHONY : PlayerCar.cpp.i
+
+PlayerCar.s: PlayerCar.cpp.s
+
+.PHONY : PlayerCar.s
+
+# target to generate assembly for a file
+PlayerCar.cpp.s:
+	cd /home/anjani/Desktop/POPL_PROJ/build && $(MAKE) -f libs/CMakeFiles/extLibs.dir/build.make libs/CMakeFiles/extLibs.dir/PlayerCar.cpp.s
+.PHONY : PlayerCar.cpp.s
+
 SplashState.o: SplashState.cpp.o
 
 .PHONY : SplashState.o
@@ -467,12 +494,12 @@ help:
 	@echo "... Car.o"
 	@echo "... Car.i"
 	@echo "... Car.s"
-	@echo "... Cars.o"
-	@echo "... Cars.i"
-	@echo "... Cars.s"
 	@echo "... Game.o"
 	@echo "... Game.i"
 	@echo "... Game.s"
+	@echo "... GameMap.o"
+	@echo "... GameMap.i"
+	@echo "... GameMap.s"
 	@echo "... GameOverState.o"
 	@echo "... GameOverState.i"
 	@echo "... GameOverState.s"
@@ -485,6 +512,9 @@ help:
 	@echo "... MainMenuState.o"
 	@echo "... MainMenuState.i"
 	@echo "... MainMenuState.s"
+	@echo "... PlayerCar.o"
+	@echo "... PlayerCar.i"
+	@echo "... PlayerCar.s"
 	@echo "... SplashState.o"
 	@echo "... SplashState.i"
 	@echo "... SplashState.s"
