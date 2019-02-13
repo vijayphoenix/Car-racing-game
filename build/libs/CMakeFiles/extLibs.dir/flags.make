@@ -6,5 +6,5 @@ CXX_FLAGS =  -std=c++0x -O3 -DNDEBUG
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/anjani/Desktop/POPL_PROJ/include 
+CXX_INCLUDES = -I/home/vijay/Desktop/POPL2_project/include 
 

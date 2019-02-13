@@ -1,4 +1,4 @@
-# Install script for directory: /home/anjani/Desktop/POPL_PROJ/libs
+# Install script for directory: /home/vijay/Desktop/POPL2_project/libs
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
