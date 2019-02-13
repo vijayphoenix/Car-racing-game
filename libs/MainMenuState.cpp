@@ -1,14 +1,15 @@
-#include <iostream>
-#include <sstream>
 #include "MainMenuState.hpp"
 #include "GameState.hpp"
 #include "DEFINITIONS.hpp"
 
+#include <iostream>
+#include <sstream>
+
 namespace cp
 {
-	MainMenuState::MainMenuState(GameDataRef _data):data(_data){}
-
-	void MainMenuState::init(){
+	MainMenuState::MainMenuState(GameDataRef _data):data(_data){
+	}
+	void MainMenuState::init() {
 		data->assets.load_texture("MainMenuStateBackground",MAIN_MENU_BACKGROUND_FILEPATH);
 		// data->assets.load_texture("GameTitle", GAME_TITLE_FILEPATH);
 		data->assets.load_texture("PlayButton", PLAY_BUTTON_FILEPATH);
@@ -23,8 +24,7 @@ namespace cp
 		// title_sprite.setPosition(SCREEN_WIDTH/2-title_sprite.getGlobalBounds().width/2,title_sprite.getGlobalBounds().height/2);
 		play_button_sprite.setPosition(SCREEN_WIDTH / 2 - play_button_sprite.getGlobalBounds().width / 2, SCREEN_HEIGHT / 2 - play_button_sprite.getGlobalBounds().height / 2);
 	}
-
-	void MainMenuState::handle_input(){
+	void MainMenuState::handle_input() {
 		sf::Event event;
 		while(data->window.pollEvent(event))
 			if(sf::Event::Closed==event.type)
@@ -34,8 +34,7 @@ namespace cp
 				data->machine.add_state(StateRef(new GameState(data)), true);
 			}
 	}
-
-	void MainMenuState::draw(float delta){
+	void MainMenuState::draw(float delta) {
 		data->window.clear();
 		data->window.draw(background_sprite);
 		data->window.draw(title_sprite);

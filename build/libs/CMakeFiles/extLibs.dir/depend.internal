@@ -3,7 +3,7 @@
 
 libs/CMakeFiles/extLibs.dir/AssetManager.cpp.o
  ../include/AssetManager.hpp
- /home/vijay/Desktop/POPL2_project/libs/AssetManager.cpp
+ /home/anjani/Desktop/POPL_PROJ/libs/AssetManager.cpp
 libs/CMakeFiles/extLibs.dir/Bot.cpp.o
  ../include/AssetManager.hpp
  ../include/Bot.hpp
@@ -14,7 +14,7 @@ libs/CMakeFiles/extLibs.dir/Bot.cpp.o
  ../include/Line.hpp
  ../include/State.hpp
  ../include/StateMachine.hpp
- /home/vijay/Desktop/POPL2_project/libs/Bot.cpp
+ /home/anjani/Desktop/POPL_PROJ/libs/Bot.cpp
 libs/CMakeFiles/extLibs.dir/Car.cpp.o
  ../include/AssetManager.hpp
  ../include/Car.hpp
@@ -24,18 +24,7 @@ libs/CMakeFiles/extLibs.dir/Car.cpp.o
  ../include/Line.hpp
  ../include/State.hpp
  ../include/StateMachine.hpp
- /home/vijay/Desktop/POPL2_project/libs/Car.cpp
-libs/CMakeFiles/extLibs.dir/Cars.cpp.o
- ../include/AssetManager.hpp
- ../include/Car.hpp
- ../include/Cars.hpp
- ../include/DEFINITIONS.hpp
- ../include/Game.hpp
- ../include/InputManager.hpp
- ../include/Line.hpp
- ../include/State.hpp
- ../include/StateMachine.hpp
- /home/vijay/Desktop/POPL2_project/libs/Cars.cpp
+ /home/anjani/Desktop/POPL_PROJ/libs/Car.cpp
 libs/CMakeFiles/extLibs.dir/Game.cpp.o
  ../include/AssetManager.hpp
  ../include/Game.hpp
@@ -43,7 +32,20 @@ libs/CMakeFiles/extLibs.dir/Game.cpp.o
  ../include/SplashState.hpp
  ../include/State.hpp
  ../include/StateMachine.hpp
- /home/vijay/Desktop/POPL2_project/libs/Game.cpp
+ /home/anjani/Desktop/POPL_PROJ/libs/Game.cpp
+libs/CMakeFiles/extLibs.dir/GameMap.cpp.o
+ ../include/AssetManager.hpp
+ ../include/Camera.hpp
+ ../include/Car.hpp
+ ../include/DEFINITIONS.hpp
+ ../include/Game.hpp
+ ../include/GameMap.hpp
+ ../include/InputManager.hpp
+ ../include/Line.hpp
+ ../include/PlayerCar.hpp
+ ../include/State.hpp
+ ../include/StateMachine.hpp
+ /home/anjani/Desktop/POPL_PROJ/libs/GameMap.cpp
 libs/CMakeFiles/extLibs.dir/GameOverState.cpp.o
  ../include/AssetManager.hpp
  ../include/DEFINITIONS.hpp
@@ -53,39 +55,54 @@ libs/CMakeFiles/extLibs.dir/GameOverState.cpp.o
  ../include/MainMenuState.hpp
  ../include/State.hpp
  ../include/StateMachine.hpp
- /home/vijay/Desktop/POPL2_project/libs/GameOverState.cpp
+ /home/anjani/Desktop/POPL_PROJ/libs/GameOverState.cpp
 libs/CMakeFiles/extLibs.dir/GameState.cpp.o
  ../include/AssetManager.hpp
  ../include/Bot.hpp
+ ../include/Camera.hpp
  ../include/Car.hpp
- ../include/Cars.hpp
  ../include/Collision.hpp
  ../include/DEFINITIONS.hpp
  ../include/Game.hpp
+ ../include/GameMap.hpp
  ../include/GameState.hpp
  ../include/InputManager.hpp
  ../include/Line.hpp
+ ../include/PlayerCar.hpp
  ../include/State.hpp
  ../include/StateMachine.hpp
- /home/vijay/Desktop/POPL2_project/libs/GameState.cpp
+ /home/anjani/Desktop/POPL_PROJ/libs/GameState.cpp
 libs/CMakeFiles/extLibs.dir/InputManager.cpp.o
  ../include/InputManager.hpp
- /home/vijay/Desktop/POPL2_project/libs/InputManager.cpp
+ /home/anjani/Desktop/POPL_PROJ/libs/InputManager.cpp
 libs/CMakeFiles/extLibs.dir/MainMenuState.cpp.o
  ../include/AssetManager.hpp
  ../include/Bot.hpp
+ ../include/Camera.hpp
  ../include/Car.hpp
- ../include/Cars.hpp
  ../include/Collision.hpp
  ../include/DEFINITIONS.hpp
  ../include/Game.hpp
+ ../include/GameMap.hpp
  ../include/GameState.hpp
  ../include/InputManager.hpp
  ../include/Line.hpp
  ../include/MainMenuState.hpp
+ ../include/PlayerCar.hpp
  ../include/State.hpp
  ../include/StateMachine.hpp
- /home/vijay/Desktop/POPL2_project/libs/MainMenuState.cpp
+ /home/anjani/Desktop/POPL_PROJ/libs/MainMenuState.cpp
+libs/CMakeFiles/extLibs.dir/PlayerCar.cpp.o
+ ../include/AssetManager.hpp
+ ../include/Car.hpp
+ ../include/DEFINITIONS.hpp
+ ../include/Game.hpp
+ ../include/InputManager.hpp
+ ../include/Line.hpp
+ ../include/PlayerCar.hpp
+ ../include/State.hpp
+ ../include/StateMachine.hpp
+ /home/anjani/Desktop/POPL_PROJ/libs/PlayerCar.cpp
 libs/CMakeFiles/extLibs.dir/SplashState.cpp.o
  ../include/AssetManager.hpp
  ../include/DEFINITIONS.hpp
@@ -95,10 +112,10 @@ libs/CMakeFiles/extLibs.dir/SplashState.cpp.o
  ../include/SplashState.hpp
  ../include/State.hpp
  ../include/StateMachine.hpp
- /home/vijay/Desktop/POPL2_project/libs/SplashState.cpp
+ /home/anjani/Desktop/POPL_PROJ/libs/SplashState.cpp
 libs/CMakeFiles/extLibs.dir/State.cpp.o
- /home/vijay/Desktop/POPL2_project/libs/State.cpp
+ /home/anjani/Desktop/POPL_PROJ/libs/State.cpp
 libs/CMakeFiles/extLibs.dir/StateMachine.cpp.o
  ../include/State.hpp
  ../include/StateMachine.hpp
- /home/vijay/Desktop/POPL2_project/libs/StateMachine.cpp
+ /home/anjani/Desktop/POPL_PROJ/libs/StateMachine.cpp

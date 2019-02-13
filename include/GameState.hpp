@@ -3,60 +3,105 @@
 #include <SFML/Graphics.hpp>
 #include "DEFINITIONS.hpp"
 #include "Bot.hpp"
-#include "Cars.hpp"
+#include "PlayerCar.hpp"
 #include "State.hpp"
 #include "Game.hpp"
 #include "Line.hpp"
 #include "Collision.hpp"
+#include "Camera.hpp"
+#include "GameMap.hpp"
 #include <memory>
+
+
 namespace cp
 {
-	class GameState : public State
-	{
-	  public:
-		GameState(GameDataRef _data);
-		// ~GameState();
+    class GameState : public State {
+        public:
 
-		std::vector<Line>lines;
-		void init();
-		void handle_input();
-		void draw(float delta);
-		void draw_quad(sf::Color c, int x1, int y1, int w1, int x2, int y2, int w2);
-		void update(float delta);
+        GameState               (GameDataRef _data);
+        ~GameState              () {}
+        void init		        ();
+        void handle_input       ();
+        void draw               (float delta);
+        // void draw_quad          (sf::Color c, int x1, int y1, int w1, int x2, int y2, int w2);
+        void update             (float delta);
 
-	  private:
-		GameDataRef data;
-		sf::Clock clock;
-		float current_time=0;
-		float new_time=0;
-		sf::Sprite background_sprite;
-		int width = SCREEN_WIDTH;
-		int height = SCREEN_HEIGHT;
-		int roadW = 4000;
-		int segL = 200;	//segment length
-		float camD = 0.84; //camera depth
+        private:
+        ////////// Data related to game ( assets, states, renderer, ... ) ////////
+        GameDataRef data;
+        /////////////////////////////////////////
 
-		sf::Texture t[10];
-		sf::Sprite object[10];
-		sf::Sprite s;
+        ////////// The Game clock ///////////////
+        sf::Clock   clock;
+        float       current_time=0;
+        float       new_time=0;
+        ///////////////////////////////////////
 
-		int N;
-		float speed = 0;
-		float playerX = 0;
-		int pos = 0;
-		int H = 1500;
-		int bot_pos = 0;
+        /////////// The GameMap ////////////////////
+        GameMap map;
+        //////////////////////////////////////////
+        sf::Sprite  s;
+        int         temp=0;
 
-		void project(Line &line, int camX, int camY, int camZ);
+        Camera main_camera;
 
-		void drawSprite(Line &line);
 
-		std::unique_ptr<Cars> car;
-		std::unique_ptr<Bot> bot;
+        ///////// The Bots drones.. /////////
+        std::unique_ptr<Bot>    bot[TOTAL_BOTS];
+        int                     bot_pos[TOTAL_BOTS] ={};
+        //////////////////////////////////
 
-		Collision collision;
+        ///////// The player Car ////////
+        std::unique_ptr<PlayerCar>   car;
+        //////////////////////////////////
 
-	};
+        ///////// The collision Handler ///
+        Collision               collision;
+        ///////////////////////////////////
+
+        // void project    (Line &line, int camX, int camY, int camZ);
+        void drawSprite (Line &line);
+
+
+        ///////// Debug Temp Functions ////
+        void handle_road_width(int dt) {
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+            {
+                map.roadW+=dt;
+                std::cout<<"Increased road width "<<map.roadW<<std::endl;
+            }
+            else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+            {
+                map.roadW-=dt;
+                std::cout<<"Decreased road width "<<map.roadW<<std::endl;
+            }
+        }
+        void handle_segL(int dt) {
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::O))
+            {
+                map.segL+=dt;
+                std::cout<<"Increased map.segL width "<<map.segL<<std::endl;
+            }
+            else if (sf::Keyboard::isKeyPressed(sf::Keyboard::L))
+            {
+                map.segL-=dt;
+                std::cout<<"Decreased map.segL width "<<map.segL<<std::endl;
+            }
+        }
+        void handle_camD(float dt) {
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::I))
+            {
+                main_camera.camD+=dt;
+                std::cout<<"Increased camD width "<<main_camera.camD<<std::endl;
+            }
+            else if (sf::Keyboard::isKeyPressed(sf::Keyboard::K))
+            {
+                main_camera.camD-=dt;
+                std::cout<<"Decreased camD width "<<main_camera.camD<<std::endl;
+            }
+        }
+        //////////////////////////////////////
+    };
 } // namespace cp
 
 #endif //GAMESTATE_HPP
