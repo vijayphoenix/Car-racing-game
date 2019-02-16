@@ -13,23 +13,11 @@ matrix:
     - os: linux
       addons:
         apt:
-          sources:
-            - ubuntu-toolchain-r-test
           packages:
-            - libx11-dev
-            - freeglut3-dev
-            - libjpeg-dev
-            - libfreetype6-dev
-            - libxrandr-dev
-            - libglew-dev
-            - libsndfile1-dev
-            - libopenal-dev
-            - libudev-dev
             - cmake
       env:
         - MATRIX_EVAL="CC=gcc && CXX=g++"
 before_install:
-  - sudo apt-get install libx11-dev freeglut3-dev libjpeg-dev libfreetype6-dev libxrandr-dev libglew-dev libsndfile1-dev libopenal-dev libudev-dev
   - sudo apt-get install libsfml-dev
 script:
   - cd build && cmake .. && make
