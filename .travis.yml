@@ -1,3 +1,4 @@
+dist: trusty
 sudo: require
 language: cpp
 compiler:
@@ -5,7 +6,30 @@ compiler:
 branches:
   only:
   - master
-install:
+
+matrix:
+  include:
+    # works on Precise and Trusty
+    - os: linux
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - libx11-dev
+            - freeglut3-dev
+            - libjpeg-dev
+            - libfreetype6-dev
+            - libxrandr-dev
+            - libglew-dev
+            - libsndfile1-dev
+            - libopenal-dev
+            - libudev-dev
+            - cmake
+      env:
+        - MATRIX_EVAL="CC=gcc && CXX=g++"
+before_install:
+  - sudo apt-get install libx11-dev freeglut3-dev libjpeg-dev libfreetype6-dev libxrandr-dev libglew-dev libsndfile1-dev libopenal-dev libudev-dev
   - sudo apt-get install libsfml-dev
 script:
-  - ls
+  - cd build && cmake .. && make
