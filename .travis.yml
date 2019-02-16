@@ -1,0 +1,11 @@
+sudo: require
+language: cpp
+compiler:
+  - gcc
+branches:
+  only:
+  - master
+install:
+  - sudo apt-get install libsfml-dev
+script:
+  - ls
