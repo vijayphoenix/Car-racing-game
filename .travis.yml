@@ -1,4 +1,3 @@
-dist: trusty
 sudo: require
 language: cpp
 compiler:
@@ -9,7 +8,6 @@ branches:
 
 matrix:
   include:
-    # works on Precise and Trusty
     - os: linux
       addons:
         apt:
