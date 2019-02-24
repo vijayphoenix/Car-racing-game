@@ -9,54 +9,30 @@ namespace cp{
 	PlayerCar::PlayerCar(GameDataRef _data, int car_num, float cspeed)
 		:Car(_data,car_num){
 		/////// Setting up entity ////////
-		e_speed = sf::Vector3f(0, 0, 200);
+		e_speed = sf::Vector3f(0, 0, 0);
 		///////////////////////////////////
 		sprite.setTexture(data->assets.get_texture("CarImage" + std::to_string(car_image_num)));
 		e_position.x = 1.0;
 		e_position.z = 2000;
+		car_mass=100;
 	}
 	PlayerCar::~PlayerCar() {
 	}
 	void PlayerCar::update_car(const float dt, const std::vector<Line> &lines, const float segL) {
 		///////// Updating the camera's position ///////////////////
+		// e_position += e_speed;
 		float speedRatio = e_speed.z / e_max_speed.z; //ASDF
-
 		float dx = 2 * dt * speedRatio;
-
-		bool l = false, r = false;
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-		{
-			e_position.x -= dx;
-			l = true;
-		}
-		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-		{
-			e_position.x += dx;
-			r = true;
-		}
 		Line index_line = lines[e_position.z / segL];
 		e_position.x -= (dx * speedRatio * index_line.curve * centrifugal);
 		///////////////////////////////////////////////////
 
-		/////////// Updating the camera's speed //////////////////////////
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-		{
-			e_speed.z += e_acceleration.z * dt;
-		}
-		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-		{
-			e_speed.z += e_decleration.z * dt;
-		}
-		else {
-			e_speed.z += friction * dt;
-		}
-		e_speed.z = std::max(0.0f, std::min(e_speed.z, e_max_speed.z));
+		// e_speed.z = std::max(0.0f, std::min(e_speed.z, e_max_speed.z));
 		/////////////////////////////////////////////////////////////////
 
 		/////////// Animating the sprite for the car //////////////////////
 		car_image_num = 5;
-
-		if (e_speed.z > 0.1)
+		if (std::abs(e_speed.z) > 0.1)
 		{
 			if (l)
 				car_image_num = 3;
@@ -65,8 +41,8 @@ namespace cp{
 			sprite.setTexture(data->assets.get_texture("CarImage" + std::to_string(car_image_num)));
 		}
 		/////////////////////////////////////////////////////////////////////
-		e_position.z += e_speed.z;
-		e_position.y = index_line.y;
+		// e_position.z += e_speed.z;
+		// e_position.y = index_line.y;
 		// std::cout << "PlayerCar::update_car " << e_position.y << " " << index_line.y << std::endl;
 	}
 	void PlayerCar::drawSprite(const Line &line) {
@@ -92,31 +68,51 @@ namespace cp{
 		data->window.draw(s);
 	}
 	void PlayerCar::onCollision(const Car& bot , bool front) {
-		if(front)e_speed.z = 200;
+		std::cout<<"car info = "<<e_speed.x<<" "<<e_speed.y<<" "<<e_speed.z<<std::endl;
+		std::cout << "bot info = " <<bot.e_speed.x << " " << bot.e_speed.y << " " << bot.e_speed.z << std::endl;
+		if(front)e_speed.z/=2;
 		else e_speed.z+= 100;
-		e_speed.z = std::max(0.0f, std::min(e_speed.z, e_max_speed.z));
+		e_speed.z = std::max(-50.0f, std::min(e_speed.z, e_max_speed.z));
 	}
-	void PlayerCar::handle_input() {
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+	void PlayerCar::handle_input(float dt) {
+		float speedRatio = e_speed.z / e_max_speed.z;
+		float dx = 2 * dt * speedRatio;
+		l=r =false;
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
 		{
-			e_position.z -= e_speed.z;
+			e_speed.z += e_acceleration.z * dt;
 		}
-		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
 		{
-			// std::cout << "initial:" << e_position.z << std::endl;
-			e_position.z += e_speed.z;
-			// std::cout<<"E_SEPP:"<<e_speed.z<<std::endl;
-			// std::cout << "THe value found " << e_position.z << std::endl;
+			e_speed.z += e_decleration.z * dt;
 		}
+		// else
+		// {
+		// 	if(speedRatio>0)e_speed.z += friction * dt;
+		// }
+		e_speed.z = std::max(-50.0f, std::min(e_speed.z, e_max_speed.z));
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 		{
-			e_position.x -= 0.1;
+			e_position.x -= dx;
+			l = true;
 		}
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 		{
-			e_position.x += 0.1;
-			// std::cout << "For x:" << e_position.x << std::endl;
+			e_position.x += dx;
+			r = true;
 		}
+		e_position+=e_speed;
+		// if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+		// {
+		// 	e_position.z -= e_speed.z;
+		// }
+		// else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+		// {
+		// 	// std::cout << "initial:" << e_position.z << std::endl;
+		// 	e_position.z += e_speed.z;
+		// 	// std::cout<<"E_SEPP:"<<e_speed.z<<std::endl;
+		// 	// std::cout << "THe value found " << e_position.z << std::endl;
+		// }
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::P))
 		{
 			std::cout << "For Bot:" << e_position.x << " " << e_position.y << std::endl;

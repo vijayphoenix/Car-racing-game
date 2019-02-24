@@ -15,7 +15,7 @@ namespace cp
 		background_sprite.scale(1,600.0f/512.0f);
 		background_sprite.setPosition(SCREEN_WIDTH / 2 - background_sprite.getGlobalBounds().width / 2, SCREEN_HEIGHT / 2.1f - background_sprite.getGlobalBounds().height / 2);
 	}
-	void SplashState::handle_input() {
+	void SplashState::handle_input(float delta) {
 		sf::Event event;
 		while(data->window.pollEvent(event))
 			if(sf::Event::Closed==event.type)

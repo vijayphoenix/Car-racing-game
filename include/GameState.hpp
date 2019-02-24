@@ -20,7 +20,7 @@ namespace cp
         GameState               (GameDataRef _data);
         ~GameState              () {}
         void init		            ();
-        void handle_input       ();
+        void handle_input       (float delta);
         void draw               (float delta);
         void update             (float delta);
         void drawSprite         (Line &line);
@@ -34,9 +34,9 @@ namespace cp
         /////////////////////////////////////////
 
         ////////// The Game clock ///////////////
-        sf::Clock  clock;
-        float       current_time=0;
-        float       new_time=0;
+        // sf::Clock  clock;
+        // float       current_time=0;
+        // float       new_time=0;
         ///////////////////////////////////////
 
         /////////// The GameMap ////////////////////

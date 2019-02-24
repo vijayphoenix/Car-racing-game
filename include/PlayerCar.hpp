@@ -16,9 +16,9 @@ namespace cp{
 		void drawSprite	(const Line &line);
 		void onCollision(const Car& bot, bool front);
 		void drawUsingCamera(const Camera& main_camera);
-		float friction 	= -e_max_speed.z/5;
+		float friction 	= e_max_speed.z/5;
 		void project(Line &line, float camX, float camY, float camZ, float camD);
-		void handle_input();
+		void handle_input(float dt);
 	};
 }
 #endif //CARS_HPP

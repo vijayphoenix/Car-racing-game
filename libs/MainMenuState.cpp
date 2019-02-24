@@ -19,7 +19,7 @@ namespace cp
 		play_button_sprite.scale(Scaling_factor);
 		play_button_sprite.setPosition(SCREEN_WIDTH / 2 - play_button_sprite.getGlobalBounds().width / 2, SCREEN_HEIGHT / 2 - play_button_sprite.getGlobalBounds().height / 2);
 	}
-	void MainMenuState::handle_input() {
+	void MainMenuState::handle_input(float delta) {
 		sf::Event event;
 		while(data->window.pollEvent(event)) {
 			if(sf::Event::Closed==event.type) {
@@ -28,10 +28,10 @@ namespace cp
 			else if(data->input.is_sprite_clicked(play_button_sprite,sf::Mouse::Left,data->window)){
 				std::cout << "Button is pressed" << std::endl;
 				//////// The NetworkManager /////
-				data->Nmanager.n_thread = std::thread(data->Nmanager.createServer);
-				data->Nmanager.n_thread.join();
-				//////////// Starting NetworkManager ////////////
-				Log("MainMenuState::handle_input", "Pushed game state");
+				// data->Nmanager.n_thread = std::thread(data->Nmanager.createServer);
+				// data->Nmanager.n_thread.join();
+				// //////////// Starting NetworkManager ////////////
+				// Log("MainMenuState::handle_input", "Pushed game state");
 				/////////////////////////////////
 				data->machine.add_state(StateRef(new GameState(data)), true);
 			}

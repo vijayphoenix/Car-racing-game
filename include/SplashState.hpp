@@ -17,7 +17,7 @@ namespace cp
 		~SplashState		();
 
 		void init			();
-		void handle_input	();
+		void handle_input	(float delta);
 		void draw			(float delta);
 		void update			(float delta);
 	};

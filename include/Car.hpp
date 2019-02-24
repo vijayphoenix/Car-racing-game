@@ -26,6 +26,7 @@ namespace cp{
 		// protected:
 		///////// Sprite Info's //////////////////////////////////
 		int car_image_num;
+		bool l = false, r = false;
 		sf::Sprite sprite;
 		//////////////////////////////////////////////////////////
 
@@ -41,6 +42,8 @@ namespace cp{
 		sf::Vector3f e_max_speed;
 		float centrifugal = 0.5;
 		//////////////////////////////////////////////////////////
+
+		float car_mass=0;
 	};
 }
 #endif //CAR_HPP
