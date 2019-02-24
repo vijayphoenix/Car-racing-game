@@ -67,23 +67,17 @@ namespace cp{
 			}
 		}
 	}
-
 	void NetworkManager::receiveData(sf::Vector3f &pos){
 		std::thread receiverThread(receive, std::ref(pos));
 		receiverThread.join();
 	}
-
-	void NetworkManager::receive(sf::Vector3f &pos)
-	{
+	void NetworkManager::receive(sf::Vector3f &pos) {
 		sf::Packet packet;
-		if (socket.receive(packet) != sf::Socket::Done)
-		{
+		if (socket.receive(packet) != sf::Socket::Done) {
 			std::cerr << "error not able to receive data" << std::endl;
 		}
-		else{
-			std::cout << "Received " << std::endl;
+		else {
 			packet>>pos.x>>pos.y>>pos.z;
-			std::cout<<pos.x<<" "<<pos.y<<" "<<pos.z<<std::endl;
 		}
 	}
 }

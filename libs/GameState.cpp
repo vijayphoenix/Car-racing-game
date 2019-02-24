@@ -7,7 +7,6 @@
 namespace cp
 {
 	GameState::GameState(GameDataRef _data) : data(_data), map(_data){
-		network_handle= std::thread(network_handler,data);
 	}
 	void GameState::init() {
 
@@ -32,6 +31,7 @@ namespace cp
 		////// The Game Begins ///////////////////////
 		current_time=clock.getElapsedTime().asSeconds();
 		//////////////////////////////////////////////
+		network_handle = std::thread(network_handler, data, car, bot[0]);
 	}
 	void GameState::handle_input() {
 		sf::Event event;
@@ -44,12 +44,12 @@ namespace cp
 		new_time=clock.getElapsedTime().asSeconds();
 
 		// TODO : Create a driver/bot_mind class
-		for (int i = 0; i < TOTAL_BOTS; i++)
-		{
-			bot[i]->handle_input();
-			// std::cout<<"Bot INfo:"<<bot[i]->e_position.x<<" "<<bot[i]->e_position.y<<" "<<bot[i]->e_position.z<<std::endl;
-		}
-		car->handle_input();
+		// for (int i = 0; i < TOTAL_BOTS; i++)
+		// {
+		// 	bot[i]->handle_input();
+		// 	// std::cout<<"Bot INfo:"<<bot[i]->e_position.x<<" "<<bot[i]->e_position.y<<" "<<bot[i]->e_position.z<<std::endl;
+		// }
+		// car->handle_input();
 
 		main_camera.e_position.x = car->e_position.x*1024;
 		main_camera.e_position.z = car->e_position.z - 2000;
@@ -63,6 +63,7 @@ namespace cp
 		////// The frame Ends ///////////////////////////
 		current_time = new_time;
 		////////////////////////////////////////////////
+
 	}
 	void GameState::draw(float delta){
 		data->window.clear(sf::Color(105, 205, 4));
@@ -142,11 +143,32 @@ namespace cp
 		s.setPosition(destX, destY);
 		data->window.draw(s);
 	}
+	void GameState::network_handler(GameDataRef game_data, std::shared_ptr<PlayerCar> car, std::shared_ptr<Bot> bot){
+		sf::Clock clock;
+		clock.restart();
+		float new_time, frame_time, interpolation;
+		float current_time = clock.getElapsedTime().asSeconds();
+		float accumulator = 0.0f;
+		const float delta = 1.0f / 60.0f;
+		sf::Vector3f temp1 ,temp2;
+		while (game_data->window.isOpen()) {
+			new_time = clock.getElapsedTime().asSeconds();
+			frame_time = new_time - current_time;
+			if (frame_time > 0.25f)
+				frame_time = 0.25f;
+			current_time = new_time;
+			accumulator += frame_time;
 
-	void GameState::network_handler(GameDataRef game_data){
-		sf::Vector3f pos;
-		while(game_data->window.isOpen()){
-			game_data->Nmanager.receiveData(pos);
+			while (accumulator >= delta) {
+				game_data->Nmanager.receiveData(temp2);
+				game_data->Nmanager.receiveData(temp1);
+				car->e_position = temp1;
+				bot->e_position = temp2;
+				// std::cout << "Car->Pos:" << car->e_position.x << " " << car->e_position.y << " " << car->e_position.z << std::endl;
+				// std::cout << "Bot->Pos:" << car->e_position.x << " " << car->e_position.y << " " << car->e_position.z << std::endl;
+				accumulator -= delta;
+			}
+			interpolation = accumulator / delta;
 		}
 	}
 }

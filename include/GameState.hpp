@@ -24,7 +24,7 @@ namespace cp
         void draw               (float delta);
         void update             (float delta);
         void drawSprite         (Line &line);
-        static void network_handler(GameDataRef game_data);
+        static void network_handler(GameDataRef game_data, std::shared_ptr<PlayerCar> car, std::shared_ptr<Bot> bot);
          private:
           ////////// Data related to game ( assets, states, renderer, ... ) ////////
           GameDataRef data;
@@ -44,11 +44,11 @@ namespace cp
           Camera main_camera;
 
           ///////// The Bots drones.. /////////
-          std::unique_ptr<Bot> bot[TOTAL_BOTS];
+          std::shared_ptr<Bot> bot[TOTAL_BOTS];
           //////////////////////////////////
 
           ///////// The player Car ////////
-          std::unique_ptr<PlayerCar> car;
+          std::shared_ptr<PlayerCar> car;
           //////////////////////////////////
 
           ///////// The collision Handler ///
