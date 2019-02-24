@@ -14,8 +14,9 @@ GameState.cpp
 GameOverState.cpp
 PlayerCar.cpp
 GameMap.cpp
+NetworkManager.cpp
 )
-target_link_libraries(extLibs ${SFML_LIBRARIES} ${SFML_DEPENDENCIES})
+target_link_libraries(extLibs ${SFML_LIBRARIES} ${SFML_DEPENDENCIES} -pthread)
 message("SFML_LIBRARIES LOCATION:${SFML_LIBRARIES}")
 message("Build successful")
 

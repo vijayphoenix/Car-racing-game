@@ -20,12 +20,12 @@
 
 
 #define TOTAL_CARS 9
-#define TOTAL_BOTS 4
+#define TOTAL_BOTS 1
 
 
 #define CAR_IMAGE_FILEPATH(i) CAR_NAME(i)
 static std::string CAR_NAME(int x){return ("res/CarImage"+ std::to_string(x)+".png");}
-
+#define Log(tag, message) std::cout<<tag<<" --> "<<message<<std::endl
 
 #define GAME_TITLE_FILEPATH 	"res/title.png"
 #define PLAY_BUTTON_FILEPATH 	"res/PlayButton.png"
