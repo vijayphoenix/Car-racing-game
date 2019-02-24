@@ -6,32 +6,62 @@
 
 namespace cp
 {
+<<<<<<< HEAD
 	GameState::GameState(GameDataRef _data) : data(_data), map(_data){
+=======
+	GameState::GameState(GameDataRef _data) : data(_data), map(_data) {
+		Log("GameState", "Created a game State");
+>>>>>>> 14c9370e46fcea7a2e44652a711bfecafecbb722
 	}
 	void GameState::init() {
 
 		// TODO : Create a helper function to load all the assets required for gamestate
+<<<<<<< HEAD
 		map.init();
+=======
+
+		map.init();
+		Log("GameState", "Map initialized");
+>>>>>>> 14c9370e46fcea7a2e44652a711bfecafecbb722
 
 		////////// Loading Car assets ////////////////
 		for(int i = 0; i < TOTAL_CARS; i++)
 		{
 			data->assets.load_texture("CarImage"+std::to_string(i),CAR_IMAGE_FILEPATH(i));
 		}
+<<<<<<< HEAD
+=======
+		Log("GameState", "Car Assests Loaded");
+
+>>>>>>> 14c9370e46fcea7a2e44652a711bfecafecbb722
 		//////////////////////////////////////////////
 
 		// TODO : Create an object pool
 		/////// Creating the main player car and bots
+<<<<<<< HEAD
 		car = std::unique_ptr<PlayerCar>(new PlayerCar(data,5,main_camera.getSpeed().z));
 		for(int i=0;i<TOTAL_BOTS;i++){
 			bot[i] = std::unique_ptr<Bot>(new Bot(data, 5));
 		}
+=======
+		car = std::shared_ptr<PlayerCar>(new PlayerCar(data,5,main_camera.getSpeed().z));
+		for(int i=0;i<TOTAL_BOTS;i++){
+			bot[i] = std::unique_ptr<Bot>(new Bot(data, 5));
+		}
+		Log("GameState", "Car and Bots initialized");
+
+>>>>>>> 14c9370e46fcea7a2e44652a711bfecafecbb722
 		///////////////////////////////////////////////
 
 		////// The Game Begins ///////////////////////
 		current_time=clock.getElapsedTime().asSeconds();
 		//////////////////////////////////////////////
+<<<<<<< HEAD
 		network_handle = std::thread(network_handler, data, car, bot[0]);
+=======
+		network_handle = std::thread(network_handler, data, car);
+		Log("GameState", "Network handle initialized");
+>>>>>>> 14c9370e46fcea7a2e44652a711bfecafecbb722
 	}
 	void GameState::handle_input() {
 		sf::Event event;
@@ -44,12 +74,21 @@ namespace cp
 		new_time=clock.getElapsedTime().asSeconds();
 
 		// TODO : Create a driver/bot_mind class
+<<<<<<< HEAD
 		// for (int i = 0; i < TOTAL_BOTS; i++)
 		// {
 		// 	bot[i]->handle_input();
 		// 	// std::cout<<"Bot INfo:"<<bot[i]->e_position.x<<" "<<bot[i]->e_position.y<<" "<<bot[i]->e_position.z<<std::endl;
 		// }
 		// car->handle_input();
+=======
+		for (int i = 0; i < TOTAL_BOTS; i++)
+		{
+			bot[i]->handle_input();
+			// std::cout<<"Bot INfo:"<<bot[i]->e_position.x<<" "<<bot[i]->e_position.y<<" "<<bot[i]->e_position.z<<std::endl;
+		}
+		car->handle_input();
+>>>>>>> 14c9370e46fcea7a2e44652a711bfecafecbb722
 
 		main_camera.e_position.x = car->e_position.x*1024;
 		main_camera.e_position.z = car->e_position.z - 2000;
@@ -63,7 +102,10 @@ namespace cp
 		////// The frame Ends ///////////////////////////
 		current_time = new_time;
 		////////////////////////////////////////////////
+<<<<<<< HEAD
 
+=======
+>>>>>>> 14c9370e46fcea7a2e44652a711bfecafecbb722
 	}
 	void GameState::draw(float delta){
 		data->window.clear(sf::Color(105, 205, 4));
@@ -143,6 +185,7 @@ namespace cp
 		s.setPosition(destX, destY);
 		data->window.draw(s);
 	}
+<<<<<<< HEAD
 	void GameState::network_handler(GameDataRef game_data, std::shared_ptr<PlayerCar> car, std::shared_ptr<Bot> bot){
 		sf::Clock clock;
 		clock.restart();
@@ -169,6 +212,14 @@ namespace cp
 				accumulator -= delta;
 			}
 			interpolation = accumulator / delta;
+=======
+	void GameState::network_handler(GameDataRef game_data, std::shared_ptr<PlayerCar> car) {
+		sleep(3);
+		while(game_data->window.isOpen()) {
+
+			game_data->Nmanager.sendData(car->e_position);
+			// game_data->Nmanager.sendData()
+>>>>>>> 14c9370e46fcea7a2e44652a711bfecafecbb722
 		}
 	}
 }

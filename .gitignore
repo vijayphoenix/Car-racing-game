@@ -1,8 +1,19 @@
 # Build system
 bin
+<<<<<<< HEAD
 /build/*
 */build/*
 **/build/**
+=======
+**/build/*
+*/build/*
+/build/**
+
+**/.vscode/**
+*/.vscode/**
+/.vscode/**
+
+>>>>>>> 14c9370e46fcea7a2e44652a711bfecafecbb722
 gmon.out
 *.stats
 Thumbs.db

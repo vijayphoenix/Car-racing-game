@@ -25,7 +25,11 @@
 
 #define CAR_IMAGE_FILEPATH(i) CAR_NAME(i)
 static std::string CAR_NAME(int x){return ("res/CarImage"+ std::to_string(x)+".png");}
+<<<<<<< HEAD
 
+=======
+#define Log(tag, message) std::cout<<tag<<" --> "<<message<<std::endl
+>>>>>>> 14c9370e46fcea7a2e44652a711bfecafecbb722
 
 #define GAME_TITLE_FILEPATH 	"res/title.png"
 #define PLAY_BUTTON_FILEPATH 	"res/PlayButton.png"
