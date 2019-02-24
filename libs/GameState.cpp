@@ -36,12 +36,12 @@ namespace cp
 		///////////////////////////////////////////////
 
 		////// The Game Begins ///////////////////////
-		current_time=clock.getElapsedTime().asSeconds();
+		// current_time=clock.getElapsedTime().asSeconds();
 		//////////////////////////////////////////////
-		network_handle = std::thread(network_handler, data, car, bot[0]);
-		Log("GameState", "Network handle initialized");
+		// network_handle = std::thread(network_handler, data, car, bot[0]);
+		// Log("GameState", "Network handle initialized");
 	}
-	void GameState::handle_input() {
+	void GameState::handle_input(float delta) {
 		sf::Event event;
 		while(data->window.pollEvent(event)) {
 			if(sf::Event::Closed==event.type){
@@ -49,7 +49,7 @@ namespace cp
 			}
 		}
 
-		new_time=clock.getElapsedTime().asSeconds();
+		// new_time=clock.getElapsedTime().asSeconds();
 
 		// TODO : Create a driver/bot_mind class
 		for (int i = 0; i < TOTAL_BOTS; i++)
@@ -57,7 +57,7 @@ namespace cp
 			bot[i]->handle_input();
 			// std::cout<<"Bot INfo:"<<bot[i]->e_position.x<<" "<<bot[i]->e_position.y<<" "<<bot[i]->e_position.z<<std::endl;
 		}
-		car->handle_input();
+		car->handle_input(delta);
 
 		main_camera.e_position.x = car->e_position.x*1024;
 		main_camera.e_position.z = car->e_position.z - 2000;
@@ -69,7 +69,7 @@ namespace cp
 		}
 		map.bound_entity(car);
 		////// The frame Ends ///////////////////////////
-		current_time = new_time;
+		// current_time = new_time;
 		////////////////////////////////////////////////
 	}
 	void GameState::draw(float delta){
@@ -104,8 +104,12 @@ namespace cp
 		data->window.display();
 	}
 	void GameState::update(float delta){
+		car->update_car(delta,map.lines,map.getSegL());
+
 		for (int i = 0; i < TOTAL_BOTS; i++)
 		{
+			bot[i]->update_car(delta, map.lines, map.getSegL());
+
 			int index = map.get_grid_index(bot[i]->e_position.z);
 			int diff = index % map.getGridCount() - map.get_grid_index(car->e_position.z) % map.getGridCount();
 
@@ -117,12 +121,14 @@ namespace cp
 				{
 					// std::cout<<"Collided Front diff:"<<diff<<std::endl;
 					car->onCollision(*bot[i], 1);
+					bot[i]->onCollision(*car, 0);
 				}
 				else if (diff <= 0 and collision.detect_collision(bot[i]->sprite, car->sprite))
 				{
 					// std::cout << "Collided abck diff:" <<diff<< std::endl;
 
 					car->onCollision(*bot[i], 0);
+					bot[i]->onCollision(*car, 1);
 				}
 				// else std::cout<<"Near but no coll"<<std::endl;
 			}
