@@ -1,0 +1,12 @@
+# Build system
+bin
+/build/*
+*/build/*
+**/build/**
+gmon.out
+*.stats
+Thumbs.db
+.DS_Store
+
+# Project specific
+#

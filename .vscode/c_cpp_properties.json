@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "intelliSenseMode": "gcc-x64",
+            "includePath": [
+                "${workspaceFolder}/src",
+                "~/SFML-2.5.1/include",
+                "/usr/local/include/**",
+                "/usr/include/**",
+                "./include"
+            ],
+            "defines": [],
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "forcedInclude": [
+                "${workspaceFolder}/src/PCH.hpp",
+                "${workspaceFolder}/include"
+            ],
+            "configurationProvider": "vector-of-bool.cmake-tools"
+        }
+    ],
+    "version": 4
+}
