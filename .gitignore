@@ -4,9 +4,9 @@ bin
 */build/*
 /build/**
 
-**/vscode/**
-*/vscode/**
-/vscode/**
+**/.vscode/**
+*/.vscode/**
+/.vscode/**
 
 gmon.out
 *.stats
