@@ -18,8 +18,4 @@ matrix:
 before_install:
   - sudo apt-get install libsfml-dev
 script:
-<<<<<<< HEAD
-  - cd build && cmake .. && make
-=======
   - cmake . && make
->>>>>>> 14c9370e46fcea7a2e44652a711bfecafecbb722

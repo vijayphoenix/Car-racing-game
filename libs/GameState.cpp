@@ -102,10 +102,6 @@ namespace cp
 		////// The frame Ends ///////////////////////////
 		current_time = new_time;
 		////////////////////////////////////////////////
-<<<<<<< HEAD
-
-=======
->>>>>>> 14c9370e46fcea7a2e44652a711bfecafecbb722
 	}
 	void GameState::draw(float delta){
 		data->window.clear(sf::Color(105, 205, 4));
