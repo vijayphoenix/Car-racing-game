@@ -11,6 +11,8 @@
 #include "Game.hpp"
 #include "PlayerCar.hpp"
 #include "Camera.hpp"
+#include "Car.hpp"
+#include "Bot.hpp"
 
 namespace cp{
 	class GameMap{
@@ -18,28 +20,38 @@ namespace cp{
 		////////// Data related to game ( assets, states, renderer, ... ) ////////
         GameDataRef data;
         /////////////////////////////////////////
-		public:
-		/////////// The GameMap ////////////////////
-        std::vector<Line>lines;
+        /////////// GameMap Components //////////
         sf::Texture t[10];
         sf::Sprite  object[10];
-
-        int         N;				// Total Grid count
-        ///////////////////////////////////////////
 		sf::Sprite  background_sprite;
+        ///////////////////////////////////////////
         int         width   = SCREEN_WIDTH;
         int         height  = SCREEN_HEIGHT;
+        int         N;				// Total Grid count
+
         int         roadW   = 4000; // Width of the road(RealW)
         int         segL    = 200;	//segment length
 
+		public:
+		/////////// The GameMap ////////////////////
+        std::vector<Line>lines;
+
+		GameMap                 (GameDataRef _data);
 		void init		        ();
         void draw_quad          (sf::Color c, int x1, int y1, int w1, int x2, int y2, int w2);
 		void update             (float delta);
-		void project(Line &line, int camX, int camY, int camZ, float camD);
-		void draw(int count, std::unique_ptr<PlayerCar> &car, Camera& main_camera);
-        void drawSprite (Line &line);
-
-		GameMap (GameDataRef _data);
-	};
+        void project            (Line &line, float camX, float camY, float camZ, float camD);
+        void draw               (int count, const Camera& main_camera);
+        void drawSprite         (const Line &line);
+        int  get_grid_index     (float distance);
+        void bound_entity       (std::shared_ptr<cp::PlayerCar> &car);
+        void bound_entity       (Camera& camera);
+        void bound_entity(Bot &bot);
+        int getRoadWidth() const;
+        int getSegL() const;
+        int getGridCount() const;
+        int getScreenWidth() const;
+        int getScreenHeight() const;
+    };
 }
 #endif //GAME_MAP_HPP

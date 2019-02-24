@@ -9,7 +9,7 @@ namespace cp{
 		Collision				(){}
 		~Collision				(){}
 
-		bool detect_collision	(sf::Sprite s1,sf::Sprite s2){
+		bool detect_collision	(const sf::Sprite &s1,const sf::Sprite &s2){
 			return s1.getGlobalBounds().intersects(s2.getGlobalBounds());
 		}
 

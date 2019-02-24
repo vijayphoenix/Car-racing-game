@@ -1,10 +1,10 @@
 #include "GameMap.hpp"
 
+
 namespace cp{
 	GameMap::GameMap(GameDataRef _data) : data(_data){
 	}
 	void GameMap::init() {
-
 		// TODO : Create a helper function to load all the assets required for GameMap
 		/////////// Loading Environment assets ////////
 		for (int i = 1; i <= 9; i++)
@@ -73,31 +73,19 @@ namespace cp{
 		shape.setPoint(3, sf::Vector2f(x1 + w1, y1));
 		data->window.draw(shape);
 	}
-	void GameMap::project(Line &line, int camX, int camY, int camZ, float camD) {
+	void GameMap::project(Line &line, float camX, float camY, float camZ, float camD) {
 		line.scale = camD / (line.z - camZ);
 
 		// If line.scale > 1 (threshold ) then the line is between the camera and the projection plane
 		// So it is not visible on the screen and hence no need to over scale it.
-		if(line.scale>1.1 || line.scale<0)line.scale = 1.1;
+		// if(line.scale>0.049 || line.scale<0)line.scale = 0.049;
 		////////////////////////////////////////////////////////////////////////////////////
 
 		line.X = (1 + line.scale * (line.x - camX)) * width / 2;
 		line.Y = (1 - line.scale * (line.y - camY)) * height / 2;
 		line.W = line.scale * roadW * width /2;
-
-		// // Debug codes
-		// static int x = 1;x++;
-		// if(x>5) {/*  exit(1); */ }
-		// else {
-		// 	std::cout<<std::endl;
-		// 	std::cout<<"{ Scale: "<<line.scale<<std::endl;
-		// 	std::cout<<"{ Position-> Z: "<<line.z<<" Y: "<<line.y<<" X: "<<line.x<<std::endl;
-		// 	std::cout<<"{ Camera  -> Z: "<<camZ<<" Y: "<<camY<<" X: "<<camX<<std::endl;
-		// 	std::cout<<"{ Width: "<<line.W<<" X: "<<line.X<<" Y: "<<line.Y<<std::endl;
-
-		// }
 	}
-	void GameMap::drawSprite(Line &line) {
+	void GameMap::drawSprite(const Line &line) {
 		sf::Sprite s = line.sprite;
 		int w = s.getTextureRect().width;
 		int h = s.getTextureRect().height;
@@ -111,17 +99,6 @@ namespace cp{
 		destY += destH * (-1);		   //offsetY
 
 		float clipH = destY + destH - line.clip;
-		// Debug codes
-		static int x = 1;x++;
-		if(x>5) {/*  exit(1); */ }
-		else {
-			std::cout<<std::endl;
-			std::cout<<"{ Scale: "<<line.scale<<std::endl;
-			std::cout<<"{ Position-> Z: "<<line.z<<" Y: "<<line.y<<" X: "<<line.x<<std::endl;
-			std::cout<<"{ Width: "<<line.W<<" X: "<<line.X<<" Y: "<<line.Y<<std::endl;
-			std::cout<<"{ Clip: "<<line.clip<<std::endl;
-
-		}
 		if (clipH < 0)clipH = 0;
 		if (clipH >= destH)	return;
 		s.setTextureRect(sf::IntRect(0, 0, w, h - h * clipH / destH));
@@ -129,29 +106,34 @@ namespace cp{
 		s.setPosition(destX, destY);
 		data->window.draw(s);
 	}
-	void GameMap::draw(int count, std::unique_ptr<PlayerCar> &car, Camera& main_camera) {
+	void GameMap::draw(const int count, const Camera& camera) {
 		data->window.draw(background_sprite);
 
-		// TODO : Implement functions for camera
 		////// Finding camera position and camera height ///
-		int startPos = car->pos / segL;
-		int camH = lines[startPos].y + main_camera.H; // Don't update camera height
-		///////////////////////////////////////////////////
+		Camera main_camera = camera;
+		int startPos = get_grid_index(main_camera.getPosition().z);
+		main_camera.e_position.y += lines[startPos].y;
+		int temp_z = startPos*segL;
 
 		int maxy=height;
 		float x=0,dx=0;
-
+		sf::Vector3f l_snap;
 		for (int n = startPos; n < startPos + count; n++)
 		{
 			Line &l = lines[n % N];
-			///// Changing the view at each drawing of line to give effect of curves and height.
-			project(l, car->playerX * roadW - x, camH, startPos * segL - (n >= N ? N * segL : 0), main_camera.camD);
+			l_snap = sf::Vector3f(l.x, l.y, l.z);
+
+			main_camera.e_position.z = temp_z;	// Rendering Bug
+			l.x = 0;
+			l.z += (n >= N ? N * segL : 0);
+			l.x += x;
+
+			project(l, main_camera.getPosition().x, main_camera.getPosition().y, main_camera.getPosition().z, main_camera.getCamD());
+
+			l.z = l_snap.z;
+
 			x += dx;
 			dx += l.curve;
-
-			// static int times = 0;
-			// if(times<10000000) { std::cout<<x<<std::endl;times++; }
-			// std::cout<<playerX<<std::endl;
 
 			l.clip = maxy;
 			if (l.Y >= maxy)continue;
@@ -170,8 +152,56 @@ namespace cp{
 
 			draw_quad(marking,(p.X),p.Y,p.W*0.35,l.X,l.Y,l.W*0.35);
 			draw_quad(road, p.X, p.Y, p.W*0.3, l.X, l.Y, l.W*0.3);
-
 		}
 	}
+	int GameMap::get_grid_index(const float distance) {
+		return distance/segL;
+	}
+	void GameMap::bound_entity(std::shared_ptr<cp::PlayerCar> &car) {
+		////// Bounding the car in the map /////////
+		while (car->e_position.z >= N * segL) {
+			car->e_position.z -= N * segL;
+		}
+		while (car->e_position.z < 0) {
+			car->e_position.z += N * segL;
+		}
+		//////////////////////////////////////////////
+	}
+	void GameMap::bound_entity(Camera &camera) {
+		////// Bounding the car in the map /////////
+		while (camera.e_position.z >= N * segL)
+		{
+			camera.e_position.z -= N * segL;
+		}
+		while (camera.e_position.z < 0)
+		{
+			camera.e_position.z += N * segL;
+		}
+		// std::cout << camera.e_position.z << " " << car->e_position.z << std::endl;
+		//////////////////////////////////////////////////
+	}
+	void GameMap::bound_entity(Bot & bot) {
+		while(bot.e_position.z >= N * segL) {
+			bot.e_position.z -= N*segL;
+		}
+		while(bot.e_position.z <0) {
+			bot.e_position.z += N*segL;
+		}
+	}
+	int GameMap::getRoadWidth() const {
+		return roadW;
+	}
+	int GameMap::getSegL() const {
+		return segL;
+	}
+	int GameMap::getGridCount() const {
+		return N;
+	}
+	int GameMap::GameMap::getScreenWidth() const {
+		return width;
+	}
+	int GameMap::getScreenHeight() const {
+		return height;
+	}
 
-}
+} // namespace cp
