@@ -33,7 +33,7 @@ namespace cp
 				// //////////// Starting NetworkManager ////////////
 				// Log("MainMenuState::handle_input", "Pushed game state");
 				/////////////////////////////////
-				data->machine.add_state(StateRef(new GameState(data)), true);
+				data->machine.add_state(StateRef(new GameState(data)), false);
 			}
 		}
 	}
