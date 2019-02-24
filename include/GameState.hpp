@@ -1,6 +1,7 @@
 #ifndef GAMESTATE_HPP
 #define GAMESTATE_HPP
 #include <SFML/Graphics.hpp>
+#include "GameOverState.hpp"
 #include "DEFINITIONS.hpp"
 #include "Bot.hpp"
 #include "PlayerCar.hpp"
@@ -10,6 +11,7 @@
 #include "Collision.hpp"
 #include "Camera.hpp"
 #include "GameMap.hpp"
+#include "PauseState.hpp"
 #include <memory>
 
 namespace cp

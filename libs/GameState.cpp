@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cmath>
 #include <sstream>
+#include "GameOverState.hpp"
 #include "GameState.hpp"
 #include "DEFINITIONS.hpp"
 
@@ -45,7 +46,15 @@ namespace cp
 		sf::Event event;
 		while(data->window.pollEvent(event)) {
 			if(sf::Event::Closed==event.type){
-				data->window.close();
+				data->machine.add_state(StateRef(new GameOverState(data)), true);
+				// data->window.close();
+			}
+			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q)){
+				data->machine.remove_state();
+			}
+			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::P))
+			{
+				data->machine.add_state(StateRef(new PauseState(data)), false);
 			}
 		}
 
