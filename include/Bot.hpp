@@ -14,6 +14,7 @@ namespace cp
 		~Bot				();
 
 		void 	drawSprite	(const Line &line);
+		void 	onCollision(const Car &bot, bool front);
 		virtual void update_car(float dt, const std::vector<Line> &lines, float segL);
 		void handle_input();
 	};

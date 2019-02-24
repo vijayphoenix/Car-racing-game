@@ -20,11 +20,11 @@ namespace cp
         GameState               (GameDataRef _data);
         ~GameState              () {}
         void init		            ();
-        void handle_input       ();
+        void handle_input       (float delta);
         void draw               (float delta);
         void update             (float delta);
         void drawSprite         (Line &line);
-        static void network_handler(GameDataRef data, std::shared_ptr<PlayerCar> car);
+        static void network_handler(GameDataRef data, std::shared_ptr<PlayerCar> car, std::shared_ptr<Bot> bot);
 
         typedef std::shared_ptr<PlayerCar> CarRef;
 
@@ -34,9 +34,9 @@ namespace cp
         /////////////////////////////////////////
 
         ////////// The Game clock ///////////////
-        sf::Clock  clock;
-        float       current_time=0;
-        float       new_time=0;
+        // sf::Clock  clock;
+        // float       current_time=0;
+        // float       new_time=0;
         ///////////////////////////////////////
 
         /////////// The GameMap ////////////////////
@@ -48,7 +48,7 @@ namespace cp
 
 
         ///////// The Bots drones.. /////////
-        std::unique_ptr<Bot>    bot[TOTAL_BOTS];
+        std::shared_ptr<Bot>    bot[TOTAL_BOTS];
         //////////////////////////////////
 
         ///////// The player Car ////////
