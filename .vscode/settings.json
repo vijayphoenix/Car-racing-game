@@ -101,5 +101,6 @@
 	"C_Cpp.loggingLevel": "Warning",
 	"C_Cpp.workspaceParsingPriority": "highest",
 	"C_Cpp.configurationWarnings": "Disabled",
+	"git.ignoreLimitWarning": true,
 
 }
