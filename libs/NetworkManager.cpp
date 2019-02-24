@@ -50,12 +50,11 @@ namespace cp{
 	void NetworkManager::send(sf::Vector3f pos) {
 		sf::Packet packet;
 		packet<<pos.x<<pos.y<<pos.z;
-		// std::cout<<"Sending the packets"<<std::endl;
 		if (client.send(packet) != sf::Socket::Done) {
-			std::cout << "Data transfer not successful" << std::endl;
+			std::cerr << "Data transfer not successful" << std::endl;
 		}
 		else {
-			std::cout << "Sent a packet " << std::endl;
+			// std::cout << "Sent a packet " << std::endl;
 		}
 	}
 }

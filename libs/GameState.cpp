@@ -38,7 +38,7 @@ namespace cp
 		////// The Game Begins ///////////////////////
 		current_time=clock.getElapsedTime().asSeconds();
 		//////////////////////////////////////////////
-		network_handle = std::thread(network_handler, data, car);
+		network_handle = std::thread(network_handler, data, car, bot[0]);
 		Log("GameState", "Network handle initialized");
 	}
 	void GameState::handle_input() {
@@ -150,12 +150,32 @@ namespace cp
 		s.setPosition(destX, destY);
 		data->window.draw(s);
 	}
-	void GameState::network_handler(GameDataRef game_data, std::shared_ptr<PlayerCar> car) {
-		sleep(3);
+	void GameState::network_handler(GameDataRef game_data, std::shared_ptr<PlayerCar> car, std::shared_ptr<Bot> bot) {
+		sleep(1);
+		sf::Clock clock;
+		clock.restart();
+		float new_time, frame_time, interpolation;
+		float current_time = clock.getElapsedTime().asSeconds();
+		float accumulator = 0.0f;
+		const float delta = 1.0f / 60.0f;
 		while(game_data->window.isOpen()) {
+			new_time = clock.getElapsedTime().asSeconds();
+			frame_time = new_time - current_time;
+			if (frame_time > 0.25f)
+				frame_time = 0.25f;
+			current_time = new_time;
+			accumulator += frame_time;
 
-			game_data->Nmanager.sendData(car->e_position);
-			// game_data->Nmanager.sendData()
+			while (accumulator >= delta)
+			{
+				std::cout << "Car->Pos:" << car->e_position.x << " " << car->e_position.y << " " << car->e_position.z << std::endl;
+				std::cout << "Bot->Pos:" << bot->e_position.x << " " << bot->e_position.y << " " << bot->e_position.z << std::endl;
+
+				game_data->Nmanager.sendData(car->e_position);
+				game_data->Nmanager.sendData(bot->e_position);
+				accumulator -= delta;
+			}
+			interpolation = accumulator / delta;
 		}
 	}
 }
