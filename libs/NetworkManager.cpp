@@ -3,7 +3,6 @@
 
 sf::TcpSocket cp::NetworkManager::socket;
 namespace cp{
-
 	NetworkManager::NetworkManager() {
 	}
 	void NetworkManager::createServer() {
@@ -44,7 +43,7 @@ namespace cp{
 			else std::cout<<"Sent a fact"<<std::endl;
 		}
 		else {
-			sf::Socket::Status status = socket.connect("127.0.0.1", 53000);
+			sf::Socket::Status status = socket.connect("10.42.0.1", 53000);
 			if (status != sf::Socket::Done)
 			{
 				std::cerr<<"error connecting to server"<<std::endl;
