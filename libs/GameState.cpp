@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cmath>
 #include <sstream>
+#include "GameOverState.hpp"
 #include "GameState.hpp"
 #include "DEFINITIONS.hpp"
 
@@ -28,8 +29,13 @@ namespace cp
 		// TODO : Create an object pool
 		/////// Creating the main player car and bots
 		car = std::shared_ptr<PlayerCar>(new PlayerCar(data,5,main_camera.getSpeed().z));
-		for(int i=0;i<TOTAL_BOTS;i++){
-			bot[i] = std::unique_ptr<Bot>(new Bot(data, 5));
+		car->e_position.x = 1.1;
+			for (int i = 0; i < TOTAL_BOTS; i++)
+			{
+				bot[i] = std::unique_ptr<Bot>(new Bot(data, 5));
+				bot[i]->e_position.x = (i & 1)?0.0: -1.1;
+				bot[i]->e_position.z = (i / 4) * 4000;
+				bot[i]->e_speed.z = 0;
 		}
 		Log("GameState", "Car and Bots initialized");
 
@@ -45,7 +51,15 @@ namespace cp
 		sf::Event event;
 		while(data->window.pollEvent(event)) {
 			if(sf::Event::Closed==event.type){
-				data->window.close();
+				data->machine.add_state(StateRef(new GameOverState(data)), true);
+				// data->window.close();
+			}
+			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q)){
+				data->machine.remove_state();
+			}
+			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::P))
+			{
+				data->machine.add_state(StateRef(new PauseState(data)), false);
 			}
 		}
 
@@ -110,30 +124,17 @@ namespace cp
 		{
 			bot[i]->update_car(delta, map.lines, map.getSegL());
 
-			int index = map.get_grid_index(bot[i]->e_position.z);
-			int diff = index % map.getGridCount() - map.get_grid_index(car->e_position.z) % map.getGridCount();
-
-			// std::cout<<"GameState::Update"<<std::endl;
-			// std::cout<<diff<<std::endl;
-			if (std::abs(diff) <= 4)
+			// int index = map.get_grid_index(bot[i]->e_position.z);
+			// int diff = index % map.getGridCount() - map.get_grid_index(car->e_position.z) % map.getGridCount();
+			collision.handle_collision(*car,*bot[i],map);
+			for(int j = i+1; j < TOTAL_BOTS ; j++)
 			{
-				if (diff > 0 and collision.detect_collision(car->sprite, bot[i]->sprite))
-				{
-					// std::cout<<"Collided Front diff:"<<diff<<std::endl;
-					car->onCollision(*bot[i], 1);
-					bot[i]->onCollision(*car, 0);
-				}
-				else if (diff <= 0 and collision.detect_collision(bot[i]->sprite, car->sprite))
-				{
-					// std::cout << "Collided abck diff:" <<diff<< std::endl;
-
-					car->onCollision(*bot[i], 0);
-					bot[i]->onCollision(*car, 1);
-				}
-				// else std::cout<<"Near but no coll"<<std::endl;
+				collision.handle_collision(*bot[j], *bot[i], map);
 			}
-			// else std::cout<<"No coli diff:"<<diff<<std::endl;
+
 		}
+		// data->Nmanager.sendData(car->e_position);
+		// data->Nmanager.sendData(bot[0]->e_position);
 	}
 	void GameState::drawSprite(Line &line) {
 		s = line.sprite;

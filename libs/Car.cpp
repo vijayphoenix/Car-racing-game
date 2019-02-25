@@ -26,4 +26,19 @@ namespace cp
 	void Car::draw_car() {
 		data->window.draw(sprite);
 	}
+	void Car::onCollision(const Car &bot, bool front)
+	{
+
+		if (front)
+		{
+			e_speed.z /= 2;
+			std::cout << "front " << e_speed.z << std::endl;
+		}
+		else
+		{
+			e_speed.z += 100;
+			std::cout << "back " << e_speed.z << std::endl;
+		}
+		e_speed.z = std::max(-50.0f, std::min(e_speed.z, e_max_speed.z));
+	}
 }

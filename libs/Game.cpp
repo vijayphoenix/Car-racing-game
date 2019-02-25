@@ -6,7 +6,7 @@ namespace cp
 	Game::Game(int width, int height, std::string title) {
 		data->window.create(sf::VideoMode(width, height), title, sf::Style::Close | sf::Style::Titlebar);
 		data->machine.add_state(StateRef(new SplashState(data)));
-		data->window.setFramerateLimit(30);
+		data->window.setFramerateLimit(60);
 		run();
 	}
 	Game::~Game() {

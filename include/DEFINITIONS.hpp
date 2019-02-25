@@ -15,12 +15,12 @@
 #define MAIN_MENU_BACKGROUND_FILEPATH 		"res/splashScreen.png"
 #define GAME_BACKGROUND_FILEPATH 			"res/sky.png"
 #define GAME_STATE_BACKGROUND_FILEPATH 		"res/cy.png"
-#define GAME_OVER_BACKGROUND_FILEPATH 		"res/sky.png"
+#define GAME_OVER_BACKGROUND_FILEPATH 		"res/splashScreen.png"
 
 
 
 #define TOTAL_CARS 9
-#define TOTAL_BOTS 1
+#define TOTAL_BOTS 5
 
 
 #define CAR_IMAGE_FILEPATH(i) CAR_NAME(i)
