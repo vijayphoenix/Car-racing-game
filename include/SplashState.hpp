@@ -12,6 +12,7 @@ namespace cp
 		GameDataRef 	data;
 		sf::Clock 		clock;
 		sf::Sprite 		background_sprite;
+		bool timeover =false;
 		public:
 		SplashState			(GameDataRef _data);
 		~SplashState		();

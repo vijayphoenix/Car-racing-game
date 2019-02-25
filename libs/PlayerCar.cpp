@@ -67,13 +67,7 @@ namespace cp{
 		s.setPosition(destX, destY);
 		data->window.draw(s);
 	}
-	void PlayerCar::onCollision(const Car& bot , bool front) {
-		std::cout<<"car info = "<<e_speed.x<<" "<<e_speed.y<<" "<<e_speed.z<<std::endl;
-		std::cout << "bot info = " <<bot.e_speed.x << " " << bot.e_speed.y << " " << bot.e_speed.z << std::endl;
-		if(front)e_speed.z/=2;
-		else e_speed.z+= 100;
-		e_speed.z = std::max(-50.0f, std::min(e_speed.z, e_max_speed.z));
-	}
+
 	void PlayerCar::handle_input(float dt) {
 		float speedRatio = e_speed.z / e_max_speed.z;
 		float dx = 2 * dt * speedRatio;

@@ -12,7 +12,7 @@ namespace cp
 		:Car(_data, car_num) {
 		/////// Setting up entity ////////
 		e_speed = sf::Vector3f(0, 0, 200);
-		e_max_speed = sf::Vector3f(0, 0, 400);
+		e_max_speed = sf::Vector3f(0, 0, 300);
 		///////////////////////////////////
 		sprite.setTexture(data->assets.get_texture("CarImage" + std::to_string(car_image_num)));
 		e_position.x=1.0;
@@ -76,19 +76,6 @@ namespace cp
 				car_image_num = 4;
 			sprite.setTexture(data->assets.get_texture("CarImage" + std::to_string(car_image_num)));
 		}
-	}
-	void Bot::onCollision(const Car &bot, bool front)
-	{
-
-		if (front){
-			e_speed.z /= 2;
-			std::cout<<"front "<<e_speed.z<<std::endl;
-		}
-		else{
-			e_speed.z += 100;
-			std::cout << "back " << e_speed.z << std::endl;
-		}
-		e_speed.z = std::max(-50.0f, std::min(e_speed.z, e_max_speed.z));
 	}
 	void Bot::handle_input() {
 		// if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
