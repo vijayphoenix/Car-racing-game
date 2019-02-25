@@ -18,9 +18,8 @@ namespace cp
 		Log("GameState", "Map initialized");
 
 		////////// Loading Car assets ////////////////
-		for(int i = 0; i < TOTAL_CARS; i++)
-		{
-			data->assets.load_texture("CarImage"+std::to_string(i),CAR_IMAGE_FILEPATH(i));
+		for (int i = 0; i < TOTAL_CARS; i++) {
+			data->assets.load_texture("CarImage" + std::to_string(i), CAR_IMAGE_FILEPATH(i));
 		}
 		Log("GameState", "Car Assests Loaded");
 
@@ -30,12 +29,12 @@ namespace cp
 		/////// Creating the main player car and bots
 		car = std::shared_ptr<PlayerCar>(new PlayerCar(data,5,main_camera.getSpeed().z));
 		car->e_position.x = 1.1;
-			for (int i = 0; i < TOTAL_BOTS; i++)
-			{
-				bot[i] = std::unique_ptr<Bot>(new Bot(data, 5));
-				bot[i]->e_position.x = (i & 1)?0.0: -1.1;
-				bot[i]->e_position.z = (i / 4) * 4000;
-				bot[i]->e_speed.z = 0;
+		for (int i = 0; i < TOTAL_BOTS; i++)
+		{
+			bot[i] = std::unique_ptr<Bot>(new Bot(data, 5));
+			bot[i]->e_position.x = (i & 1)?0.0: -1.1;
+			bot[i]->e_position.z = (i / 4) * 4000;
+			bot[i]->e_speed.z = 100;
 		}
 		Log("GameState", "Car and Bots initialized");
 
@@ -131,7 +130,6 @@ namespace cp
 			{
 				collision.handle_collision(*bot[j], *bot[i], map);
 			}
-
 		}
 		// data->Nmanager.sendData(car->e_position);
 		// data->Nmanager.sendData(bot[0]->e_position);

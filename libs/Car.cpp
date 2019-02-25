@@ -26,8 +26,7 @@ namespace cp
 	void Car::draw_car() {
 		data->window.draw(sprite);
 	}
-	void Car::onCollision(const Car &bot, bool front)
-	{
+	void Car::onCollision(const Car &bot, bool front) {
 
 		if (front)
 		{

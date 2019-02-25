@@ -10,12 +10,14 @@ namespace cp
 	class Bot : public Car
 	{
 		public:
-		Bot					(GameDataRef _data, int car_num);
-		~Bot				();
+		using input_type = std::vector<bool>;
 
-		void 	drawSprite	(const Line &line);
+		Bot(GameDataRef _data, int car_num);
+		~Bot();
+
+		void drawSprite(const Line &line);
 		virtual void update_car(float dt, const std::vector<Line> &lines, float segL);
-		void handle_input();
+		void handle_input(input_type mask, float dt);
 	};
 }
 #endif //BOT_HPP
