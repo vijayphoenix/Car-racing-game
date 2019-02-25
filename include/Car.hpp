@@ -23,6 +23,7 @@ namespace cp{
 		sf::Vector3f getSpeed() const {
 			return e_speed;
 		}
+		void onCollision(const Car &bot, bool front);
 		// protected:
 		///////// Sprite Info's //////////////////////////////////
 		int car_image_num;

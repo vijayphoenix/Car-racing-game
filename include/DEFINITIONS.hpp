@@ -20,7 +20,7 @@
 
 
 #define TOTAL_CARS 9
-#define TOTAL_BOTS 1
+#define TOTAL_BOTS 5
 
 
 #define CAR_IMAGE_FILEPATH(i) CAR_NAME(i)

@@ -27,9 +27,16 @@ namespace cp
 			}
 			else if(data->input.is_sprite_clicked(play_button_sprite,sf::Mouse::Left,data->window)){
 				std::cout << "Button is pressed" << std::endl;
+
+				data->machine.add_state(StateRef(new GameState(data)), false);
+			}
+			else if(sf::Keyboard::isKeyPressed(sf::Keyboard::C)) {
+
+			}
+			else if(sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
 				//////// The NetworkManager /////
-				// data->Nmanager.n_thread = std::thread(data->Nmanager.createServer);
-				// data->Nmanager.n_thread.join();
+				data->Nmanager.n_thread = std::thread(data->Nmanager.createServer);
+				data->Nmanager.n_thread.join();
 				// //////////// Starting NetworkManager ////////////
 				// Log("MainMenuState::handle_input", "Pushed game state");
 				/////////////////////////////////
