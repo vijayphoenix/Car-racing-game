@@ -15,7 +15,8 @@ namespace cp
 		e_max_speed = sf::Vector3f(0, 0, 300);
 		///////////////////////////////////
 		sprite.setTexture(data->assets.get_texture("CarImage" + std::to_string(car_image_num)));
-		e_position.x=1.0;
+		health =50;
+		e_position.x=-1.0;
 		e_position.z = 4000;
 		car_mass = 100;
 	}
@@ -68,14 +69,15 @@ namespace cp
 
 		/////////// Animating the sprite for the car //////////////////////
 		car_image_num = 5;
-		if (std::abs(e_speed.z) > 0.1)
-		{
-			if (l)
-				car_image_num = 3;
-			else if (r)
-				car_image_num = 4;
-			sprite.setTexture(data->assets.get_texture("CarImage" + std::to_string(car_image_num)));
-		}
+		if (health == 0)sprite.setTexture(data->assets.get_texture("CarImage9"));
+		else if (std::abs(e_speed.z) > 0.1)
+			{
+				if (l)
+					car_image_num = 3;
+				else if (r)
+					car_image_num = 4;
+				sprite.setTexture(data->assets.get_texture("CarImage" + std::to_string(car_image_num)));
+			}
 	}
 	void Bot::handle_input() {
 		// if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))

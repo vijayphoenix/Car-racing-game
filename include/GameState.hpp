@@ -12,6 +12,7 @@
 #include "Camera.hpp"
 #include "GameMap.hpp"
 #include "PauseState.hpp"
+#include "PercentageBar.hpp"
 #include <memory>
 
 namespace cp
@@ -31,8 +32,8 @@ namespace cp
         typedef std::shared_ptr<PlayerCar> CarRef;
 
         private:
-          ////////// Data related to game ( assets, states, renderer, ... ) ////////
-          GameDataRef data;
+        ////////// Data related to game ( assets, states, renderer, ... ) ////////
+        GameDataRef data;
         /////////////////////////////////////////
 
         ////////// The Game clock ///////////////
@@ -63,6 +64,12 @@ namespace cp
 
 
         std::thread network_handle;
+
+        PercentageBar bar;
+        sf::Font font;
+        sf::Text text[5];
+        long long int score=0;
+        // float fuel =100;
     };
 } // namespace cp
 

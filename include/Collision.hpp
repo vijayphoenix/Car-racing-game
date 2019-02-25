@@ -20,12 +20,12 @@ namespace cp{
 			if (std::abs(diff) <= 4)
 			{
 				bool coll = detect_collision(car1.sprite, car2.sprite);
-				if (diff > 0 and detect_collision(car1.sprite, car2.sprite))
+				if (diff > 0 and coll)
 				{
 					car1.onCollision(car2, 1);
 					car2.onCollision(car1, 0);
 				}
-				else if (diff <= 0 and detect_collision(car2.sprite, car1.sprite))
+				else if (diff <= 0 and coll)
 				{
 					car1.onCollision(car2, 0);
 					car2.onCollision(car1, 1);

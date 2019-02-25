@@ -7,7 +7,7 @@
 
 namespace cp
 {
-	GameState::GameState(GameDataRef _data) : data(_data), map(_data) {
+	GameState::GameState(GameDataRef _data) : data(_data), map(_data),bar(_data) {
 		Log("GameState", "Created a game State");
 	}
 	void GameState::init() {
@@ -33,19 +33,35 @@ namespace cp
 			for (int i = 0; i < TOTAL_BOTS; i++)
 			{
 				bot[i] = std::unique_ptr<Bot>(new Bot(data, 5));
-				bot[i]->e_position.x = (i & 1)?0.0: -1.1;
-				bot[i]->e_position.z = (i / 4) * 4000;
-				bot[i]->e_speed.z = 0;
+				// bot[i]->e_position.x = (i & 1)?0.0: -1.1;
+				// bot[i]->e_position.z = (i / 4) * 4000;
+				// bot[i]->e_speed.z = 0;
 		}
 		Log("GameState", "Car and Bots initialized");
+		data->assets.load_texture("GameOverState background", GAME_OVER_BACKGROUND_FILEPATH);
+		font = data->assets.get_font("sfafont");
 
 		///////////////////////////////////////////////
+			for(int i=0;i<5;i++) {
+				text[i].setFont(font);
+				text[i].setCharacterSize(36);
+				text[i].setStyle(sf::Text::Bold);
+				text[i].setOutlineColor(sf::Color::White);
+				text[i].setOutlineThickness(2);
+				text[i].setFillColor(sf::Color::Red);
+			}
+			text[0].setString("Score:");
+			text[0].setPosition(SCREEN_WIDTH/100, SCREEN_HEIGHT / 100);
+			text[1].setPosition(SCREEN_WIDTH / 100, SCREEN_HEIGHT / 100+30);
+			text[2].setString("Health:");
+			text[2].setPosition(SCREEN_WIDTH / 2-150, SCREEN_HEIGHT / 100);
+			bar.init(sf::Vector2f(300, 20), sf::Vector2f(SCREEN_WIDTH / 2 - 150, 70), sf::Color::White, sf::Color::Black);
 
-		////// The Game Begins ///////////////////////
-		// current_time=clock.getElapsedTime().asSeconds();
-		//////////////////////////////////////////////
-		// network_handle = std::thread(network_handler, data, car, bot[0]);
-		// Log("GameState", "Network handle initialized");
+			////// The Game Begins ///////////////////////
+			// current_time=clock.getElapsedTime().asSeconds();
+			//////////////////////////////////////////////
+			// network_handle = std::thread(network_handler, data, car, bot[0]);
+			// Log("GameState", "Network handle initialized");
 	}
 	void GameState::handle_input(float delta) {
 		sf::Event event;
@@ -88,9 +104,7 @@ namespace cp
 	}
 	void GameState::draw(float delta){
 		data->window.clear(sf::Color(105, 205, 4));
-
 		map.draw(500, main_camera);
-
 		for (int i = 0; i < TOTAL_BOTS; i++) {
 			//////////// Temp Update ///////////
 			int index = map.get_grid_index(bot[i]->e_position.z);
@@ -114,12 +128,18 @@ namespace cp
 		int index = map.get_grid_index(car->e_position.z);
 		Line &temp_line = map.lines[index];
 		car->drawSprite(map.lines[index]);
+		bar.draw();
 
+		for(int i = 0; i < 3; i++)
+		{
+			data->window.draw(text[i]);
+		}
 		data->window.display();
+		// if (bot[0]->health == 0)bot[0] = std::unique_ptr<Bot>(new Bot(data, 5));
 	}
 	void GameState::update(float delta){
+		if(car->e_speed.z>0)score+=delta*car->e_speed.z;
 		car->update_car(delta,map.lines,map.getSegL());
-
 		for (int i = 0; i < TOTAL_BOTS; i++)
 		{
 			bot[i]->update_car(delta, map.lines, map.getSegL());
@@ -131,8 +151,12 @@ namespace cp
 			{
 				collision.handle_collision(*bot[j], *bot[i], map);
 			}
-
+		// if(bot[i]->health==0)score+=1000;
 		}
+		bar.percentage=car->health;
+		std::cout << "CAR health" << car->health << std::endl;
+		std::cout << "Bot health" << bot[0]->health << std::endl;
+		text[1].setString(std::to_string(score));
 		// data->Nmanager.sendData(car->e_position);
 		// data->Nmanager.sendData(bot[0]->e_position);
 	}

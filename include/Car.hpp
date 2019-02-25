@@ -45,6 +45,7 @@ namespace cp{
 		//////////////////////////////////////////////////////////
 
 		float car_mass=0;
+		float health = 100;
 	};
 }
 #endif //CAR_HPP
