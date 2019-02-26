@@ -42,6 +42,7 @@ namespace cp {
 		using input_type = Bot::input_type;
 		using input_return_type = std::pair<ID, input_type>;
 		private:
+
 		/**
 		 * @brief resource_store proivdes assets, inputs, drawing window.
 		 *
@@ -71,6 +72,8 @@ namespace cp {
 
 
 		input_type get_mask(int i);
+		input_return_type get_input();
+		ID playerID;
 		// Stuffs for getting logs
 		std::ofstream fout;
 
@@ -90,7 +93,7 @@ namespace cp {
 		using BotRef = std::shared_ptr<Bot>;
 		GameMap map;
 		Camera main_camera;
-		BotRef bot[TOTAL_BOTS];
+		CarRef bot[TOTAL_BOTS];
 		std::vector<ID> bot_id;
 		Collision collision;
 	};

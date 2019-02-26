@@ -2,8 +2,14 @@
 
 namespace cp {
 	ServerState::ServerState(GameDataRef _data)
-		:game_data(_data), simulator(_data) {
+		: game_data(_data), simulator(_data), fout("ServerState.log") {
+		fout<<"Executing ServerState"<<std::endl;
+		fout<<"Returning from ServerState"<<std::endl;
+	}
 
+	ServerState::~ServerState() {
+		fout<<"Closed"<<std::endl;
+		fout.close();
 	}
 
 	void ServerState::collect_network_inputs() {
@@ -19,9 +25,31 @@ namespace cp {
 	}
 
 	void ServerState::handle_input(float delta) {
+		if(sf::Keyboard::isKeyPressed(sf::Keyboard::L)) {
+			fout<<"Log register in handle_input"<<std::endl;
+		}
 		collect_network_inputs();
 		use_collected_inputs();
 		simulator.handle_input(delta);
+	}
+
+	void ServerState::init() {
+		fout<<"Executing init"<<std::endl;
+		fout<<"Connecting all the clients"<<std::endl;
+		clients.push_back(Client());
+
+		simulator.init();
+		fout<<"Returning from init"<<std::endl;
+	}
+
+	void ServerState::draw(float delta) {
+		simulator.draw(delta);
+	}
+
+	void ServerState::update(float delta) {
+		simulator.update(delta);
+		generate_outputs();
+		use_generated_outputs();
 	}
 
 	void ServerState::generate_outputs() {

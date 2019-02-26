@@ -7,6 +7,7 @@
 #include "GameSimulator.hpp"
 #include "map"
 #include "Client.hpp"
+#include "fstream"
 
 namespace cp{
 	/**
@@ -21,10 +22,11 @@ namespace cp{
 		~ServerState();
 
 		virtual void handle_input(float delta);
-		virtual void update();
-		virtual void draw();
-		virtual void pause();
-		virtual void resume();
+		virtual void update(float delta);
+		virtual void draw(float delta);
+		virtual void pause(){}
+		virtual void resume(){}
+		virtual void init();
 
 		private:
 		GameSimulator simulator;
@@ -40,6 +42,9 @@ namespace cp{
 		void generate_outputs();
 		void use_generated_outputs();
 
+		// Log stuffs
+		private:
+		std::ofstream fout;
 	};
 }
 

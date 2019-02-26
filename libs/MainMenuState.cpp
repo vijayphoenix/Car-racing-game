@@ -4,6 +4,7 @@
 #include "NetworkManager.hpp"
 #include <iostream>
 #include <sstream>
+#include "ServerState.hpp"
 
 namespace cp
 {
@@ -27,7 +28,6 @@ namespace cp
 			}
 			else if(data->input.is_sprite_clicked(play_button_sprite,sf::Mouse::Left,data->window)){
 				std::cout << "Button is pressed" << std::endl;
-
 				data->machine.add_state(StateRef(new GameState(data)), false);
 			}
 			else if(sf::Keyboard::isKeyPressed(sf::Keyboard::C)) {
@@ -37,10 +37,10 @@ namespace cp
 				//////// The NetworkManager /////
 				data->Nmanager.n_thread = std::thread(data->Nmanager.createServer);
 				data->Nmanager.n_thread.join();
-				// //////////// Starting NetworkManager ////////////
-				// Log("MainMenuState::handle_input", "Pushed game state");
-				/////////////////////////////////
 				data->machine.add_state(StateRef(new GameState(data)), false);
+			}
+			else if(sf::Keyboard::isKeyPressed(sf::Keyboard::V)) {
+				data->machine.add_state(StateRef(new ServerState(data)), false);
 			}
 		}
 	}

@@ -17,7 +17,7 @@ namespace cp{
 		void drawUsingCamera(const Camera& main_camera);
 		float friction 	= e_max_speed.z/5;
 		void project(Line &line, float camX, float camY, float camZ, float camD);
-		void handle_input(float dt);
+		void handle_input(std::vector<bool> mask, float dt);
 	};
 }
 #endif //CARS_HPP

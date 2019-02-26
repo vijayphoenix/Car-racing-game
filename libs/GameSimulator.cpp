@@ -3,21 +3,23 @@
 namespace cp {
 	GameSimulator::GameSimulator(GameDataRef res_store)
 		: resource_store(res_store), fout("GameSimulator.log"), map(res_store) {
-			fout<<"Executing GameSimulator "<<std::endl;
-			fout<<"Returning from GameSimulator "<<std::endl;
+		fout<<"Executing GameSimulator "<<std::endl;
+		fout<<"Returning from GameSimulator "<<std::endl;
 	}
 	GameSimulator::~GameSimulator() {
 		fout << "Executing ~GameSimulator " << std::endl;
 		fout.close();
-		fout << "Returning from ~GameSimulator " << std::endl;
 	}
 
 	// GameStuff
 	void GameSimulator::init() {
-		// TODO : Create a helper function to load all the assets required for gamestate
 		fout<<"Executing init"<<std::endl;
-
-		/////////////////////
+		fout << "Assigning id to each bot" << std::endl;
+		for (int i = 0; i < TOTAL_BOTS; i++)
+		{
+			bot_id.push_back(i);
+		}
+		playerID = 0;
 		map.init();
 		fout << "Map initialized" <<std::endl;
 		/////////////////////
@@ -27,12 +29,8 @@ namespace cp {
 			resource_store->assets.load_texture("CarImage" + std::to_string(i), CAR_IMAGE_FILEPATH(i));
 		}
 		fout << "Car Assests Loaded" <<std::endl;
-		//////////////////////////////////////////////
-
-		// TODO : Create an object pool
-		/////// Creating the main player car and bots
 		for (int i = 0; i < TOTAL_BOTS; i++) {
-			bot[i] = std::unique_ptr<Bot>(new Bot(resource_store, 5));
+			bot[i] = CarRef(new PlayerCar(resource_store, 5, 0));
 			bot[i]->e_position.x = (i & 1) ? 0.0 : -1.1;
 			bot[i]->e_position.z = (i / 4) * 4000;
 			bot[i]->e_speed.z = 100;
@@ -43,7 +41,6 @@ namespace cp {
 		fout<<"Returning from init"<<std::endl;
 	}
 	void GameSimulator::handle_input(float delta) {
-
 		sf::Event event;
 		while (resource_store->window.pollEvent(event)) {
 			if (sf::Event::Closed == event.type) {
@@ -53,12 +50,15 @@ namespace cp {
 				resource_store->machine.remove_state();
 			}
 		}
-
 		// TODO : Create a driver/bot_mind class
 		for (int i = 0; i < TOTAL_BOTS; i++) {
 			input_type mask = get_mask(i);
+
 			bot[i]->handle_input(mask, delta);
 		}
+
+		main_camera.e_position.x = bot[0]->e_position.x * 1024;
+		main_camera.e_position.z = bot[0]->e_position.z - 2000;
 	}
 	void GameSimulator::draw(float delta) {
 		resource_store->window.clear(sf::Color(105, 205, 4));
@@ -86,18 +86,16 @@ namespace cp {
 			}
 		}
 
-		// int index = map.get_grid_index(car->e_position.z);
-		// Line &temp_line = map.lines[index];
-		// car->drawSprite(map.lines[index]);
-
 		resource_store->window.display();
 	}
 	void GameSimulator::update(float delta) {
 		map.bound_entity(main_camera);
 		for (int i = 0; i < TOTAL_BOTS; i++) {
-			map.bound_entity(*bot[i]);
+			map.bound_entity(bot[i]);
 		}
+
 		for (int i = 0; i < TOTAL_BOTS; i++) {
+
 			bot[i]->update_car(delta, map.lines, map.getSegL());
 			for (int j = i + 1; j < TOTAL_BOTS; j++) {
 				collision.handle_collision(*bot[j], *bot[i], map);
@@ -131,6 +129,25 @@ namespace cp {
 
 	GameSimulator::input_type GameSimulator::get_mask(int i) {
 		ID id = bot_id[i];
+		if(sf::Keyboard::isKeyPressed(sf::Keyboard::U)) {
+			fout<<"Inputs for player:"<<id<<std::endl;
+			for(auto i:resource_store->input.get_mask(id))fout<<i;
+			fout<<std::endl;
+		}
 		return resource_store->input.get_mask(id);
+	}
+	GameSimulator::input_return_type GameSimulator::get_input() {
+		GameSimulator::input_type inputs;
+		if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
+			inputs.push_back(1);
+		}
+		else inputs.push_back(0);
+
+		return GameSimulator::input_return_type(playerID, inputs);
+	}
+	GameSimulatorSnap GameSimulator::get_current_snap(SnapFlag flag) {
+		if(flag == SnapFlag::NETWORK_SNAP) {
+			return GameSimulatorSnap();
+		}
 	}
 }

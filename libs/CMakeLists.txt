@@ -17,6 +17,9 @@ GameMap.cpp
 NetworkManager.cpp
 PauseState.cpp
 ClientState.cpp
+ServerState.cpp
+Client.cpp
+Server.cpp
 GameSimulator.cpp
 )
 target_link_libraries(extLibs ${SFML_LIBRARIES} ${SFML_DEPENDENCIES} -pthread)

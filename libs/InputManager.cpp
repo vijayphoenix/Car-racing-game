@@ -18,7 +18,6 @@ namespace cp{
 		return sf::Mouse::getPosition(window);
 	}
 	void InputManager::register_input(register_input_type input_pair) {
-		// mp.insert(input_pair.first, input_pair.second);
 		mp[input_pair.first] = input_pair.second;
 	}
 	InputManager::input_type InputManager::get_mask(ID id) {

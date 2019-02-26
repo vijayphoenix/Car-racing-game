@@ -25,44 +25,22 @@ namespace cp
         void handle_input       (float delta);
         void draw               (float delta);
         void update             (float delta);
-        void drawSprite         (Line &line);
         static void network_handler(GameDataRef data, std::shared_ptr<PlayerCar> car, std::shared_ptr<Bot> bot);
 
-        typedef std::shared_ptr<PlayerCar> CarRef;
+
 
         private:
-          ////////// Data related to game ( assets, states, renderer, ... ) ////////
-          GameDataRef data;
-        /////////////////////////////////////////
+        void drawSprite         (Line &line);
 
-        ////////// The Game clock ///////////////
-        // sf::Clock  clock;
-        // float       current_time=0;
-        // float       new_time=0;
-        ///////////////////////////////////////
-
-        /////////// The GameMap ////////////////////
+        using CarRef = std::shared_ptr<PlayerCar>;
+        using BotRef = std::shared_ptr<Bot>;
+        GameDataRef data;
         GameMap map;
-        //////////////////////////////////////////
-        sf::Sprite  s;
-
         Camera main_camera;
-
-
-        ///////// The Bots drones.. /////////
-        std::shared_ptr<Bot>    bot[TOTAL_BOTS];
-        //////////////////////////////////
-
-        ///////// The player Car ////////
-        CarRef   car;
-        //////////////////////////////////
-
-        ///////// The collision Handler ///
+        CarRef player;
+        CarRef    bot[TOTAL_BOTS];
         Collision               collision;
-        ///////////////////////////////////
-
-
-        std::thread network_handle;
+        // std::thread network_handle;
     };
 } // namespace cp
 

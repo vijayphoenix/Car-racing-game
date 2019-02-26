@@ -11,9 +11,6 @@ namespace cp
 		Log("GameState", "Created a game State");
 	}
 	void GameState::init() {
-
-		// TODO : Create a helper function to load all the assets required for gamestate
-
 		map.init();
 		Log("GameState", "Map initialized");
 
@@ -22,36 +19,24 @@ namespace cp
 			data->assets.load_texture("CarImage" + std::to_string(i), CAR_IMAGE_FILEPATH(i));
 		}
 		Log("GameState", "Car Assests Loaded");
+		player = std::shared_ptr<PlayerCar>(new PlayerCar(data,5,main_camera.getSpeed().z));
+		player->e_position.x = 1.1;
 
-		//////////////////////////////////////////////
-
-		// TODO : Create an object pool
-		/////// Creating the main player car and bots
-		car = std::shared_ptr<PlayerCar>(new PlayerCar(data,5,main_camera.getSpeed().z));
-		car->e_position.x = 1.1;
 		for (int i = 0; i < TOTAL_BOTS; i++)
 		{
-			bot[i] = std::unique_ptr<Bot>(new Bot(data, 5));
+			bot[i] = CarRef(new PlayerCar(data, 5, main_camera.getSpeed().z));
 			bot[i]->e_position.x = (i & 1)?0.0: -1.1;
 			bot[i]->e_position.z = (i / 4) * 4000;
 			bot[i]->e_speed.z = 100;
 		}
 		Log("GameState", "Car and Bots initialized");
-
-		///////////////////////////////////////////////
-
-		////// The Game Begins ///////////////////////
-		// current_time=clock.getElapsedTime().asSeconds();
-		//////////////////////////////////////////////
 		// network_handle = std::thread(network_handler, data, car, bot[0]);
-		// Log("GameState", "Network handle initialized");
 	}
 	void GameState::handle_input(float delta) {
 		sf::Event event;
 		while(data->window.pollEvent(event)) {
 			if(sf::Event::Closed==event.type){
 				data->machine.add_state(StateRef(new GameOverState(data)), true);
-				// data->window.close();
 			}
 			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q)){
 				data->machine.remove_state();
@@ -61,29 +46,36 @@ namespace cp
 				data->machine.add_state(StateRef(new PauseState(data)), false);
 			}
 		}
-
-		// new_time=clock.getElapsedTime().asSeconds();
-
-		// TODO : Create a driver/bot_mind class
-		for (int i = 0; i < TOTAL_BOTS; i++)
-		{
-			bot[i]->handle_input();
-			// std::cout<<"Bot INfo:"<<bot[i]->e_position.x<<" "<<bot[i]->e_position.y<<" "<<bot[i]->e_position.z<<std::endl;
+		std::vector<bool> mask;
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+			mask.push_back(1);
+		else
+			mask.push_back(0);
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+			mask.push_back(1);
+		else
+			mask.push_back(0);
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+			mask.push_back(1);
+		else
+			mask.push_back(0);
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+			mask.push_back(1);
+		else
+			mask.push_back(0);
+		for (int i = 0; i < TOTAL_BOTS; i++) {
+			bot[i]->handle_input(mask, delta);
 		}
-		car->handle_input(delta);
 
-		main_camera.e_position.x = car->e_position.x*1024;
-		main_camera.e_position.z = car->e_position.z - 2000;
-		// std::cout<<main_camera.e_position.x<<" "<<main_camera.e_position.y<<" "<<main_camera.e_position.z<<std::endl;
+		player->handle_input(mask, delta);
+		main_camera.e_position.x = bot[0]->e_position.x * 1024;
+		main_camera.e_position.z = bot[0]->e_position.z - 2000;
 
 		map.bound_entity(main_camera);
 		for (int i = 0; i < TOTAL_BOTS; i++) {
-			map.bound_entity(*bot[i]);
+			map.bound_entity(bot[i]);
 		}
-		map.bound_entity(car);
-		////// The frame Ends ///////////////////////////
-		// current_time = new_time;
-		////////////////////////////////////////////////
+		map.bound_entity(player);
 	}
 	void GameState::draw(float delta){
 		data->window.clear(sf::Color(105, 205, 4));
@@ -110,22 +102,20 @@ namespace cp
 			}
 		}
 
-		int index = map.get_grid_index(car->e_position.z);
+		int index = map.get_grid_index(player->e_position.z);
 		Line &temp_line = map.lines[index];
-		car->drawSprite(map.lines[index]);
+		player->drawSprite(map.lines[index]);
 
 		data->window.display();
 	}
 	void GameState::update(float delta){
-		car->update_car(delta,map.lines,map.getSegL());
+		player->update_car(delta,map.lines,map.getSegL());
 
 		for (int i = 0; i < TOTAL_BOTS; i++)
 		{
 			bot[i]->update_car(delta, map.lines, map.getSegL());
 
-			// int index = map.get_grid_index(bot[i]->e_position.z);
-			// int diff = index % map.getGridCount() - map.get_grid_index(car->e_position.z) % map.getGridCount();
-			collision.handle_collision(*car,*bot[i],map);
+			// collision.handle_collision(*car,*bot[i],map);
 			for(int j = i+1; j < TOTAL_BOTS ; j++)
 			{
 				collision.handle_collision(*bot[j], *bot[i], map);
@@ -135,7 +125,7 @@ namespace cp
 		// data->Nmanager.sendData(bot[0]->e_position);
 	}
 	void GameState::drawSprite(Line &line) {
-		s = line.sprite;
+		sf::Sprite s = line.sprite;
 		int w = s.getTextureRect().width;
 		int h = s.getTextureRect().height;
 

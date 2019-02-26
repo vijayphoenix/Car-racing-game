@@ -40,11 +40,8 @@ namespace cp{
 				car_image_num = 4;
 			sprite.setTexture(data->assets.get_texture("CarImage" + std::to_string(car_image_num)));
 		}
-		/////////////////////////////////////////////////////////////////////
-		// e_position.z += e_speed.z;
-		// e_position.y = index_line.y;
-		// std::cout << "PlayerCar::update_car " << e_position.y << " " << index_line.y << std::endl;
 	}
+
 	void PlayerCar::drawSprite(const Line &line) {
 		sf::Sprite &s = sprite;
 		int w = s.getTextureRect().width;
@@ -68,29 +65,25 @@ namespace cp{
 		data->window.draw(s);
 	}
 
-	void PlayerCar::handle_input(float dt) {
+	void PlayerCar::handle_input(std::vector<bool> mask, float dt) {
 		float speedRatio = e_speed.z / e_max_speed.z;
 		float dx = 2 * dt * speedRatio;
 		l=r =false;
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+		if (mask[0])
 		{
 			e_speed.z += e_acceleration.z * dt;
 		}
-		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+		else if (mask[1])
 		{
 			e_speed.z += e_decleration.z * dt;
 		}
-		// else
-		// {
-		// 	if(speedRatio>0)e_speed.z += friction * dt;
-		// }
 		e_speed.z = std::max(-50.0f, std::min(e_speed.z, e_max_speed.z));
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+		if (mask[2])
 		{
 			e_position.x -= dx;
 			l = true;
 		}
-		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+		else if (mask[3])
 		{
 			e_position.x += dx;
 			r = true;
