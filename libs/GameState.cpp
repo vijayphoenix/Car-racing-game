@@ -22,6 +22,8 @@ namespace cp
 		{
 			data->assets.load_texture("CarImage"+std::to_string(i),CAR_IMAGE_FILEPATH(i));
 		}
+		data->assets.load_texture("Bullet", "res/bullet.png");
+
 		Log("GameState", "Car Assests Loaded");
 
 		//////////////////////////////////////////////
@@ -29,6 +31,8 @@ namespace cp
 		// TODO : Create an object pool
 		/////// Creating the main player car and bots
 		car = std::shared_ptr<PlayerCar>(new PlayerCar(data,5,main_camera.getSpeed().z));
+		bullet = std::unique_ptr<Bullet>(new Bullet(data, 5, car->e_position));
+
 		car->e_position.x = 1.1;
 			for (int i = 0; i < TOTAL_BOTS; i++)
 			{
@@ -77,6 +81,10 @@ namespace cp
 			{
 				data->machine.add_state(StateRef(new PauseState(data)), false);
 			}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::B))
+			{
+				bullet = std::unique_ptr<Bullet>(new Bullet(data, 5, car->e_position));
+			}
 		}
 
 		// new_time=clock.getElapsedTime().asSeconds();
@@ -97,12 +105,14 @@ namespace cp
 		for (int i = 0; i < TOTAL_BOTS; i++) {
 			map.bound_entity(*bot[i]);
 		}
+		map.bound_entity(*bullet);
 		map.bound_entity(car);
 		////// The frame Ends ///////////////////////////
 		// current_time = new_time;
 		////////////////////////////////////////////////
 	}
 	void GameState::draw(float delta){
+
 		data->window.clear(sf::Color(105, 205, 4));
 		map.draw(500, main_camera);
 		for (int i = 0; i < TOTAL_BOTS; i++) {
@@ -128,6 +138,8 @@ namespace cp
 		int index = map.get_grid_index(car->e_position.z);
 		Line &temp_line = map.lines[index];
 		car->drawSprite(map.lines[index]);
+		if(bullet!=nullptr and bullet->e_position.z-car->e_position.z<=10000)bullet->drawSprite(map.lines[bullet->e_position.z/map.getSegL()]);
+		// std::cout << "Hello" << std::endl;
 		bar.draw();
 
 		for(int i = 0; i < 3; i++)
@@ -139,6 +151,7 @@ namespace cp
 	}
 	void GameState::update(float delta){
 		if(car->e_speed.z>0)score+=delta*car->e_speed.z;
+		if(bullet!=nullptr)bullet->update_car(delta, map.lines, map.getSegL());
 		car->update_car(delta,map.lines,map.getSegL());
 		for (int i = 0; i < TOTAL_BOTS; i++)
 		{
@@ -153,8 +166,9 @@ namespace cp
 			}
 		// if(bot[i]->health==0)score+=1000;
 		}
+		collision.handle_collision(*bullet, *bot[0], map);
 		bar.percentage=car->health;
-		std::cout << "CAR health" << car->health << std::endl;
+		// std::cout << "CAR health" << car->health << std::endl;
 		std::cout << "Bot health" << bot[0]->health << std::endl;
 		text[1].setString(std::to_string(score));
 		// data->Nmanager.sendData(car->e_position);

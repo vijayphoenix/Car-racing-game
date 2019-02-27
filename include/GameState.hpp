@@ -1,6 +1,7 @@
 #ifndef GAMESTATE_HPP
 #define GAMESTATE_HPP
 #include <SFML/Graphics.hpp>
+#include <memory>
 #include "GameOverState.hpp"
 #include "DEFINITIONS.hpp"
 #include "Bot.hpp"
@@ -13,7 +14,7 @@
 #include "GameMap.hpp"
 #include "PauseState.hpp"
 #include "PercentageBar.hpp"
-#include <memory>
+#include "Bullet.hpp"
 
 namespace cp
 {
@@ -70,6 +71,8 @@ namespace cp
         sf::Text text[5];
         long long int score=0;
         // float fuel =100;
+
+        std::unique_ptr<Bullet> bullet;
     };
 } // namespace cp
 

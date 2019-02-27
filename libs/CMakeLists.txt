@@ -16,6 +16,7 @@ PlayerCar.cpp
 GameMap.cpp
 NetworkManager.cpp
 PauseState.cpp
+Bullet.cpp
 )
 target_link_libraries(extLibs ${SFML_LIBRARIES} ${SFML_DEPENDENCIES} -pthread)
 message("SFML_LIBRARIES LOCATION:${SFML_LIBRARIES}")

@@ -13,6 +13,7 @@
 #include "Camera.hpp"
 #include "Car.hpp"
 #include "Bot.hpp"
+#include "Bullet.hpp"
 
 namespace cp{
 	class GameMap{
@@ -46,6 +47,7 @@ namespace cp{
         int  get_grid_index     (float distance);
         void bound_entity       (std::shared_ptr<cp::PlayerCar> &car);
         void bound_entity       (Camera& camera);
+        void bound_entity(Bullet &bot);
         void bound_entity(Bot &bot);
         int getRoadWidth() const;
         int getSegL() const;

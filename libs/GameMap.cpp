@@ -57,8 +57,8 @@ namespace cp{
 				line.spriteX = -1.2;
 				line.sprite = object[7];
 			}
-			if (i > 750)
-				line.y = sin(i / 30.0) * 1500;
+			// if (i > 750)
+			// 	line.y = sin(i / 30.0) * 1500;
 			lines.push_back(line);
 		}
 		N = lines.size();
@@ -80,8 +80,9 @@ namespace cp{
 		// So it is not visible on the screen and hence no need to over scale it.
 		// if(line.scale>0.049 || line.scale<0)line.scale = 0.049;
 		////////////////////////////////////////////////////////////////////////////////////
-
+		line.no_curve_X = (1 - line.scale * (camX)) * width / 2;
 		line.X = (1 + line.scale * (line.x - camX)) * width / 2;
+		line.no_curve_Y = (1 + line.scale * camY) * height / 2;
 		line.Y = (1 - line.scale * (line.y - camY)) * height / 2;
 		line.W = line.scale * roadW * width /2;
 	}
@@ -186,6 +187,17 @@ namespace cp{
 		}
 		while(bot.e_position.z <0) {
 			bot.e_position.z += N*segL;
+		}
+	}
+	void GameMap::bound_entity(Bullet &bot)
+	{
+		while (bot.e_position.z >= N * segL)
+		{
+			bot.e_position.z -= N * segL;
+		}
+		while (bot.e_position.z < 0)
+		{
+			bot.e_position.z += N * segL;
 		}
 	}
 	int GameMap::getRoadWidth() const {
