@@ -10,7 +10,7 @@
 namespace cp{
 	class PlayerCar : public Car{
 		public:
-		PlayerCar		(GameDataRef _data, int _car_num, float cspeed);
+		PlayerCar		(GameDataRef _data, int _car_num);
 		~PlayerCar		();
 		void update_car (float dt, const std::vector<Line> & lines, float segL);
 		void drawSprite	(const Line &line);
@@ -21,8 +21,3 @@ namespace cp{
 	};
 }
 #endif //CARS_HPP
-
-
-//// TODO: Create a driver class and then use the driver object to finally give
-////		a vector to the car for it's movement
-// TODO: Choose a better name for this class \//Done

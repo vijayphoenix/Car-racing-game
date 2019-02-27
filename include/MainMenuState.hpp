@@ -13,6 +13,7 @@ namespace cp
 	  sf::Sprite 	background_sprite;
 	  sf::Sprite 	title_sprite;
 	  sf::Sprite 	play_button_sprite;
+	  bool server = false;
 	public:
 		MainMenuState		(GameDataRef _data);
 

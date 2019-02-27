@@ -14,6 +14,7 @@
 
 #include <string>
 #include "GameSimulator.hpp"
+#include "SFML/Network.hpp"
 
 namespace cp {
 	class Client {
@@ -24,13 +25,14 @@ namespace cp {
 		using key_input_type = std::pair<ID, std::vector<bool>>;
 		private:
 		ID id;
-		IP ip;
-		PORT port;
+		sf::TcpSocket socket;
 
 		public:
+		Client(ID identity):id(identity){}
 		ID get_identity() const ;
 		key_input_type get_inputs() const ;
 		void send_snap(const GameSimulatorSnap& snap) const ;
+		sf::TcpSocket & get_socket();
 	};
 }
 #endif //CLIENT_HPP

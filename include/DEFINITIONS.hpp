@@ -10,7 +10,7 @@
 // const int SCREEN_WIDTH = sf::VideoMode::getDesktopMode().width;
 // const int SCREEN_HEIGHT = sf::VideoMode::getDesktopMode().height;
 
-#define SPLASH_STATE_SHOW_TIME 				1.0
+#define SPLASH_STATE_SHOW_TIME 				0.0
 #define SPLASH_SCENE_BACKGROUND_FILEPATH 	"res/splashScreen.png"
 #define MAIN_MENU_BACKGROUND_FILEPATH 		"res/splashScreen.png"
 #define GAME_BACKGROUND_FILEPATH 			"res/sky.png"

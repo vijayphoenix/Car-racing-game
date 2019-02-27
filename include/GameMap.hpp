@@ -44,9 +44,8 @@ namespace cp{
         void draw               (int count, const Camera& main_camera);
         void drawSprite         (const Line &line);
         int  get_grid_index     (float distance);
-        void bound_entity       (std::shared_ptr<cp::PlayerCar> &car);
+        void bound_entity       (cp::Car &car);
         void bound_entity       (Camera& camera);
-        void bound_entity(Bot &bot);
         int getRoadWidth() const;
         int getSegL() const;
         int getGridCount() const;

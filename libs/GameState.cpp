@@ -19,16 +19,16 @@ namespace cp
 			data->assets.load_texture("CarImage" + std::to_string(i), CAR_IMAGE_FILEPATH(i));
 		}
 		Log("GameState", "Car Assests Loaded");
-		player = std::shared_ptr<PlayerCar>(new PlayerCar(data,5,main_camera.getSpeed().z));
-		player->e_position.x = 1.1;
+		// player = std::shared_ptr<PlayerCar>(new PlayerCar(data,5,main_camera.getSpeed().z));
+		// player->e_position.x = 1.1;
 
-		for (int i = 0; i < TOTAL_BOTS; i++)
-		{
-			bot[i] = CarRef(new PlayerCar(data, 5, main_camera.getSpeed().z));
-			bot[i]->e_position.x = (i & 1)?0.0: -1.1;
-			bot[i]->e_position.z = (i / 4) * 4000;
-			bot[i]->e_speed.z = 100;
-		}
+		// for (int i = 0; i < TOTAL_BOTS; i++)
+		// {
+		// 	bot[i] = CarRef(new PlayerCar(data, 5, main_camera.getSpeed().z));
+		// 	bot[i]->e_position.x = (i & 1)?0.0: -1.1;
+		// 	bot[i]->e_position.z = (i / 4) * 4000;
+		// 	bot[i]->e_speed.z = 100;
+		// }
 		Log("GameState", "Car and Bots initialized");
 		// network_handle = std::thread(network_handler, data, car, bot[0]);
 	}
@@ -71,11 +71,11 @@ namespace cp
 		main_camera.e_position.x = bot[0]->e_position.x * 1024;
 		main_camera.e_position.z = bot[0]->e_position.z - 2000;
 
-		map.bound_entity(main_camera);
-		for (int i = 0; i < TOTAL_BOTS; i++) {
-			map.bound_entity(bot[i]);
-		}
-		map.bound_entity(player);
+		// map.bound_entity(main_camera);
+		// for (int i = 0; i < TOTAL_BOTS; i++) {
+		// 	map.bound_entity(*bot[i]);
+		// }
+		// map.bound_entity(*player);
 	}
 	void GameState::draw(float delta){
 		data->window.clear(sf::Color(105, 205, 4));

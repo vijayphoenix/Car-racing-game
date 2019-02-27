@@ -18,14 +18,14 @@ namespace cp{
 	 */
 	class ServerState : public State {
 		public:
-		ServerState(GameDataRef _data);
+		ServerState(GameDataRef _data, const std::vector<Client *> &clients);
 		~ServerState();
 
 		virtual void handle_input(float delta);
 		virtual void update(float delta);
 		virtual void draw(float delta);
-		virtual void pause(){}
-		virtual void resume(){}
+		virtual void pause() {}
+		virtual void resume() {}
 		virtual void init();
 
 		private:
@@ -33,7 +33,7 @@ namespace cp{
 		GameDataRef game_data;
 
 		std::vector<Client::key_input_type> inputs;
-		std::vector<Client> clients;
+		std::vector<Client*> clients;
 		GameSimulatorSnap temp_snap;
 
 		void collect_network_inputs();
@@ -41,6 +41,7 @@ namespace cp{
 
 		void generate_outputs();
 		void use_generated_outputs();
+		void simulate_server_room();
 
 		// Log stuffs
 		private:

@@ -157,13 +157,13 @@ namespace cp{
 	int GameMap::get_grid_index(const float distance) {
 		return distance/segL;
 	}
-	void GameMap::bound_entity(std::shared_ptr<cp::PlayerCar> &car) {
+	void GameMap::bound_entity(cp::Car &car) {
 		////// Bounding the car in the map /////////
-		while (car->e_position.z >= N * segL) {
-			car->e_position.z -= N * segL;
+		while (car.e_position.z >= N * segL) {
+			car.e_position.z -= N * segL;
 		}
-		while (car->e_position.z < 0) {
-			car->e_position.z += N * segL;
+		while (car.e_position.z < 0) {
+			car.e_position.z += N * segL;
 		}
 		//////////////////////////////////////////////
 	}
@@ -179,14 +179,6 @@ namespace cp{
 		}
 		// std::cout << camera.e_position.z << " " << car->e_position.z << std::endl;
 		//////////////////////////////////////////////////
-	}
-	void GameMap::bound_entity(Bot & bot) {
-		while(bot.e_position.z >= N * segL) {
-			bot.e_position.z -= N*segL;
-		}
-		while(bot.e_position.z <0) {
-			bot.e_position.z += N*segL;
-		}
 	}
 	int GameMap::getRoadWidth() const {
 		return roadW;

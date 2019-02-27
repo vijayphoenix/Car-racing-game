@@ -6,7 +6,7 @@
 
 
 namespace cp{
-	PlayerCar::PlayerCar(GameDataRef _data, int car_num, float cspeed)
+	PlayerCar::PlayerCar(GameDataRef _data, int car_num)
 		:Car(_data,car_num){
 		/////// Setting up entity ////////
 		e_speed = sf::Vector3f(0, 0, 0);
