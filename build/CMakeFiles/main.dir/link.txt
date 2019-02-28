@@ -1,1 +1,0 @@
-/usr/bin/g++-7   -std=c++0x -g  -rdynamic CMakeFiles/main.dir/src/Main.cpp.o  -o main libs/libextLibs.a -lsfml-audio -lsfml-graphics -lsfml-window -lsfml-system -lsfml-network 
