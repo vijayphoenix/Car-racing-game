@@ -21,7 +21,7 @@ namespace cp
 		{
 			data->assets.load_texture("CarImage"+std::to_string(i),CAR_IMAGE_FILEPATH(i));
 		}
-		data->assets.load_texture("Bullet", "res/bullet.png");
+		data->assets.load_texture("Bullet", "../res/bullet.png");
 
 		Log("GameState", "Car Assests Loaded");
 
@@ -158,17 +158,17 @@ namespace cp
 
 			// int index = map.get_grid_index(bot[i]->e_position.z);
 			// int diff = index % map.getGridCount() - map.get_grid_index(car->e_position.z) % map.getGridCount();
-			collision.handle_collision(*car,*bot[i],map);
+			collision.handle_collision(*car,*bot[i],map,COEFFICIENT_OF_RESTITUTION);
 			for(int j = i+1; j < TOTAL_BOTS ; j++)
 			{
-				collision.handle_collision(*bot[j], *bot[i], map);
+				collision.handle_collision(*bot[j], *bot[i], map, COEFFICIENT_OF_RESTITUTION);
 			}
 		// if(bot[i]->health==0)score+=1000;
 		}
 
 		for(auto itr: bullet_set[current]){
 			if (itr->e_position.z - car->e_position.z > 10000)	itr->in_use = false;
-			collision.handle_collision(*itr, *bot[0], map);
+			collision.handle_collision(*itr, *bot[0], map,COEFFICIENT_OF_RESTITUTION);
 			if(itr->in_use)	bullet_set[!current].insert(itr);
 			else pool.returnObject(itr);
 		}

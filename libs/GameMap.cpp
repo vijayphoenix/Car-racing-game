@@ -9,7 +9,7 @@ namespace cp{
 		/////////// Loading Environment assets ////////
 		for (int i = 1; i <= 9; i++)
 		{
-			t[i].loadFromFile("res/" + std::to_string(i) + ".png");
+			t[i].loadFromFile("../res/" + std::to_string(i) + ".png");
 			t[i].setSmooth(true);
 			object[i].setTexture(t[i]);
 		}

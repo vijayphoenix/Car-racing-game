@@ -81,10 +81,6 @@ namespace cp{
 		{
 			e_speed.z += e_decleration.z * dt;
 		}
-		// else
-		// {
-		// 	if(speedRatio>0)e_speed.z += friction * dt;
-		// }
 		e_speed.z = std::max(-50.0f, std::min(e_speed.z, e_max_speed.z));
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 		{

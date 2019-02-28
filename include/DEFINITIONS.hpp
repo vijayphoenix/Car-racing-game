@@ -11,26 +11,24 @@
 // const int SCREEN_HEIGHT = sf::VideoMode::getDesktopMode().height;
 
 #define SPLASH_STATE_SHOW_TIME 				1.0
-#define SPLASH_SCENE_BACKGROUND_FILEPATH 	"res/splashScreen.png"
-#define MAIN_MENU_BACKGROUND_FILEPATH 		"res/splashScreen.png"
-#define GAME_BACKGROUND_FILEPATH 			"res/sky.png"
-#define GAME_STATE_BACKGROUND_FILEPATH 		"res/cy.png"
-#define GAME_OVER_BACKGROUND_FILEPATH 		"res/splashScreen.png"
+#define SPLASH_SCENE_BACKGROUND_FILEPATH 	"../res/splashScreen.png"
+#define MAIN_MENU_BACKGROUND_FILEPATH 		"../res/splashScreen.png"
+#define GAME_BACKGROUND_FILEPATH 			"../res/sky.png"
+#define GAME_STATE_BACKGROUND_FILEPATH 		"../res/cy.png"
+#define GAME_OVER_BACKGROUND_FILEPATH 		"../res/splashScreen.png"
 
 
 
 #define TOTAL_CARS 10
 #define TOTAL_BOTS 1
-
+#define COEFFICIENT_OF_RESTITUTION 0.8
 
 #define CAR_IMAGE_FILEPATH(i) CAR_NAME(i)
-static std::string CAR_NAME(int x){return ("res/CarImage"+ std::to_string(x)+".png");}
+static std::string CAR_NAME(int x){return ("../res/CarImage"+ std::to_string(x)+".png");}
 #define Log(tag, message) std::cout<<tag<<" --> "<<message<<std::endl
 
-#define GAME_TITLE_FILEPATH 	"res/title.png"
-#define PLAY_BUTTON_FILEPATH 	"res/PlayButton.png"
-#define PIPE_UP_FILEPATH 		"res/PipeUp.png"
-#define PIPE_DOWN_FILEPATH 		"res/PipeDown.png"
+#define GAME_TITLE_FILEPATH 	"../res/title.png"
+#define PLAY_BUTTON_FILEPATH 	"../res/PlayButton.png"
 
 
 #define ROAD_WIDTH 		2000

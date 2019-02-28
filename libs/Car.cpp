@@ -25,16 +25,16 @@ namespace cp
 		if (!in_use)return;
 		data->window.draw(sprite);
 	}
-	void Car::onCollision(const Car &bot, bool front)
+	void Car::onCollision(const Car &bot, bool front, float cor)
 	{
 		if (front)
 		{
-			e_speed.z /= 2;
+			e_speed.z = cor!=0 ? (e_speed.z > 50 ? e_speed.z-50 : 0) : e_speed.z;
 			// std::cout << "front " << e_speed.z << std::endl;
 		}
 		else
 		{
-			e_speed.z += 100;
+			e_speed.z += cor!=0 ? 50 : 0;
 			// std::cout << "back " << e_speed.z << std::endl;
 		}
 		if(health>0)health-=10;
