@@ -6,7 +6,7 @@
 
 namespace cp
 {
-	Car::Car(GameDataRef _data, int car_num) : data(_data), car_image_num(car_num) {
+	Car::Car(GameDataRef _data, int car_num) : data(_data), car_image_num(car_num), in_use(false){
 		sprite.setTexture(data->assets.get_texture("CarImage" + std::to_string(car_image_num)));
 		sprite.setPosition(SCREEN_WIDTH / 2 - sprite.getGlobalBounds().width / 2, SCREEN_HEIGHT - sprite.getGlobalBounds().height * 1.5);
 
@@ -22,11 +22,11 @@ namespace cp
 	Car::~Car() {
 	}
 	void Car::draw_car() {
+		if (!in_use)return;
 		data->window.draw(sprite);
 	}
 	void Car::onCollision(const Car &bot, bool front)
 	{
-
 		if (front)
 		{
 			e_speed.z /= 2;
@@ -38,6 +38,9 @@ namespace cp
 			// std::cout << "back " << e_speed.z << std::endl;
 		}
 		if(health>0)health-=10;
+		else if(health ==0){
+			in_use=false;
+		}
 		e_speed.z = std::max(-50.0f, std::min(e_speed.z, e_max_speed.z));
 	}
 }

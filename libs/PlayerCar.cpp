@@ -15,6 +15,7 @@ namespace cp{
 		e_position.x = 1.0;
 		e_position.z = 2000;
 		car_mass=100;
+		in_use=true;
 	}
 	PlayerCar::~PlayerCar() {
 	}

@@ -7,13 +7,12 @@
 
 namespace cp
 {
-	GameState::GameState(GameDataRef _data) : data(_data), map(_data),bar(_data) {
+	GameState::GameState(GameDataRef _data) : data(_data), map(_data),bar(_data),pool(50) {
 		Log("GameState", "Created a game State");
 	}
 	void GameState::init() {
 
 		// TODO : Create a helper function to load all the assets required for gamestate
-
 		map.init();
 		Log("GameState", "Map initialized");
 
@@ -31,7 +30,6 @@ namespace cp
 		// TODO : Create an object pool
 		/////// Creating the main player car and bots
 		car = std::shared_ptr<PlayerCar>(new PlayerCar(data,5,main_camera.getSpeed().z));
-		bullet = std::unique_ptr<Bullet>(new Bullet(data, 5, car->e_position));
 
 		car->e_position.x = 1.1;
 			for (int i = 0; i < TOTAL_BOTS; i++)
@@ -83,12 +81,11 @@ namespace cp
 			}
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::B))
 			{
-				bullet = std::unique_ptr<Bullet>(new Bullet(data, 5, car->e_position));
+				bullet = pool.getObject(data, 5);
+				bullet->init(car->e_position);
+				bullet_set[current].insert(bullet);
 			}
 		}
-
-		// new_time=clock.getElapsedTime().asSeconds();
-
 		// TODO : Create a driver/bot_mind class
 		for (int i = 0; i < TOTAL_BOTS; i++)
 		{
@@ -105,11 +102,12 @@ namespace cp
 		for (int i = 0; i < TOTAL_BOTS; i++) {
 			map.bound_entity(*bot[i]);
 		}
-		map.bound_entity(*bullet);
-		map.bound_entity(car);
-		////// The frame Ends ///////////////////////////
-		// current_time = new_time;
-		////////////////////////////////////////////////
+		for (auto itr : bullet_set[current])map.bound_entity(*itr);
+
+			map.bound_entity(car);
+			////// The frame Ends ///////////////////////////
+			// current_time = new_time;
+			////////////////////////////////////////////////
 	}
 	void GameState::draw(float delta){
 
@@ -121,7 +119,6 @@ namespace cp
 			Line &temp_line = map.lines[index];
 			bot[i]->drawSprite(map.lines[index]);
 		}
-
 		////// Finding camera position and camera height ///
 		int startPos = map.get_grid_index(main_camera.getPosition().z);
 		///////////////////////////////////////////////////
@@ -134,12 +131,14 @@ namespace cp
 				}
 			}
 		}
+		for (auto itr : bullet_set[current]){
+			int index = (itr->e_position.z) / map.getSegL();
+			itr->drawSprite(map.lines[index]);
+		}
 
 		int index = map.get_grid_index(car->e_position.z);
 		Line &temp_line = map.lines[index];
 		car->drawSprite(map.lines[index]);
-		if(bullet!=nullptr and bullet->e_position.z-car->e_position.z<=10000)bullet->drawSprite(map.lines[bullet->e_position.z/map.getSegL()]);
-		// std::cout << "Hello" << std::endl;
 		bar.draw();
 
 		for(int i = 0; i < 3; i++)
@@ -151,7 +150,7 @@ namespace cp
 	}
 	void GameState::update(float delta){
 		if(car->e_speed.z>0)score+=delta*car->e_speed.z;
-		if(bullet!=nullptr)bullet->update_car(delta, map.lines, map.getSegL());
+		for (auto itr : bullet_set[current])itr->update_car(delta, map.lines, map.getSegL());
 		car->update_car(delta,map.lines,map.getSegL());
 		for (int i = 0; i < TOTAL_BOTS; i++)
 		{
@@ -166,10 +165,20 @@ namespace cp
 			}
 		// if(bot[i]->health==0)score+=1000;
 		}
-		collision.handle_collision(*bullet, *bot[0], map);
+
+		for(auto itr: bullet_set[current]){
+			if (itr->e_position.z - car->e_position.z > 10000)	itr->in_use = false;
+			collision.handle_collision(*itr, *bot[0], map);
+			if(itr->in_use)	bullet_set[!current].insert(itr);
+			else pool.returnObject(itr);
+		}
+		bullet_set[current].clear();
+		current=!current;
+
+
 		bar.percentage=car->health;
 		// std::cout << "CAR health" << car->health << std::endl;
-		std::cout << "Bot health" << bot[0]->health << std::endl;
+		// std::cout << "Bot health" << bot[0]->health << std::endl;
 		text[1].setString(std::to_string(score));
 		// data->Nmanager.sendData(car->e_position);
 		// data->Nmanager.sendData(bot[0]->e_position);

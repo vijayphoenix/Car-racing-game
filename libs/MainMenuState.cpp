@@ -3,6 +3,7 @@
 #include "DEFINITIONS.hpp"
 #include "NetworkManager.hpp"
 #include <iostream>
+#include <thread>
 #include <sstream>
 
 namespace cp

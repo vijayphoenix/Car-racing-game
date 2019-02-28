@@ -12,7 +12,6 @@ namespace cp
 		public:
 		Bot					(GameDataRef _data, int car_num);
 		~Bot				();
-
 		void 	drawSprite	(const Line &line);
 		virtual void update_car(float dt, const std::vector<Line> &lines, float segL);
 		void handle_input();

@@ -1,6 +1,5 @@
 #include "Bot.hpp"
 #include "DEFINITIONS.hpp"
-
 #include <iostream>
 #include <cmath>
 #include <sstream>
@@ -19,6 +18,7 @@ namespace cp
 		e_position.x=-1.0;
 		e_position.z = 4000;
 		car_mass = 100;
+		in_use = true;
 	}
 	Bot::~Bot() {
 	}

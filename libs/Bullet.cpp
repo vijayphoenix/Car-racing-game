@@ -6,22 +6,31 @@
 
 namespace cp
 {
-Bullet::Bullet(GameDataRef _data, int car_num,sf::Vector3f pos): Car(_data, car_num)
+Bullet::Bullet(GameDataRef _data, int car_num): Car(_data, car_num)
 {
 	/////// Setting up entity ////////
-	e_position=pos;
+
 	e_speed = sf::Vector3f(0, 0, 600);
 	e_max_speed = sf::Vector3f(0, 0, 600);
-	// centrifugal = 4;
+	health=10;
 	///////////////////////////////////
-	// std::cout<<"Hello"<<std::endl;
 	sprite.setTexture(data->assets.get_texture("Bullet"));
+	sprite.scale(0.01,0.01);
 }
 Bullet::~Bullet()
 {
 }
+
+void Bullet::init(sf::Vector3f pos)
+{
+	in_use=true;
+	e_speed = sf::Vector3f(0, 0, 600);
+	e_position=pos;
+}
+
 void Bullet::drawSprite(const Line &line)
 {
+	if(!in_use)return;
 	sf::Sprite &s = sprite;
 
 	int w = s.getTextureRect().width;
@@ -59,6 +68,7 @@ void Bullet::drawSprite(const Line &line)
 }
 void Bullet::update_car(const float dt, const std::vector<Line> &lines, const float segL)
 {
+	if (!in_use)return;
 	e_position.z += e_speed.z;
 	// float speedRatio = e_speed.z / e_max_speed.z; //ASDF
 	// float dx = 2 * dt * speedRatio;
@@ -68,7 +78,6 @@ void Bullet::update_car(const float dt, const std::vector<Line> &lines, const fl
 }
 void Bullet::handle_input()
 {
-
 }
 
 } // namespace cp

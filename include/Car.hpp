@@ -16,6 +16,10 @@ namespace cp{
 		~Car					();
 
 		void 		 draw_car	();
+		virtual void init(sf::Vector3f pos){}
+		void reset(){
+			in_use=false;
+		}
 		virtual void update_car	(float dt, const std::vector<Line> &lines, float segL)= 0;
 		sf::Vector3f getPosition() const {
 			return e_position;
@@ -46,6 +50,7 @@ namespace cp{
 
 		float car_mass=0;
 		float health = 100;
+		bool in_use =false;
 	};
 }
 #endif //CAR_HPP
