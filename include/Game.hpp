@@ -4,9 +4,9 @@
 #include <memory>
 #include <string>
 #include <SFML/Graphics.hpp>
-#include "InputManager.hpp"
-#include "AssetManager.hpp"
-#include "StateMachine.hpp"
+#include "ResourceManagers/InputManager.hpp"
+#include "ResourceManagers/AssetManager.hpp"
+#include "States/StateMachine.hpp"
 #include "NetworkManager.hpp"
 
 namespace cp

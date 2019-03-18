@@ -1,4 +1,5 @@
-#include "InputManager.hpp"
+#include "ResourceManagers/InputManager.hpp"
+#include "Objects/Bot.hpp"
 
 namespace cp{
 	InputManager::InputManager(){
@@ -15,5 +16,11 @@ namespace cp{
 	}
 	sf::Vector2i InputManager::get_mouse_position(sf::RenderWindow &window){
 		return sf::Mouse::getPosition(window);
+	}
+	void InputManager::register_input(register_input_type input_pair) {
+		mp[input_pair.first] = input_pair.second;
+	}
+	InputManager::input_type InputManager::get_mask(ID id) {
+		return mp[id];
 	}
 }

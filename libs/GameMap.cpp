@@ -1,4 +1,4 @@
-#include "GameMap.hpp"
+#include "Objects/GameMap.hpp"
 
 
 namespace cp{
@@ -9,7 +9,7 @@ namespace cp{
 		/////////// Loading Environment assets ////////
 		for (int i = 1; i <= 9; i++)
 		{
-			t[i].loadFromFile("res/" + std::to_string(i) + ".png");
+			t[i].loadFromFile("../res/" + std::to_string(i) + ".png");
 			t[i].setSmooth(true);
 			object[i].setTexture(t[i]);
 		}
@@ -39,12 +39,12 @@ namespace cp{
 			}
 			if (i % 17 == 0)
 			{
-				line.spriteX = 2.0;
-				line.sprite = object[6];
+				line.spriteX = 1.0;
+				line.sprite = object[3];
 			}
 			if (i > 300 && i % 20 == 0)
 			{
-				line.spriteX = -0.7;
+				line.spriteX = -1.2;
 				line.sprite = object[4];
 			}
 			if (i > 800 && i % 20 == 0)
@@ -52,13 +52,8 @@ namespace cp{
 				line.spriteX = -1.2;
 				line.sprite = object[1];
 			}
-			if (i == 400)
-			{
-				line.spriteX = -1.2;
-				line.sprite = object[7];
-			}
-			if (i > 750)
-				line.y = sin(i / 30.0) * 1500;
+			// if (i > 750)
+			// 	line.y = sin(i / 30.0) * 1500;
 			lines.push_back(line);
 		}
 		N = lines.size();
@@ -80,8 +75,9 @@ namespace cp{
 		// So it is not visible on the screen and hence no need to over scale it.
 		// if(line.scale>0.049 || line.scale<0)line.scale = 0.049;
 		////////////////////////////////////////////////////////////////////////////////////
-
+		line.no_curve_X = (1 - line.scale * (camX)) * width / 2;
 		line.X = (1 + line.scale * (line.x - camX)) * width / 2;
+		line.no_curve_Y = (1 + line.scale * camY) * height / 2;
 		line.Y = (1 - line.scale * (line.y - camY)) * height / 2;
 		line.W = line.scale * roadW * width /2;
 	}
@@ -157,13 +153,13 @@ namespace cp{
 	int GameMap::get_grid_index(const float distance) {
 		return distance/segL;
 	}
-	void GameMap::bound_entity(std::shared_ptr<cp::PlayerCar> &car) {
+	void GameMap::bound_entity(cp::Car &car) {
 		////// Bounding the car in the map /////////
-		while (car->e_position.z >= N * segL) {
-			car->e_position.z -= N * segL;
+		while (car.e_position.z >= N * segL) {
+			car.e_position.z -= N * segL;
 		}
-		while (car->e_position.z < 0) {
-			car->e_position.z += N * segL;
+		while (car.e_position.z < 0) {
+			car.e_position.z += N * segL;
 		}
 		//////////////////////////////////////////////
 	}
@@ -186,6 +182,17 @@ namespace cp{
 		}
 		while(bot.e_position.z <0) {
 			bot.e_position.z += N*segL;
+		}
+	}
+	void GameMap::bound_entity(Bullet &bot)
+	{
+		while (bot.e_position.z >= N * segL)
+		{
+			bot.e_position.z -= N * segL;
+		}
+		while (bot.e_position.z < 0)
+		{
+			bot.e_position.z += N * segL;
 		}
 	}
 	int GameMap::getRoadWidth() const {

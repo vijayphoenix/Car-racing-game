@@ -54,7 +54,6 @@ namespace cp{
 			std::cerr << "Data transfer not successful" << std::endl;
 		}
 		else {
-			// std::cout << "Sent a packet " << std::endl;
 		}
 	}
 }

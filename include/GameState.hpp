@@ -1,6 +1,10 @@
 #ifndef GAMESTATE_HPP
 #define GAMESTATE_HPP
 #include <SFML/Graphics.hpp>
+#include <memory>
+#include <set>
+#include "GameOverState.hpp"
+#include "BustedState.hpp"
 #include "DEFINITIONS.hpp"
 #include "Bot.hpp"
 #include "PlayerCar.hpp"
@@ -10,7 +14,10 @@
 #include "Collision.hpp"
 #include "Camera.hpp"
 #include "GameMap.hpp"
-#include <memory>
+#include "PauseState.hpp"
+#include "PercentageBar.hpp"
+#include "Bullet.hpp"
+#include "ObjectPool.hpp"
 
 namespace cp
 {
@@ -29,8 +36,8 @@ namespace cp
         typedef std::shared_ptr<PlayerCar> CarRef;
 
         private:
-          ////////// Data related to game ( assets, states, renderer, ... ) ////////
-          GameDataRef data;
+        ////////// Data related to game ( assets, states, renderer, ... ) ////////
+        GameDataRef data;
         /////////////////////////////////////////
 
         ////////// The Game clock ///////////////
@@ -61,7 +68,17 @@ namespace cp
 
 
         std::thread network_handle;
-    };
-} // namespace cp
+
+        PercentageBar bar;
+        sf::Font font;
+        sf::Text text[5];
+        long long int score=0;
+        // float fuel =100;
+        ObjectPool<Bullet>pool;
+        Bullet* bullet;
+        std::set<Bullet*> bullet_set[2];
+        int current=0;
+}; // namespace cp
+}
 
 #endif //GAMESTATE_HPP

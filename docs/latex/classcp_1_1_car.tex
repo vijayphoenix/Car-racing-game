@@ -1,0 +1,86 @@
+\hypertarget{classcp_1_1_car}{}\section{cp\+:\+:Car Class Reference}
+\label{classcp_1_1_car}\index{cp\+::\+Car@{cp\+::\+Car}}
+Inheritance diagram for cp\+:\+:Car\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classcp_1_1_car}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classcp_1_1_car_a46616a5f3b166d287038bd112a2febf6}\label{classcp_1_1_car_a46616a5f3b166d287038bd112a2febf6}} 
+{\bfseries Car} (Game\+Data\+Ref \+\_\+data, int car\+\_\+num)
+\item 
+\mbox{\Hypertarget{classcp_1_1_car_ad1ba1efee8393261c0df5665135a58f2}\label{classcp_1_1_car_ad1ba1efee8393261c0df5665135a58f2}} 
+void {\bfseries draw\+\_\+car} ()
+\item 
+\mbox{\Hypertarget{classcp_1_1_car_a5314aafa100c37ff64a5f42e80421347}\label{classcp_1_1_car_a5314aafa100c37ff64a5f42e80421347}} 
+virtual void {\bfseries init} (sf\+::\+Vector3f pos)
+\item 
+\mbox{\Hypertarget{classcp_1_1_car_aa9b3ace5ba3809f03b2d7ee2f692cb47}\label{classcp_1_1_car_aa9b3ace5ba3809f03b2d7ee2f692cb47}} 
+void {\bfseries reset} ()
+\item 
+\mbox{\Hypertarget{classcp_1_1_car_a61f07d533f15f6241df726252ba634a5}\label{classcp_1_1_car_a61f07d533f15f6241df726252ba634a5}} 
+virtual void {\bfseries update\+\_\+car} (float dt, const std\+::vector$<$ \hyperlink{classcp_1_1_line}{Line} $>$ \&lines, float segL)=0
+\item 
+\mbox{\Hypertarget{classcp_1_1_car_a1064f8e1d5f6ce98010ad7bdcd6f2648}\label{classcp_1_1_car_a1064f8e1d5f6ce98010ad7bdcd6f2648}} 
+sf\+::\+Vector3f {\bfseries get\+Position} () const
+\item 
+\mbox{\Hypertarget{classcp_1_1_car_a57ea04dccfe2c989ff4de7071709c2fd}\label{classcp_1_1_car_a57ea04dccfe2c989ff4de7071709c2fd}} 
+sf\+::\+Vector3f {\bfseries get\+Speed} () const
+\item 
+\mbox{\Hypertarget{classcp_1_1_car_a962c79b26ad0cee458e6fa1514161179}\label{classcp_1_1_car_a962c79b26ad0cee458e6fa1514161179}} 
+void {\bfseries on\+Collision} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classcp_1_1_car_a9c0016df25c08d240b3d68df4b1a4d1e}\label{classcp_1_1_car_a9c0016df25c08d240b3d68df4b1a4d1e}} 
+int {\bfseries car\+\_\+image\+\_\+num}
+\item 
+\mbox{\Hypertarget{classcp_1_1_car_abbcb271c156890f8edf120fbe13c9b55}\label{classcp_1_1_car_abbcb271c156890f8edf120fbe13c9b55}} 
+bool {\bfseries l} = false
+\item 
+\mbox{\Hypertarget{classcp_1_1_car_a9532fda7653d8f7e564b4f1d2182680d}\label{classcp_1_1_car_a9532fda7653d8f7e564b4f1d2182680d}} 
+bool {\bfseries r} = false
+\item 
+\mbox{\Hypertarget{classcp_1_1_car_a4be73a6980259975c78d02334a2ddcac}\label{classcp_1_1_car_a4be73a6980259975c78d02334a2ddcac}} 
+sf\+::\+Sprite {\bfseries sprite}
+\item 
+\mbox{\Hypertarget{classcp_1_1_car_af6fc0e17ba216f124770ff2a54c637f5}\label{classcp_1_1_car_af6fc0e17ba216f124770ff2a54c637f5}} 
+Game\+Data\+Ref {\bfseries data}
+\item 
+\mbox{\Hypertarget{classcp_1_1_car_a2e1c5e9f37be9bdd64a34767192ff2ed}\label{classcp_1_1_car_a2e1c5e9f37be9bdd64a34767192ff2ed}} 
+sf\+::\+Vector3f {\bfseries e\+\_\+position}
+\item 
+\mbox{\Hypertarget{classcp_1_1_car_aca49ba4b184dd732e8191799af50ca36}\label{classcp_1_1_car_aca49ba4b184dd732e8191799af50ca36}} 
+sf\+::\+Vector3f {\bfseries e\+\_\+speed}
+\item 
+\mbox{\Hypertarget{classcp_1_1_car_a9f4dcb1bf9ed9d74c1bee7f5069d3fdd}\label{classcp_1_1_car_a9f4dcb1bf9ed9d74c1bee7f5069d3fdd}} 
+sf\+::\+Vector3f {\bfseries e\+\_\+acceleration}
+\item 
+\mbox{\Hypertarget{classcp_1_1_car_a3be0504b75d4ca80e50bc03160d3f94b}\label{classcp_1_1_car_a3be0504b75d4ca80e50bc03160d3f94b}} 
+sf\+::\+Vector3f {\bfseries e\+\_\+decleration}
+\item 
+\mbox{\Hypertarget{classcp_1_1_car_ac4c002c522449207944a8783eb5781f5}\label{classcp_1_1_car_ac4c002c522449207944a8783eb5781f5}} 
+sf\+::\+Vector3f {\bfseries e\+\_\+max\+\_\+speed}
+\item 
+\mbox{\Hypertarget{classcp_1_1_car_a52c4d6a9cc0923934e92c92e4fb98be3}\label{classcp_1_1_car_a52c4d6a9cc0923934e92c92e4fb98be3}} 
+float {\bfseries centrifugal} = 0.\+5
+\item 
+\mbox{\Hypertarget{classcp_1_1_car_a4c9959533d302656a6b4a02f4a0c0cb1}\label{classcp_1_1_car_a4c9959533d302656a6b4a02f4a0c0cb1}} 
+float {\bfseries car\+\_\+mass} =0
+\item 
+\mbox{\Hypertarget{classcp_1_1_car_a9cc4a38a4ff13fa7643947ca4f2c1776}\label{classcp_1_1_car_a9cc4a38a4ff13fa7643947ca4f2c1776}} 
+float {\bfseries health} = 100
+\item 
+\mbox{\Hypertarget{classcp_1_1_car_a33253c0fb62bc8eb73de318bc7847106}\label{classcp_1_1_car_a33253c0fb62bc8eb73de318bc7847106}} 
+bool {\bfseries in\+\_\+use} =false
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\+Objects/Car.\+hpp\item 
+libs/Car.\+cpp\end{DoxyCompactItemize}

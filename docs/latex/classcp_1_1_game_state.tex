@@ -1,0 +1,56 @@
+\hypertarget{classcp_1_1_game_state}{}\section{cp\+:\+:Game\+State Class Reference}
+\label{classcp_1_1_game_state}\index{cp\+::\+Game\+State@{cp\+::\+Game\+State}}
+Inheritance diagram for cp\+:\+:Game\+State\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classcp_1_1_game_state}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classcp_1_1_game_state_ae6b57da0779db6b2c6458aa484496d61}\label{classcp_1_1_game_state_ae6b57da0779db6b2c6458aa484496d61}} 
+typedef std\+::shared\+\_\+ptr$<$ \hyperlink{classcp_1_1_player_car}{Player\+Car} $>$ {\bfseries Car\+Ref}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classcp_1_1_game_state_af8b15ea02a00d2952500404ba4ae63b8}\label{classcp_1_1_game_state_af8b15ea02a00d2952500404ba4ae63b8}} 
+{\bfseries Game\+State} (Game\+Data\+Ref \+\_\+data)
+\item 
+\mbox{\Hypertarget{classcp_1_1_game_state_a91fc8fff6e06a8fddb4b4ea785bdcf0e}\label{classcp_1_1_game_state_a91fc8fff6e06a8fddb4b4ea785bdcf0e}} 
+void {\bfseries init} ()
+\item 
+\mbox{\Hypertarget{classcp_1_1_game_state_af9c8395fedd3343337f2e249669d8e52}\label{classcp_1_1_game_state_af9c8395fedd3343337f2e249669d8e52}} 
+void {\bfseries handle\+\_\+input} (float delta)
+\item 
+\mbox{\Hypertarget{classcp_1_1_game_state_a17b81f0c87209d967c571393b3a493d9}\label{classcp_1_1_game_state_a17b81f0c87209d967c571393b3a493d9}} 
+void {\bfseries draw} (float delta)
+\item 
+\mbox{\Hypertarget{classcp_1_1_game_state_abe654ab4d56344d7897b5e93be36e5f3}\label{classcp_1_1_game_state_abe654ab4d56344d7897b5e93be36e5f3}} 
+void {\bfseries update} (float delta)
+\item 
+\mbox{\Hypertarget{classcp_1_1_game_state_a34e5851e826d9b73c80648d86ca729de}\label{classcp_1_1_game_state_a34e5851e826d9b73c80648d86ca729de}} 
+void {\bfseries draw\+Sprite} (\hyperlink{classcp_1_1_line}{Line} \&line)
+\item 
+\mbox{\Hypertarget{classcp_1_1_game_state_af8b15ea02a00d2952500404ba4ae63b8}\label{classcp_1_1_game_state_af8b15ea02a00d2952500404ba4ae63b8}} 
+{\bfseries Game\+State} (Game\+Data\+Ref \+\_\+data)
+\item 
+\mbox{\Hypertarget{classcp_1_1_game_state_aaaa06069d85774c0dca85a99989da467}\label{classcp_1_1_game_state_aaaa06069d85774c0dca85a99989da467}} 
+virtual void {\bfseries init} ()
+\item 
+\mbox{\Hypertarget{classcp_1_1_game_state_a326eebfad824224c4d01588839c42e3d}\label{classcp_1_1_game_state_a326eebfad824224c4d01588839c42e3d}} 
+virtual void {\bfseries handle\+\_\+input} (float delta)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classcp_1_1_game_state_aabbafbae2e0067041117d8395b246526}\label{classcp_1_1_game_state_aabbafbae2e0067041117d8395b246526}} 
+static void {\bfseries network\+\_\+handler} (Game\+Data\+Ref data, std\+::shared\+\_\+ptr$<$ \hyperlink{classcp_1_1_player_car}{Player\+Car} $>$ car, std\+::shared\+\_\+ptr$<$ \hyperlink{classcp_1_1_bot}{Bot} $>$ bot)
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Game\+State.\+hpp\item 
+libs/Game\+State.\+cpp\end{DoxyCompactItemize}

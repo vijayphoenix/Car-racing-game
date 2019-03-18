@@ -1,4 +1,6 @@
-#include "StateMachine.hpp"
+#include "States/StateMachine.hpp"
+#include <iostream>
+
 
 namespace cp{
 	StateMachine::StateMachine(){
@@ -15,19 +17,21 @@ namespace cp{
 	}
 	void StateMachine::process_state_change() {
 		if(is_removing && !stack_state.empty() ){
+
 			stack_state.pop();
 			if(!stack_state.empty())
 				stack_state.top()->resume();
 			is_removing=false;
 		}
 		if(is_adding){
+
 			if(!stack_state.empty()){
 				if(is_replacing)
 					stack_state.pop();
 				else
 					stack_state.top()->pause();
 			}
-			stack_state.push(std::move(new_state));
+			stack_state.push(std::move(new_state));\
 			stack_state.top()->init();
 			is_adding=false;
 		}

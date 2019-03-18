@@ -1,0 +1,94 @@
+\hypertarget{classcp_1_1_client_room}{}\section{cp\+:\+:Client\+Room Class Reference}
+\label{classcp_1_1_client_room}\index{cp\+::\+Client\+Room@{cp\+::\+Client\+Room}}
+Inheritance diagram for cp\+:\+:Client\+Room\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classcp_1_1_client_room}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classcp_1_1_client_room_a8e636ababbdc41c50f486d37af2b64d5}\label{classcp_1_1_client_room_a8e636ababbdc41c50f486d37af2b64d5}} 
+{\bfseries Client\+Room} (Game\+Data\+Ref \+\_\+data)
+\item 
+\mbox{\Hypertarget{classcp_1_1_client_room_a9fa2892e03ca5eb0cce9221e83320058}\label{classcp_1_1_client_room_a9fa2892e03ca5eb0cce9221e83320058}} 
+void \hyperlink{classcp_1_1_client_room_a9fa2892e03ca5eb0cce9221e83320058}{init} ()
+\begin{DoxyCompactList}\small\item\em Initializing the \hyperlink{classcp_1_1_client_room}{Client\+Room} components. \end{DoxyCompactList}\item 
+void \hyperlink{classcp_1_1_client_room_a8e0de6eeab8147b7d918b11c2eeccecf}{handle\+\_\+input} (float delta)
+\begin{DoxyCompactList}\small\item\em T\+His function provides the interface to handle\+\_\+input in \hyperlink{classcp_1_1_client_room}{Client\+Room}. \end{DoxyCompactList}\item 
+void \hyperlink{classcp_1_1_client_room_a09987dd7d61af43329b63a8ba9e3df69}{update} (float delta)
+\begin{DoxyCompactList}\small\item\em Provides an interface to update the \hyperlink{classcp_1_1_client_room}{Client\+Room}. \end{DoxyCompactList}\item 
+void \hyperlink{classcp_1_1_client_room_a9c8ff4227d9fa5e35511c756ddaafc83}{draw} (float delta)
+\begin{DoxyCompactList}\small\item\em Draw the components on the screen. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classcp_1_1_client_room_a073602b25e64da5644a0deb3ecbe1146}\label{classcp_1_1_client_room_a073602b25e64da5644a0deb3ecbe1146}} 
+void \hyperlink{classcp_1_1_client_room_a073602b25e64da5644a0deb3ecbe1146}{get\+\_\+notifications} ()
+\begin{DoxyCompactList}\small\item\em Get the notifications from the server. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classcp_1_1_client_room_abea3f2a34f619f4b2637b1486a809081}\label{classcp_1_1_client_room_abea3f2a34f619f4b2637b1486a809081}} 
+void \hyperlink{classcp_1_1_client_room_abea3f2a34f619f4b2637b1486a809081}{use\+\_\+notification} ()
+\begin{DoxyCompactList}\small\item\em Utility function to use\+\_\+recieved notification. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classcp_1_1_client_room_a9c8ff4227d9fa5e35511c756ddaafc83}\label{classcp_1_1_client_room_a9c8ff4227d9fa5e35511c756ddaafc83}} 
+\index{cp\+::\+Client\+Room@{cp\+::\+Client\+Room}!draw@{draw}}
+\index{draw@{draw}!cp\+::\+Client\+Room@{cp\+::\+Client\+Room}}
+\subsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void cp\+::\+Client\+Room\+::draw (\begin{DoxyParamCaption}\item[{float}]{delta }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Draw the components on the screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classcp_1_1_state}{cp\+::\+State}.
+
+\mbox{\Hypertarget{classcp_1_1_client_room_a8e0de6eeab8147b7d918b11c2eeccecf}\label{classcp_1_1_client_room_a8e0de6eeab8147b7d918b11c2eeccecf}} 
+\index{cp\+::\+Client\+Room@{cp\+::\+Client\+Room}!handle\+\_\+input@{handle\+\_\+input}}
+\index{handle\+\_\+input@{handle\+\_\+input}!cp\+::\+Client\+Room@{cp\+::\+Client\+Room}}
+\subsubsection{\texorpdfstring{handle\+\_\+input()}{handle\_input()}}
+{\footnotesize\ttfamily void cp\+::\+Client\+Room\+::handle\+\_\+input (\begin{DoxyParamCaption}\item[{float}]{delta }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+T\+His function provides the interface to handle\+\_\+input in \hyperlink{classcp_1_1_client_room}{Client\+Room}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta} & T\+Ime difference between two handle\+\_\+input calls. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classcp_1_1_state}{cp\+::\+State}.
+
+\mbox{\Hypertarget{classcp_1_1_client_room_a09987dd7d61af43329b63a8ba9e3df69}\label{classcp_1_1_client_room_a09987dd7d61af43329b63a8ba9e3df69}} 
+\index{cp\+::\+Client\+Room@{cp\+::\+Client\+Room}!update@{update}}
+\index{update@{update}!cp\+::\+Client\+Room@{cp\+::\+Client\+Room}}
+\subsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void cp\+::\+Client\+Room\+::update (\begin{DoxyParamCaption}\item[{float}]{delta }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Provides an interface to update the \hyperlink{classcp_1_1_client_room}{Client\+Room}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta} & T\+Ime difference between two update calls \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classcp_1_1_state}{cp\+::\+State}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\+Network/\hyperlink{_client_room_8hpp}{Client\+Room.\+hpp}\end{DoxyCompactItemize}

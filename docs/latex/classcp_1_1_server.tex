@@ -1,0 +1,150 @@
+\hypertarget{classcp_1_1_server}{}\section{cp\+:\+:Server Class Reference}
+\label{classcp_1_1_server}\index{cp\+::\+Server@{cp\+::\+Server}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classcp_1_1_server_a01d0cc0ae7adc7594399753f98e90fbc}\label{classcp_1_1_server_a01d0cc0ae7adc7594399753f98e90fbc}} 
+\hyperlink{classcp_1_1_server_a01d0cc0ae7adc7594399753f98e90fbc}{Server} ()
+\begin{DoxyCompactList}\small\item\em Construct a new \hyperlink{classcp_1_1_server}{Server} object. \end{DoxyCompactList}\item 
+ID \hyperlink{classcp_1_1_server_a9a492566ee0efac90c49dec317876311}{get\+\_\+identity} () const
+\begin{DoxyCompactList}\small\item\em Get the identity object. \end{DoxyCompactList}\item 
+sf\+::\+Tcp\+Socket \& \hyperlink{classcp_1_1_server_aa55a5008f274c0ffd2afa632ec857df7}{get\+\_\+socket} ()
+\begin{DoxyCompactList}\small\item\em Get the socket object. \end{DoxyCompactList}\item 
+sf\+::\+Socket\+::\+Status \hyperlink{classcp_1_1_server_ae880b305b96776c6c6d38b29a4d3007b}{get\+Last\+Status} () const
+\begin{DoxyCompactList}\small\item\em Get the Last Status object. \end{DoxyCompactList}\item 
+void \hyperlink{classcp_1_1_server_ae83a84ed4d85c6e432d09013a48392c8}{connect\+\_\+to} (const std\+::string \&ip, int port)
+\begin{DoxyCompactList}\small\item\em connect to the specified port and ip \end{DoxyCompactList}\item 
+void \hyperlink{classcp_1_1_server_abe6024ffde0c27bb4c1c7a14c206df5a}{send\+\_\+packet} (sf\+::\+Packet \&packet)
+\begin{DoxyCompactList}\small\item\em send packet \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classcp_1_1_server_ac815dc5a236bbe5036e139e50c1e8fb4}\label{classcp_1_1_server_ac815dc5a236bbe5036e139e50c1e8fb4}} 
+void {\bfseries recieve\+\_\+packet} (sf\+::\+Packet \&packet)
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classcp_1_1_server}{Server} \& \hyperlink{classcp_1_1_server_a996961461d4083fbb237bce454c42c3f}{operator$<$$<$} (\hyperlink{classcp_1_1_server}{Server} \&server, const key\+\_\+input\+\_\+type \&labelled\+\_\+input)
+\begin{DoxyCompactList}\small\item\em Overloaded operator$<$$<$ to send the labelled input. \end{DoxyCompactList}\item 
+\hyperlink{classcp_1_1_server}{Server} \& \hyperlink{classcp_1_1_server_a0be043cde5346b18f9fed76e2ae909b7}{operator$>$$>$} (\hyperlink{classcp_1_1_server}{Server} \&server, \hyperlink{classcp_1_1_game_simulator_snap}{Game\+Simulator\+Snap} \&snap)
+\begin{DoxyCompactList}\small\item\em Overloaded operator$>$$>$ to recieve Game\+Snaps. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classcp_1_1_server_ae83a84ed4d85c6e432d09013a48392c8}\label{classcp_1_1_server_ae83a84ed4d85c6e432d09013a48392c8}} 
+\index{cp\+::\+Server@{cp\+::\+Server}!connect\+\_\+to@{connect\+\_\+to}}
+\index{connect\+\_\+to@{connect\+\_\+to}!cp\+::\+Server@{cp\+::\+Server}}
+\subsubsection{\texorpdfstring{connect\+\_\+to()}{connect\_to()}}
+{\footnotesize\ttfamily void cp\+::\+Server\+::connect\+\_\+to (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{ip,  }\item[{int}]{port }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+connect to the specified port and ip 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ip} & IP of the server. \\
+\hline
+{\em port} & P\+O\+RT of the server. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classcp_1_1_server_a9a492566ee0efac90c49dec317876311}\label{classcp_1_1_server_a9a492566ee0efac90c49dec317876311}} 
+\index{cp\+::\+Server@{cp\+::\+Server}!get\+\_\+identity@{get\+\_\+identity}}
+\index{get\+\_\+identity@{get\+\_\+identity}!cp\+::\+Server@{cp\+::\+Server}}
+\subsubsection{\texorpdfstring{get\+\_\+identity()}{get\_identity()}}
+{\footnotesize\ttfamily ID cp\+::\+Server\+::get\+\_\+identity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the identity object. 
+
+\begin{DoxyReturn}{Returns}
+ID id of the \hyperlink{classcp_1_1_server}{Server}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcp_1_1_server_aa55a5008f274c0ffd2afa632ec857df7}\label{classcp_1_1_server_aa55a5008f274c0ffd2afa632ec857df7}} 
+\index{cp\+::\+Server@{cp\+::\+Server}!get\+\_\+socket@{get\+\_\+socket}}
+\index{get\+\_\+socket@{get\+\_\+socket}!cp\+::\+Server@{cp\+::\+Server}}
+\subsubsection{\texorpdfstring{get\+\_\+socket()}{get\_socket()}}
+{\footnotesize\ttfamily sf\+::\+Tcp\+Socket\& cp\+::\+Server\+::get\+\_\+socket (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the socket object. 
+
+\begin{DoxyReturn}{Returns}
+sf\+::\+Tcp\+Socket\& I\+Nternal handle of the socket. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcp_1_1_server_ae880b305b96776c6c6d38b29a4d3007b}\label{classcp_1_1_server_ae880b305b96776c6c6d38b29a4d3007b}} 
+\index{cp\+::\+Server@{cp\+::\+Server}!get\+Last\+Status@{get\+Last\+Status}}
+\index{get\+Last\+Status@{get\+Last\+Status}!cp\+::\+Server@{cp\+::\+Server}}
+\subsubsection{\texorpdfstring{get\+Last\+Status()}{getLastStatus()}}
+{\footnotesize\ttfamily sf\+::\+Socket\+::\+Status cp\+::\+Server\+::get\+Last\+Status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the Last Status object. 
+
+\begin{DoxyReturn}{Returns}
+sf\+::\+Socket\+::\+Status Status of the last function call to recieve/send. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcp_1_1_server_abe6024ffde0c27bb4c1c7a14c206df5a}\label{classcp_1_1_server_abe6024ffde0c27bb4c1c7a14c206df5a}} 
+\index{cp\+::\+Server@{cp\+::\+Server}!send\+\_\+packet@{send\+\_\+packet}}
+\index{send\+\_\+packet@{send\+\_\+packet}!cp\+::\+Server@{cp\+::\+Server}}
+\subsubsection{\texorpdfstring{send\+\_\+packet()}{send\_packet()}}
+{\footnotesize\ttfamily void cp\+::\+Server\+::send\+\_\+packet (\begin{DoxyParamCaption}\item[{sf\+::\+Packet \&}]{packet }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+send packet 
+
+
+\begin{DoxyParams}{Parameters}
+{\em packet} & \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{classcp_1_1_server_a996961461d4083fbb237bce454c42c3f}\label{classcp_1_1_server_a996961461d4083fbb237bce454c42c3f}} 
+\index{cp\+::\+Server@{cp\+::\+Server}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!cp\+::\+Server@{cp\+::\+Server}}
+\subsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily \hyperlink{classcp_1_1_server}{Server}\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{\hyperlink{classcp_1_1_server}{Server} \&}]{server,  }\item[{const key\+\_\+input\+\_\+type \&}]{labelled\+\_\+input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Overloaded operator$<$$<$ to send the labelled input. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em server} & The server that you want to send the labelled input to. \\
+\hline
+{\em labelled\+\_\+input} & The labelled input to send. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classcp_1_1_server}{Server}\& Returns back the server reference. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcp_1_1_server_a0be043cde5346b18f9fed76e2ae909b7}\label{classcp_1_1_server_a0be043cde5346b18f9fed76e2ae909b7}} 
+\index{cp\+::\+Server@{cp\+::\+Server}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!cp\+::\+Server@{cp\+::\+Server}}
+\subsubsection{\texorpdfstring{operator$>$$>$}{operator>>}}
+{\footnotesize\ttfamily \hyperlink{classcp_1_1_server}{Server}\& operator$>$$>$ (\begin{DoxyParamCaption}\item[{\hyperlink{classcp_1_1_server}{Server} \&}]{server,  }\item[{\hyperlink{classcp_1_1_game_simulator_snap}{Game\+Simulator\+Snap} \&}]{snap }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Overloaded operator$>$$>$ to recieve Game\+Snaps. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em server} & The server that you want to recieve snap from. \\
+\hline
+{\em snap} & The snap reference for getting incoming snap. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classcp_1_1_server}{Server}\& Returns back the server. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\+Network/\hyperlink{_server_8hpp}{Server.\+hpp}\end{DoxyCompactItemize}

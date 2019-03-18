@@ -1,0 +1,68 @@
+\hypertarget{classcp_1_1_game_map}{}\section{cp\+:\+:Game\+Map Class Reference}
+\label{classcp_1_1_game_map}\index{cp\+::\+Game\+Map@{cp\+::\+Game\+Map}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classcp_1_1_game_map_a2d0def33bf9ef663f32d9abf7aca1844}\label{classcp_1_1_game_map_a2d0def33bf9ef663f32d9abf7aca1844}} 
+{\bfseries Game\+Map} (Game\+Data\+Ref \+\_\+data)
+\item 
+\mbox{\Hypertarget{classcp_1_1_game_map_ad32e7dc2c373891d2b23be9d82298843}\label{classcp_1_1_game_map_ad32e7dc2c373891d2b23be9d82298843}} 
+void {\bfseries init} ()
+\item 
+\mbox{\Hypertarget{classcp_1_1_game_map_a2e6704dd56becb268b447899dd325004}\label{classcp_1_1_game_map_a2e6704dd56becb268b447899dd325004}} 
+void {\bfseries draw\+\_\+quad} (sf\+::\+Color c, int x1, int y1, int w1, int x2, int y2, int w2)
+\item 
+\mbox{\Hypertarget{classcp_1_1_game_map_a789a1f584569d46ade271dcbc729e0ae}\label{classcp_1_1_game_map_a789a1f584569d46ade271dcbc729e0ae}} 
+void {\bfseries update} (float delta)
+\item 
+\mbox{\Hypertarget{classcp_1_1_game_map_a549c0c56f71a0dac1569064c9619b6ef}\label{classcp_1_1_game_map_a549c0c56f71a0dac1569064c9619b6ef}} 
+void {\bfseries project} (\hyperlink{classcp_1_1_line}{Line} \&line, float camX, float camY, float camZ, float camD)
+\item 
+\mbox{\Hypertarget{classcp_1_1_game_map_a01e91f2a91d334c247e98eb9a1dc2cd9}\label{classcp_1_1_game_map_a01e91f2a91d334c247e98eb9a1dc2cd9}} 
+void {\bfseries draw} (int count, const \hyperlink{classcp_1_1_camera}{Camera} \&main\+\_\+camera)
+\item 
+\mbox{\Hypertarget{classcp_1_1_game_map_a710565389773b9cc81645195bd835a1c}\label{classcp_1_1_game_map_a710565389773b9cc81645195bd835a1c}} 
+void {\bfseries draw\+Sprite} (const \hyperlink{classcp_1_1_line}{Line} \&line)
+\item 
+\mbox{\Hypertarget{classcp_1_1_game_map_a7a191dba96e48afa77801cd76ffc601e}\label{classcp_1_1_game_map_a7a191dba96e48afa77801cd76ffc601e}} 
+int {\bfseries get\+\_\+grid\+\_\+index} (float distance)
+\item 
+\mbox{\Hypertarget{classcp_1_1_game_map_a2bf537aba9c69a5916fd764afb7200a8}\label{classcp_1_1_game_map_a2bf537aba9c69a5916fd764afb7200a8}} 
+void {\bfseries bound\+\_\+entity} (\hyperlink{classcp_1_1_car}{cp\+::\+Car} \&car)
+\item 
+\mbox{\Hypertarget{classcp_1_1_game_map_a0909cc97e391b711c7770497dffc97d3}\label{classcp_1_1_game_map_a0909cc97e391b711c7770497dffc97d3}} 
+void {\bfseries bound\+\_\+entity} (\hyperlink{classcp_1_1_camera}{Camera} \&camera)
+\item 
+\mbox{\Hypertarget{classcp_1_1_game_map_a15e718a61f5244d39e38d425abcfef2c}\label{classcp_1_1_game_map_a15e718a61f5244d39e38d425abcfef2c}} 
+void {\bfseries bound\+\_\+entity} (\hyperlink{classcp_1_1_bullet}{Bullet} \&bot)
+\item 
+\mbox{\Hypertarget{classcp_1_1_game_map_af82e3be51eb1f7fdab4d63951cdbd9a0}\label{classcp_1_1_game_map_af82e3be51eb1f7fdab4d63951cdbd9a0}} 
+void {\bfseries bound\+\_\+entity} (\hyperlink{classcp_1_1_bot}{Bot} \&bot)
+\item 
+\mbox{\Hypertarget{classcp_1_1_game_map_a2138ff88fac07ca7bda38f5e6ca62482}\label{classcp_1_1_game_map_a2138ff88fac07ca7bda38f5e6ca62482}} 
+int {\bfseries get\+Road\+Width} () const
+\item 
+\mbox{\Hypertarget{classcp_1_1_game_map_a344251cc113beee042a81463c463dc60}\label{classcp_1_1_game_map_a344251cc113beee042a81463c463dc60}} 
+int {\bfseries get\+SegL} () const
+\item 
+\mbox{\Hypertarget{classcp_1_1_game_map_a34146066a652c4e0a116798ced95fe9e}\label{classcp_1_1_game_map_a34146066a652c4e0a116798ced95fe9e}} 
+int {\bfseries get\+Grid\+Count} () const
+\item 
+\mbox{\Hypertarget{classcp_1_1_game_map_ae3d81ba9ab7c751c3c1f6544e0154e87}\label{classcp_1_1_game_map_ae3d81ba9ab7c751c3c1f6544e0154e87}} 
+int {\bfseries get\+Screen\+Width} () const
+\item 
+\mbox{\Hypertarget{classcp_1_1_game_map_a139f350c0b7788a4c35cadc3c242d009}\label{classcp_1_1_game_map_a139f350c0b7788a4c35cadc3c242d009}} 
+int {\bfseries get\+Screen\+Height} () const
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classcp_1_1_game_map_a328bd85db8064dc4e65d2a615e215968}\label{classcp_1_1_game_map_a328bd85db8064dc4e65d2a615e215968}} 
+std\+::vector$<$ \hyperlink{classcp_1_1_line}{Line} $>$ {\bfseries lines}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\+Objects/Game\+Map.\+hpp\item 
+libs/Game\+Map.\+cpp\end{DoxyCompactItemize}

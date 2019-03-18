@@ -1,0 +1,306 @@
+\hypertarget{classcp_1_1_game_simulator}{}\section{cp\+:\+:Game\+Simulator Class Reference}
+\label{classcp_1_1_game_simulator}\index{cp\+::\+Game\+Simulator@{cp\+::\+Game\+Simulator}}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classcp_1_1_game_simulator_ab5c123bfd5895d6a98fa97e1ecf496f3}\label{classcp_1_1_game_simulator_ab5c123bfd5895d6a98fa97e1ecf496f3}} 
+using {\bfseries ID} = long long int
+\item 
+\mbox{\Hypertarget{classcp_1_1_game_simulator_a293ce7623321b8622c6ad31a26c3a5ef}\label{classcp_1_1_game_simulator_a293ce7623321b8622c6ad31a26c3a5ef}} 
+using {\bfseries input\+\_\+type} = Bot\+::input\+\_\+type
+\item 
+\mbox{\Hypertarget{classcp_1_1_game_simulator_ac69abb25c0cc70fe1ae3c0b4454e382a}\label{classcp_1_1_game_simulator_ac69abb25c0cc70fe1ae3c0b4454e382a}} 
+using {\bfseries input\+\_\+return\+\_\+type} = std\+::pair$<$ ID, input\+\_\+type $>$
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classcp_1_1_game_simulator_a5f1df55a988bcd5aa19dc37a3f2f64f8}{Game\+Simulator} (Game\+Data\+Ref res\+\_\+store)
+\begin{DoxyCompactList}\small\item\em Construct a new \hyperlink{classcp_1_1_game}{Game} Simulator\+:\+: \hyperlink{classcp_1_1_game}{Game} Simulator object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classcp_1_1_game_simulator_a64ab0578e27b01b32c492b3d48676a23}\label{classcp_1_1_game_simulator_a64ab0578e27b01b32c492b3d48676a23}} 
+\hyperlink{classcp_1_1_game_simulator_a64ab0578e27b01b32c492b3d48676a23}{$\sim$\+Game\+Simulator} ()
+\begin{DoxyCompactList}\small\item\em Destroy the \hyperlink{classcp_1_1_game}{Game} Simulator\+:\+: \hyperlink{classcp_1_1_game}{Game} Simulator object. \end{DoxyCompactList}\item 
+\hyperlink{classcp_1_1_game_simulator_snap}{Game\+Simulator\+Snap} \hyperlink{classcp_1_1_game_simulator_a2997be5cd3e69cd47f12cf36739d1c86}{get\+\_\+current\+\_\+snap} (Snap\+Flag flag)
+\begin{DoxyCompactList}\small\item\em Get the current snap object. \end{DoxyCompactList}\item 
+\hyperlink{classcp_1_1_game_simulation_log}{Game\+Simulation\+Log} \hyperlink{classcp_1_1_game_simulator_af91c09a6455555fdcfd94278e0c85312}{use\+\_\+snap} (const \hyperlink{classcp_1_1_game_simulator_snap}{Game\+Simulator\+Snap} \&snap, bool is\+\_\+forced=true)
+\begin{DoxyCompactList}\small\item\em Updates the game simulation with the snap provided. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classcp_1_1_game_simulator_aabb25f4078d8fe5a54cea4952da49aa7}\label{classcp_1_1_game_simulator_aabb25f4078d8fe5a54cea4952da49aa7}} 
+float {\bfseries distance} (\hyperlink{classcp_1_1entity__info}{entity\+\_\+info} \&a, \hyperlink{classcp_1_1entity__info}{entity\+\_\+info} \&b)
+\item 
+\mbox{\Hypertarget{classcp_1_1_game_simulator_a5c67da11f83aef5976895104f24dd70a}\label{classcp_1_1_game_simulator_a5c67da11f83aef5976895104f24dd70a}} 
+void {\bfseries output} (\hyperlink{classcp_1_1entity__info}{entity\+\_\+info} \&a, \hyperlink{classcp_1_1entity__info}{entity\+\_\+info} \&b, std\+::vector$<$ bool $>$ \&input)
+\item 
+\mbox{\Hypertarget{classcp_1_1_game_simulator_a69efe33b404b070b07cec35e8d396c34}\label{classcp_1_1_game_simulator_a69efe33b404b070b07cec35e8d396c34}} 
+void {\bfseries A\+I\+\_\+bot\+\_\+output} ()
+\item 
+\mbox{\Hypertarget{classcp_1_1_game_simulator_a4840d30b48ce4493ae4631387b914bc8}\label{classcp_1_1_game_simulator_a4840d30b48ce4493ae4631387b914bc8}} 
+void {\bfseries generate\+\_\+log} ()
+\item 
+\mbox{\Hypertarget{classcp_1_1_game_simulator_acc82bdb23b927ee977fa5fdea29f4bc1}\label{classcp_1_1_game_simulator_acc82bdb23b927ee977fa5fdea29f4bc1}} 
+void \hyperlink{classcp_1_1_game_simulator_acc82bdb23b927ee977fa5fdea29f4bc1}{init} ()
+\begin{DoxyCompactList}\small\item\em Initializing all the entities in the \hyperlink{classcp_1_1_game}{Game}. \end{DoxyCompactList}\item 
+void \hyperlink{classcp_1_1_game_simulator_ab41fde16054aafe338df7e4d5590eeae}{handle\+\_\+input} (float delta)
+\begin{DoxyCompactList}\small\item\em This function provide space for doing handle input on all the entities. \end{DoxyCompactList}\item 
+void \hyperlink{classcp_1_1_game_simulator_a52971edf1b8258ea825d8c2fec9e30d1}{draw} (float delta)
+\begin{DoxyCompactList}\small\item\em This method provide the room for drawing all the elements on the window. \end{DoxyCompactList}\item 
+void \hyperlink{classcp_1_1_game_simulator_a6a0cd908ab20a8b776620f168846730c}{update} (float delta)
+\begin{DoxyCompactList}\small\item\em This method provide room for updating all the entities. \end{DoxyCompactList}\item 
+\hyperlink{classcp_1_1_player_car}{Player\+Car} \hyperlink{classcp_1_1_game_simulator_ae0a0e21217dfffba34e067ebc77c9031}{generate\+\_\+bot} (const \hyperlink{classcp_1_1entity__info}{entity\+\_\+info} \&info)
+\begin{DoxyCompactList}\small\item\em Utility function to generate the bots. \end{DoxyCompactList}\item 
+bool \hyperlink{classcp_1_1_game_simulator_addf94d6211247e0f2c77cae8541f09d8}{add\+\_\+external\+\_\+player} (ID id)
+\begin{DoxyCompactList}\small\item\em Adds external player with their id. \end{DoxyCompactList}\item 
+bool \hyperlink{classcp_1_1_game_simulator_ae06e0ba47d8d535f462c072daaae16e4}{add\+\_\+bot\+\_\+players} ()
+\begin{DoxyCompactList}\small\item\em Adds a bot player in the simulation. \end{DoxyCompactList}\item 
+void \hyperlink{classcp_1_1_game_simulator_a5f2d1089b8a260f62138d6f07ba404a7}{remove\+\_\+ext\+\_\+player} (ID id)
+\begin{DoxyCompactList}\small\item\em Removes an external player if available. \end{DoxyCompactList}\item 
+bool \hyperlink{classcp_1_1_game_simulator_a04e844bdf85698a60c978d173116e1e0}{update\+\_\+main\+\_\+player} (ID id)
+\begin{DoxyCompactList}\small\item\em Update the main player of the simulation. \end{DoxyCompactList}\item 
+bool \hyperlink{classcp_1_1_game_simulator_aafaedf9736a754a59b8a4c35db3fdac3}{is\+\_\+main\+\_\+player\+\_\+available} ()
+\begin{DoxyCompactList}\small\item\em Checks if main player is in the simulation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classcp_1_1_game_simulator_a54d498d40cb2d615039d8d03dfc76239}\label{classcp_1_1_game_simulator_a54d498d40cb2d615039d8d03dfc76239}} 
+input\+\_\+return\+\_\+type {\bfseries get\+\_\+input} ()
+\item 
+\mbox{\Hypertarget{classcp_1_1_game_simulator_a31162ab043dad3357cb7f6cda7861618}\label{classcp_1_1_game_simulator_a31162ab043dad3357cb7f6cda7861618}} 
+void {\bfseries focus\+\_\+on} (ID id)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classcp_1_1_game_simulator_a99927634c5bc41cdf6c690706bb5c848}\label{classcp_1_1_game_simulator_a99927634c5bc41cdf6c690706bb5c848}} 
+std\+::ofstream {\bfseries fout}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcp_1_1_game_simulator_a5f1df55a988bcd5aa19dc37a3f2f64f8}\label{classcp_1_1_game_simulator_a5f1df55a988bcd5aa19dc37a3f2f64f8}} 
+\index{cp\+::\+Game\+Simulator@{cp\+::\+Game\+Simulator}!Game\+Simulator@{Game\+Simulator}}
+\index{Game\+Simulator@{Game\+Simulator}!cp\+::\+Game\+Simulator@{cp\+::\+Game\+Simulator}}
+\subsubsection{\texorpdfstring{Game\+Simulator()}{GameSimulator()}}
+{\footnotesize\ttfamily cp\+::\+Game\+Simulator\+::\+Game\+Simulator (\begin{DoxyParamCaption}\item[{Game\+Data\+Ref}]{res\+\_\+store }\end{DoxyParamCaption})}
+
+
+
+Construct a new \hyperlink{classcp_1_1_game}{Game} Simulator\+:\+: \hyperlink{classcp_1_1_game}{Game} Simulator object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em res\+\_\+store} & Contains all resource managers \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classcp_1_1_game_simulator_ae06e0ba47d8d535f462c072daaae16e4}\label{classcp_1_1_game_simulator_ae06e0ba47d8d535f462c072daaae16e4}} 
+\index{cp\+::\+Game\+Simulator@{cp\+::\+Game\+Simulator}!add\+\_\+bot\+\_\+players@{add\+\_\+bot\+\_\+players}}
+\index{add\+\_\+bot\+\_\+players@{add\+\_\+bot\+\_\+players}!cp\+::\+Game\+Simulator@{cp\+::\+Game\+Simulator}}
+\subsubsection{\texorpdfstring{add\+\_\+bot\+\_\+players()}{add\_bot\_players()}}
+{\footnotesize\ttfamily bool cp\+::\+Game\+Simulator\+::add\+\_\+bot\+\_\+players (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Adds a bot player in the simulation. 
+
+\begin{DoxyReturn}{Returns}
+true Returns true if bot addition was a success. 
+
+false Returns false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcp_1_1_game_simulator_addf94d6211247e0f2c77cae8541f09d8}\label{classcp_1_1_game_simulator_addf94d6211247e0f2c77cae8541f09d8}} 
+\index{cp\+::\+Game\+Simulator@{cp\+::\+Game\+Simulator}!add\+\_\+external\+\_\+player@{add\+\_\+external\+\_\+player}}
+\index{add\+\_\+external\+\_\+player@{add\+\_\+external\+\_\+player}!cp\+::\+Game\+Simulator@{cp\+::\+Game\+Simulator}}
+\subsubsection{\texorpdfstring{add\+\_\+external\+\_\+player()}{add\_external\_player()}}
+{\footnotesize\ttfamily bool cp\+::\+Game\+Simulator\+::add\+\_\+external\+\_\+player (\begin{DoxyParamCaption}\item[{ID}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Adds external player with their id. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & This is the id they have requested. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if player addition is successful 
+
+false if player addition fails 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcp_1_1_game_simulator_a52971edf1b8258ea825d8c2fec9e30d1}\label{classcp_1_1_game_simulator_a52971edf1b8258ea825d8c2fec9e30d1}} 
+\index{cp\+::\+Game\+Simulator@{cp\+::\+Game\+Simulator}!draw@{draw}}
+\index{draw@{draw}!cp\+::\+Game\+Simulator@{cp\+::\+Game\+Simulator}}
+\subsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void cp\+::\+Game\+Simulator\+::draw (\begin{DoxyParamCaption}\item[{float}]{delta }\end{DoxyParamCaption})}
+
+
+
+This method provide the room for drawing all the elements on the window. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta} & Time difference between two accumulator \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classcp_1_1_game_simulator_ae0a0e21217dfffba34e067ebc77c9031}\label{classcp_1_1_game_simulator_ae0a0e21217dfffba34e067ebc77c9031}} 
+\index{cp\+::\+Game\+Simulator@{cp\+::\+Game\+Simulator}!generate\+\_\+bot@{generate\+\_\+bot}}
+\index{generate\+\_\+bot@{generate\+\_\+bot}!cp\+::\+Game\+Simulator@{cp\+::\+Game\+Simulator}}
+\subsubsection{\texorpdfstring{generate\+\_\+bot()}{generate\_bot()}}
+{\footnotesize\ttfamily \hyperlink{classcp_1_1_player_car}{Player\+Car} cp\+::\+Game\+Simulator\+::generate\+\_\+bot (\begin{DoxyParamCaption}\item[{const \hyperlink{classcp_1_1entity__info}{entity\+\_\+info} \&}]{info }\end{DoxyParamCaption})}
+
+
+
+Utility function to generate the bots. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em info} & uses the info provided in the argument to generate the bot \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classcp_1_1_player_car}{Player\+Car} Returns the generated object 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcp_1_1_game_simulator_a2997be5cd3e69cd47f12cf36739d1c86}\label{classcp_1_1_game_simulator_a2997be5cd3e69cd47f12cf36739d1c86}} 
+\index{cp\+::\+Game\+Simulator@{cp\+::\+Game\+Simulator}!get\+\_\+current\+\_\+snap@{get\+\_\+current\+\_\+snap}}
+\index{get\+\_\+current\+\_\+snap@{get\+\_\+current\+\_\+snap}!cp\+::\+Game\+Simulator@{cp\+::\+Game\+Simulator}}
+\subsubsection{\texorpdfstring{get\+\_\+current\+\_\+snap()}{get\_current\_snap()}}
+{\footnotesize\ttfamily \hyperlink{classcp_1_1_game_simulator_snap}{Game\+Simulator\+Snap} cp\+::\+Game\+Simulator\+::get\+\_\+current\+\_\+snap (\begin{DoxyParamCaption}\item[{Snap\+Flag}]{flag }\end{DoxyParamCaption})}
+
+
+
+Get the current snap object. 
+
+Returns a snap of the game such that the simulation can be recreated.
+
+
+\begin{DoxyParams}{Parameters}
+{\em flag} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classcp_1_1_game_simulator_snap}{Game\+Simulator\+Snap}
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em flag} & Type of snap that you want (N\+E\+T\+W\+O\+R\+K/\+O\+F\+F\+L\+I\+NE) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classcp_1_1_game_simulator_snap}{Game\+Simulator\+Snap} The current snap of the game. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcp_1_1_game_simulator_ab41fde16054aafe338df7e4d5590eeae}\label{classcp_1_1_game_simulator_ab41fde16054aafe338df7e4d5590eeae}} 
+\index{cp\+::\+Game\+Simulator@{cp\+::\+Game\+Simulator}!handle\+\_\+input@{handle\+\_\+input}}
+\index{handle\+\_\+input@{handle\+\_\+input}!cp\+::\+Game\+Simulator@{cp\+::\+Game\+Simulator}}
+\subsubsection{\texorpdfstring{handle\+\_\+input()}{handle\_input()}}
+{\footnotesize\ttfamily void cp\+::\+Game\+Simulator\+::handle\+\_\+input (\begin{DoxyParamCaption}\item[{float}]{delta }\end{DoxyParamCaption})}
+
+
+
+This function provide space for doing handle input on all the entities. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta} & The time difference between two frames \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classcp_1_1_game_simulator_aafaedf9736a754a59b8a4c35db3fdac3}\label{classcp_1_1_game_simulator_aafaedf9736a754a59b8a4c35db3fdac3}} 
+\index{cp\+::\+Game\+Simulator@{cp\+::\+Game\+Simulator}!is\+\_\+main\+\_\+player\+\_\+available@{is\+\_\+main\+\_\+player\+\_\+available}}
+\index{is\+\_\+main\+\_\+player\+\_\+available@{is\+\_\+main\+\_\+player\+\_\+available}!cp\+::\+Game\+Simulator@{cp\+::\+Game\+Simulator}}
+\subsubsection{\texorpdfstring{is\+\_\+main\+\_\+player\+\_\+available()}{is\_main\_player\_available()}}
+{\footnotesize\ttfamily bool cp\+::\+Game\+Simulator\+::is\+\_\+main\+\_\+player\+\_\+available (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Checks if main player is in the simulation. 
+
+\begin{DoxyReturn}{Returns}
+true if main player is found. 
+
+false if main player not found. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcp_1_1_game_simulator_a5f2d1089b8a260f62138d6f07ba404a7}\label{classcp_1_1_game_simulator_a5f2d1089b8a260f62138d6f07ba404a7}} 
+\index{cp\+::\+Game\+Simulator@{cp\+::\+Game\+Simulator}!remove\+\_\+ext\+\_\+player@{remove\+\_\+ext\+\_\+player}}
+\index{remove\+\_\+ext\+\_\+player@{remove\+\_\+ext\+\_\+player}!cp\+::\+Game\+Simulator@{cp\+::\+Game\+Simulator}}
+\subsubsection{\texorpdfstring{remove\+\_\+ext\+\_\+player()}{remove\_ext\_player()}}
+{\footnotesize\ttfamily void cp\+::\+Game\+Simulator\+::remove\+\_\+ext\+\_\+player (\begin{DoxyParamCaption}\item[{ID}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Removes an external player if available. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & Id of the external player to remove. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classcp_1_1_game_simulator_a6a0cd908ab20a8b776620f168846730c}\label{classcp_1_1_game_simulator_a6a0cd908ab20a8b776620f168846730c}} 
+\index{cp\+::\+Game\+Simulator@{cp\+::\+Game\+Simulator}!update@{update}}
+\index{update@{update}!cp\+::\+Game\+Simulator@{cp\+::\+Game\+Simulator}}
+\subsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void cp\+::\+Game\+Simulator\+::update (\begin{DoxyParamCaption}\item[{float}]{delta }\end{DoxyParamCaption})}
+
+
+
+This method provide room for updating all the entities. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta} & This is the time difference between two frames. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classcp_1_1_game_simulator_a04e844bdf85698a60c978d173116e1e0}\label{classcp_1_1_game_simulator_a04e844bdf85698a60c978d173116e1e0}} 
+\index{cp\+::\+Game\+Simulator@{cp\+::\+Game\+Simulator}!update\+\_\+main\+\_\+player@{update\+\_\+main\+\_\+player}}
+\index{update\+\_\+main\+\_\+player@{update\+\_\+main\+\_\+player}!cp\+::\+Game\+Simulator@{cp\+::\+Game\+Simulator}}
+\subsubsection{\texorpdfstring{update\+\_\+main\+\_\+player()}{update\_main\_player()}}
+{\footnotesize\ttfamily bool cp\+::\+Game\+Simulator\+::update\+\_\+main\+\_\+player (\begin{DoxyParamCaption}\item[{ID}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Update the main player of the simulation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & Update the main player with ID \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If operation is succesfull. 
+
+false If operation is unsuccessfull. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcp_1_1_game_simulator_af91c09a6455555fdcfd94278e0c85312}\label{classcp_1_1_game_simulator_af91c09a6455555fdcfd94278e0c85312}} 
+\index{cp\+::\+Game\+Simulator@{cp\+::\+Game\+Simulator}!use\+\_\+snap@{use\+\_\+snap}}
+\index{use\+\_\+snap@{use\+\_\+snap}!cp\+::\+Game\+Simulator@{cp\+::\+Game\+Simulator}}
+\subsubsection{\texorpdfstring{use\+\_\+snap()}{use\_snap()}}
+{\footnotesize\ttfamily \hyperlink{classcp_1_1_game_simulation_log}{Game\+Simulation\+Log} cp\+::\+Game\+Simulator\+::use\+\_\+snap (\begin{DoxyParamCaption}\item[{const \hyperlink{classcp_1_1_game_simulator_snap}{Game\+Simulator\+Snap} \&}]{snap,  }\item[{bool}]{is\+\_\+forced = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+Updates the game simulation with the snap provided. 
+
+Calling this function will replace all the entities and their info with info in snap argument.
+
+
+\begin{DoxyParams}{Parameters}
+{\em snap} & Refers to the snap of the game to update the simulation with. \\
+\hline
+{\em is\+\_\+forced} & If set then forcefully overwrites the snap provided. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classcp_1_1_game_simulation_log}{Game\+Simulation\+Log} Returns a log describing whether the replacment was partial/discarded/sucess.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em snap} & Snap that you want to replace the Game\+Info with \\
+\hline
+{\em is\+\_\+forced} & Forcefully replace all the info with the snap info \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classcp_1_1_game_simulation_log}{Game\+Simulation\+Log} Returns a log file illustrating the success of the operation. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\+States/\hyperlink{_game_simulator_8hpp}{Game\+Simulator.\+hpp}\item 
+libs/\hyperlink{_game_simulator_8cpp}{Game\+Simulator.\+cpp}\end{DoxyCompactItemize}

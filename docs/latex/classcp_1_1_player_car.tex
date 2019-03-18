@@ -1,0 +1,118 @@
+\hypertarget{classcp_1_1_player_car}{}\section{cp\+:\+:Player\+Car Class Reference}
+\label{classcp_1_1_player_car}\index{cp\+::\+Player\+Car@{cp\+::\+Player\+Car}}
+Inheritance diagram for cp\+:\+:Player\+Car\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classcp_1_1_player_car}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classcp_1_1_player_car_ae45b93194883e336252dc2c0563f228c}{Player\+Car} (Game\+Data\+Ref \+\_\+data, int \+\_\+car\+\_\+num)
+\begin{DoxyCompactList}\small\item\em Construct a new Player \hyperlink{classcp_1_1_car}{Car}\+:\+: Player \hyperlink{classcp_1_1_car}{Car} object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classcp_1_1_player_car_ac12da40fef77bb3175fd0ff42a07d4c8}\label{classcp_1_1_player_car_ac12da40fef77bb3175fd0ff42a07d4c8}} 
+\hyperlink{classcp_1_1_player_car_ac12da40fef77bb3175fd0ff42a07d4c8}{$\sim$\+Player\+Car} ()
+\begin{DoxyCompactList}\small\item\em Destroy the Player \hyperlink{classcp_1_1_car}{Car}\+:\+: Player \hyperlink{classcp_1_1_car}{Car} object. \end{DoxyCompactList}\item 
+void \hyperlink{classcp_1_1_player_car_a7c99c7961e6e6301529b65cfdc1104bf}{update\+\_\+car} (float dt, const std\+::vector$<$ \hyperlink{classcp_1_1_line}{Line} $>$ \&lines, float segL)
+\begin{DoxyCompactList}\small\item\em Update the car according to it\textquotesingle{}s position and the map. \end{DoxyCompactList}\item 
+void \hyperlink{classcp_1_1_player_car_a753b76abce4b6555916ca26919e614f0}{draw\+Sprite} (const \hyperlink{classcp_1_1_line}{Line} \&line)
+\begin{DoxyCompactList}\small\item\em Utility function to draw sprites of the car. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classcp_1_1_player_car_abbb6255a3d76d5b09c119f88abe30235}\label{classcp_1_1_player_car_abbb6255a3d76d5b09c119f88abe30235}} 
+void {\bfseries draw\+Using\+Camera} (const \hyperlink{classcp_1_1_camera}{Camera} \&main\+\_\+camera)
+\item 
+\mbox{\Hypertarget{classcp_1_1_player_car_a377cc2988520e44e4658bc5efdb64fc1}\label{classcp_1_1_player_car_a377cc2988520e44e4658bc5efdb64fc1}} 
+void {\bfseries project} (\hyperlink{classcp_1_1_line}{Line} \&line, float camX, float camY, float camZ, float camD)
+\item 
+void \hyperlink{classcp_1_1_player_car_aa3122b8ea7b398d5b82a5883d052835a}{handle\+\_\+input} (std\+::vector$<$ bool $>$ mask, float dt)
+\begin{DoxyCompactList}\small\item\em Provides interface to control the car. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classcp_1_1_player_car_ad139d2ca2964c27ffe84baa0e2fe4d86}\label{classcp_1_1_player_car_ad139d2ca2964c27ffe84baa0e2fe4d86}} 
+float {\bfseries friction} = e\+\_\+max\+\_\+speed.\+z/5
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcp_1_1_player_car_ae45b93194883e336252dc2c0563f228c}\label{classcp_1_1_player_car_ae45b93194883e336252dc2c0563f228c}} 
+\index{cp\+::\+Player\+Car@{cp\+::\+Player\+Car}!Player\+Car@{Player\+Car}}
+\index{Player\+Car@{Player\+Car}!cp\+::\+Player\+Car@{cp\+::\+Player\+Car}}
+\subsubsection{\texorpdfstring{Player\+Car()}{PlayerCar()}}
+{\footnotesize\ttfamily cp\+::\+Player\+Car\+::\+Player\+Car (\begin{DoxyParamCaption}\item[{Game\+Data\+Ref}]{\+\_\+data,  }\item[{int}]{car\+\_\+num }\end{DoxyParamCaption})}
+
+
+
+Construct a new Player \hyperlink{classcp_1_1_car}{Car}\+:\+: Player \hyperlink{classcp_1_1_car}{Car} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+data} & Pointer Reference to the resources and state machines. \\
+\hline
+{\em car\+\_\+num} & The sprite number for the car object \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classcp_1_1_player_car_a753b76abce4b6555916ca26919e614f0}\label{classcp_1_1_player_car_a753b76abce4b6555916ca26919e614f0}} 
+\index{cp\+::\+Player\+Car@{cp\+::\+Player\+Car}!draw\+Sprite@{draw\+Sprite}}
+\index{draw\+Sprite@{draw\+Sprite}!cp\+::\+Player\+Car@{cp\+::\+Player\+Car}}
+\subsubsection{\texorpdfstring{draw\+Sprite()}{drawSprite()}}
+{\footnotesize\ttfamily void cp\+::\+Player\+Car\+::draw\+Sprite (\begin{DoxyParamCaption}\item[{const \hyperlink{classcp_1_1_line}{Line} \&}]{line }\end{DoxyParamCaption})}
+
+
+
+Utility function to draw sprites of the car. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em line} & Provides info regarding map scale at the current grid the car is positioned at \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classcp_1_1_player_car_aa3122b8ea7b398d5b82a5883d052835a}\label{classcp_1_1_player_car_aa3122b8ea7b398d5b82a5883d052835a}} 
+\index{cp\+::\+Player\+Car@{cp\+::\+Player\+Car}!handle\+\_\+input@{handle\+\_\+input}}
+\index{handle\+\_\+input@{handle\+\_\+input}!cp\+::\+Player\+Car@{cp\+::\+Player\+Car}}
+\subsubsection{\texorpdfstring{handle\+\_\+input()}{handle\_input()}}
+{\footnotesize\ttfamily void cp\+::\+Player\+Car\+::handle\+\_\+input (\begin{DoxyParamCaption}\item[{std\+::vector$<$ bool $>$}]{mask,  }\item[{float}]{dt }\end{DoxyParamCaption})}
+
+
+
+Provides interface to control the car. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mask} & Boolean mask indicating the Keyboard inputs. \\
+\hline
+{\em dt} & Time difference between two handle\+\_\+input call. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classcp_1_1_player_car_a7c99c7961e6e6301529b65cfdc1104bf}\label{classcp_1_1_player_car_a7c99c7961e6e6301529b65cfdc1104bf}} 
+\index{cp\+::\+Player\+Car@{cp\+::\+Player\+Car}!update\+\_\+car@{update\+\_\+car}}
+\index{update\+\_\+car@{update\+\_\+car}!cp\+::\+Player\+Car@{cp\+::\+Player\+Car}}
+\subsubsection{\texorpdfstring{update\+\_\+car()}{update\_car()}}
+{\footnotesize\ttfamily void cp\+::\+Player\+Car\+::update\+\_\+car (\begin{DoxyParamCaption}\item[{float}]{dt,  }\item[{const std\+::vector$<$ \hyperlink{classcp_1_1_line}{Line} $>$ \&}]{lines,  }\item[{float}]{segL }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Update the car according to it\textquotesingle{}s position and the map. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & Time difference between two update frames \\
+\hline
+{\em lines} & provides the map grid info \\
+\hline
+{\em segL} & Segment line between two grid in the map \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classcp_1_1_car}{cp\+::\+Car}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\+Objects/Player\+Car.\+hpp\item 
+libs/\hyperlink{_player_car_8cpp}{Player\+Car.\+cpp}\end{DoxyCompactItemize}

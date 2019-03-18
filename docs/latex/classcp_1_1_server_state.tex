@@ -1,0 +1,50 @@
+\hypertarget{classcp_1_1_server_state}{}\section{cp\+:\+:Server\+State Class Reference}
+\label{classcp_1_1_server_state}\index{cp\+::\+Server\+State@{cp\+::\+Server\+State}}
+
+
+\hyperlink{classcp_1_1_server_state}{Server\+State} is the state where network updates takes place. It is the game simulator which simulates the game and then update the relevant data over the network.  
+
+
+
+
+{\ttfamily \#include $<$Server\+State.\+hpp$>$}
+
+Inheritance diagram for cp\+:\+:Server\+State\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classcp_1_1_server_state}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classcp_1_1_server_state_aa468fbc97117dc95b490529ab89b5998}\label{classcp_1_1_server_state_aa468fbc97117dc95b490529ab89b5998}} 
+{\bfseries Server\+State} (Game\+Data\+Ref \+\_\+data, std\+::set$<$ Tcp\+Client\+\_\+ptr $>$ clients)
+\item 
+\mbox{\Hypertarget{classcp_1_1_server_state_a50dff11b2bc3defc5b915dc23cf3facb}\label{classcp_1_1_server_state_a50dff11b2bc3defc5b915dc23cf3facb}} 
+virtual void {\bfseries handle\+\_\+input} (float delta)
+\item 
+\mbox{\Hypertarget{classcp_1_1_server_state_a07143b5e396a15b32b8cb3896c0e7239}\label{classcp_1_1_server_state_a07143b5e396a15b32b8cb3896c0e7239}} 
+virtual void {\bfseries update} (float delta)
+\item 
+\mbox{\Hypertarget{classcp_1_1_server_state_ab43314cff0977d35aacdbf781cefff8c}\label{classcp_1_1_server_state_ab43314cff0977d35aacdbf781cefff8c}} 
+virtual void {\bfseries draw} (float delta)
+\item 
+\mbox{\Hypertarget{classcp_1_1_server_state_a84a56ac8094e1b75551b170411af195f}\label{classcp_1_1_server_state_a84a56ac8094e1b75551b170411af195f}} 
+virtual void {\bfseries pause} ()
+\item 
+\mbox{\Hypertarget{classcp_1_1_server_state_a7dd7b18f6b378e907fd286ba20bc9e11}\label{classcp_1_1_server_state_a7dd7b18f6b378e907fd286ba20bc9e11}} 
+virtual void {\bfseries resume} ()
+\item 
+\mbox{\Hypertarget{classcp_1_1_server_state_a54d67dcec1e8a1dad2fd94259dab7fd6}\label{classcp_1_1_server_state_a54d67dcec1e8a1dad2fd94259dab7fd6}} 
+virtual void {\bfseries init} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classcp_1_1_server_state}{Server\+State} is the state where network updates takes place. It is the game simulator which simulates the game and then update the relevant data over the network. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\+States/\hyperlink{_server_state_8hpp}{Server\+State.\+hpp}\item 
+libs/Server\+State.\+cpp\end{DoxyCompactItemize}
