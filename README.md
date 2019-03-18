@@ -11,7 +11,6 @@ The project was done mainly to understand the concurrency patterns. We have made
  
 ![](Gameplay.gif)
 
- 
 ### Single Player  
 Get the adrenaline rush of driving a ultimate sports car equipped with a powerful weapon through a lively city filled with cops and city traffic. You will have great fun with city racing 3d.  
 Play as the Hero/Thief with cop cars to outrun. The fun and chase never ends here.  
@@ -24,7 +23,7 @@ Enjoy and comptete with your friends in this game mode.
 This game is implemented in C++.  
 * [SFML](https://www.sfml-dev.org/) - The Graphics library for C++  
 
-### Installing
+### Installation
 
 On Linux  
 
@@ -33,7 +32,9 @@ Install SFML library.
 ```
 sudo apt-get install libsfml-dev  
 ```
-[Cmake](https://cmake.org/) is used to compile the game.  
+[Cmake](https://cmake.org/) is used to compile the game. 
+
+Browse to the directory where all the files of this repository are located.  
 
 Run the following commands and enjoy playing the game.  
 
