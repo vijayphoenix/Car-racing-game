@@ -2,17 +2,18 @@ version: 2.0
 jobs:
   build_gcc_latest:
     docker:
-      - image: gcc:7
+      - image: gcc:9
     steps:
       - checkout
       - run:
           name: Set up
           command: |
             git submodule sync; git submodule update --init # initialize git submodules
-            apt-get install cmake
-            apt-get install libsfml-dev
-            apt-get install libyaml-cpp-dev
-            apt-get install libgtest-dev
+            apt update -y
+            apt-get install cmake -y
+            apt install libsfml-dev -y
+            apt install libyaml-cpp-dev -y
+            apt install libgtest-dev -y
             mkdir build && cd build && cmake .. && make
 workflows:
   version: 2

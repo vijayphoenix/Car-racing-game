@@ -53,9 +53,10 @@ This project is documented under  [DOXYGEN](http://www.doxygen.nl/)  Documentati
 
 ### Authors  
 
-* **Vijay Tadikamalla** - [vijayphoenix](https://github.com/vijayphoenix)  
-
-Also see the list of [contributors](https://github.com/vijayphoenix/Car-racing-game/graphs/contributors) who participated in this project.  
+* [**Vijay Tadikamalla**](https://github.com/vijayphoenix)  
+* [**Anjani Kumar**](https://github.com/anjani-1)  
+* [**Anupam Saini**](https://github.com/anupamsaini98)  
+* [**Yogesh Singh**](https://github.com/yo5sh)  
 
 #### License  
 
