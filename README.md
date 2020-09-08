@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/IITH-SBJoshi/concurrency-11/tree/master.svg?style=svg&circle-token=fc42038411754d10acd3f32cda550437496725e6)](https://circleci.com/gh/IITH-SBJoshi/concurrency-11/tree/master)
+[![CircleCI](https://circleci.com/gh/vijayphoenix/Car-racing-game/tree/master.svg?style=svg)](https://circleci.com/gh/vijayphoenix/Car-racing-game/tree/master)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/95ef8ecf89714166963cbe3484e37961)](https://www.codacy.com?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=vijayphoenix/Car-racing-game&amp;utm_campaign=Badge_Grade)
 
 # Chor Police 
@@ -29,13 +29,18 @@ On Linux
 Install SFML library.  
 
 ```
-sudo apt-get install libsfml-dev  
+sudo apt update
+sudo apt install libsfml-dev  
 ```
 [Cmake](https://cmake.org/) is used to compile the game. 
 
+```
+sudo apt install cmake
+```
+
 Clone the repository:	
 ```
-git clone "https://github.com/vijayphoenix/Car-racing-game.git"
+git clone https://github.com/vijayphoenix/Car-racing-game.git
 ```
 
 Browse to the directory where all the files of this repository are located.  
